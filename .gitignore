@@ -2,16 +2,16 @@
 *.o
 
 # Libraries
-*.lib
 *.a
 
-# Shared objects (inc. Windows DLLs)
-*.dll
-*.so
-*.so.*
-*.dylib
+# Shared objects
+# Do we have to put this = *.so
 
 # Executables
-*.exe
 *.out
-*.app
+
+# My_Files
+*~
+#*#
+
+# Rt
