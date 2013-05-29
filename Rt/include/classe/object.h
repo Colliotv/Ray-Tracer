@@ -5,7 +5,7 @@
 ** Login   <collio_v@epitech.net>
 **
 ** Started on  Thu May 16 22:11:47 2013 vincent colliot
-** Last update Mon May 27 22:43:43 2013 vincent colliot
+** Last update Tue May 28 18:52:18 2013 vincent colliot
 */
 
 #ifndef OBJECT_H_
@@ -52,6 +52,6 @@ typedef struct s_object{
   /*int	*permtab_perlin*/
 }		t_object;
 
-# define CLASS_OBJECT
+# define CLASS_OBJECT t_object
 
 #endif
