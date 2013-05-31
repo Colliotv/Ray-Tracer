@@ -5,7 +5,7 @@
 ** Login   <collio_v@epitech.net>
 **
 ** Started on  Thu May 16 22:01:55 2013 vincent colliot
-** Last update Fri May 31 03:11:35 2013 vincent colliot
+** Last update Fri May 31 19:46:50 2013 vincent colliot
 */
 
 #ifndef DISPLAY_H_
@@ -35,5 +35,8 @@ typedef struct s_display{
 	/* move_to 'etape' */
 # define END_PARSING	1
 # define END_CALC	2
+
+	/* init */
+void	display_init(CLASS_DISPLAY*);
 
 #endif

@@ -5,7 +5,7 @@
 ** Login   <collio_v@epitech.net>
 **
 ** Started on  Tue May 28 00:28:06 2013 vincent colliot
-** Last update Fri May 31 03:04:54 2013 vincent colliot
+** Last update Fri May 31 21:53:13 2013 vincent colliot
 */
 
 #include "token.h"
@@ -22,7 +22,7 @@ char	*move_to_end_comment(char *s, FD xml)
   if (empty(s) || (b = !S_IN(END_COMMENT, s))
       || empty(s + strslen(s, END_COMMENT) + strlen(END_COMMENT)))
     s = get_next_line(xml);
-  if (b)
+  if (b && !S_IN(END_COMMENT, s))
     while ((s = get_next_line(xml)) && !S_IN(END_COMMENT, s))
       free(s);
   if (empty(s))

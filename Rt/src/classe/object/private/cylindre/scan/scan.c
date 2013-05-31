@@ -5,7 +5,7 @@
 ** Login   <collio_v@epitech.net>
 **
 ** Started on  Fri May 31 15:17:18 2013 vincent colliot
-** Last update Fri May 31 15:38:34 2013 vincent colliot
+** Last update Fri May 31 20:36:30 2013 vincent colliot
 */
 
 #include <stdio.h>
@@ -26,19 +26,19 @@ void    cylindre_pos(void *l, t_token *token)
 
   if ((s = xml_token(&token, "x", RESOLVE, 0)) == NULL)
     def_error("x");
-  if (!O_IN(s, "0123456789."))
+  if (!O_IN(s + strspn(s, "-+"), "0123456789."))
     def_error("x");
   ((t_cylindre*)l)->position.x = atof(s);
   free(s);
   if ((s = xml_token(&token, "z", RESOLVE, 0)) == NULL)
     def_error("z");
-  if (!O_IN(s, "0123456789."))
+  if (!O_IN(s + strspn(s, "-+"), "0123456789."))
     def_error("z");
   ((t_cylindre*)l)->position.z = atof(s);
   free(s);
   if ((s = xml_token(&token, "y", RESOLVE, 0)) == NULL)
     def_error("y");
-  if (!O_IN(s, "0123456789."))
+  if (!O_IN(s + strspn(s, "-+"), "0123456789."))
     def_error("y");
   ((t_cylindre*)l)->position.y = atof(s);
   free(s);
@@ -50,19 +50,19 @@ void    cylindre_focus(void *l, t_token *token)
 
   if ((s = xml_token(&token, "x", RESOLVE, 0)) == NULL)
     def_error("x");
-  if (!O_IN(s, "0123456789."))
+  if (!O_IN(s + strspn(s, "-+"), "0123456789."))
     def_error("x");
   ((t_cylindre*)l)->focus.x = atof(s);
   free(s);
   if ((s = xml_token(&token, "z", RESOLVE, 0)) == NULL)
     def_error("z");
-  if (!O_IN(s, "0123456789."))
+  if (!O_IN(s + strspn(s, "-+"), "0123456789."))
     def_error("z");
   ((t_cylindre*)l)->focus.z = atof(s);
   free(s);
   if ((s = xml_token(&token, "y", RESOLVE, 0)) == NULL)
     def_error("y");
-  if (!O_IN(s, "0123456789."))
+  if (!O_IN(s + strspn(s, "-+"), "0123456789."))
     def_error("y");
   ((t_cylindre*)l)->focus.y = atof(s);
   free(s);
@@ -75,7 +75,7 @@ void	cylindre_rayon(void *l, t_token *token)
 
   if ((s = xml_token(&token, "R", RESOLVE, 0)) == NULL)
     def_error("rayon");
-  if (!O_IN(s, "0123456789."))
+  if (!O_IN(s + strspn(s, "-+"), "0123456789."))
     def_error("rayon");
   (((t_cylindre*)l)->rayon) = atof(s);
 }
@@ -86,19 +86,19 @@ void	cylindre_color(void *l, t_token *token)
 
   if ((s = xml_token(&token, "r", RESOLVE, 0)) == NULL)
     def_error("r");
-  if (!O_IN(s, "0123456789."))
+  if (!O_IN(s + strspn(s, "-+"), "0123456789."))
     def_error("r");
   (((t_cylindre*)l)->color.rgb)[R] = atof(s);
   free(s);
   if ((s = xml_token(&token, "b", RESOLVE, 0)) == NULL)
     def_error("b");
-  if (!O_IN(s, "0123456789."))
+  if (!O_IN(s + strspn(s, "-+"), "0123456789."))
     def_error("b");
   (((t_cylindre*)l)->color.rgb)[B] = atof(s);
   free(s);
   if ((s = xml_token(&token, "g", RESOLVE, 0)) == NULL)
     def_error("g");
-  if (!O_IN(s, "0123456789."))
+  if (!O_IN(s + strspn(s, "-+"), "0123456789."))
     def_error("g");
   (((t_cylindre*)l)->color.rgb)[G] = atof(s);
   free(s);

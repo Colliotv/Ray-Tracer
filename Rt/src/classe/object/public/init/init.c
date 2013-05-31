@@ -5,7 +5,7 @@
 ** Login   <collio_v@epitech.net>
 **
 ** Started on  Fri May 31 03:06:12 2013 vincent colliot
-** Last update Fri May 31 17:03:55 2013 vincent colliot
+** Last update Fri May 31 22:36:08 2013 vincent colliot
 */
 
 #include "display.h"
@@ -14,11 +14,15 @@
 
 static void	*def_them(t_token_scan *scan, char *type, t_token *token)
 {
+  size_t	i;
   CLASS_OBJECT *o;
 
-  while (scan->name)
-    if (MATCH(scan->name, type))
-      (scan->call)(&o, token);
+  i = 0;
+  while ((scan[i]).name)
+    if (MATCH((scan[i]).name, type))
+      ((scan[i++]).call)(&o, token);
+    else
+      i++;
   if (xml_token(&token, NULL, END, 0))
     lerror("error in object def\n");
   return (o);
@@ -28,7 +32,8 @@ void	objects_init(CLASS_OBJECT **object, void *d, char *s, FD xml)
 {
   t_token	*token;
 
-  xml_token(&token, s, INIT, xml);
+  if (!xml_token(&token, s, INIT | A_END, xml))
+    lerror("error in object def\n");
   *object = def_them(((CLASS_DISPLAY*)d)->objects_def,
 		     xml_token(&token, "type", RESOLVE, 0),
 		     token);

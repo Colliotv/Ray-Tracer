@@ -5,13 +5,13 @@
 ** Login   <collio_v@epitech.net>
 **
 ** Started on  Thu Nov 22 14:12:17 2012 vincent colliot
-** Last update Thu Mar 28 21:34:09 2013 vincent colliot
+** Last update Fri May 31 21:15:17 2013 vincent colliot
 */
 
 #ifndef GET_NEXT_LINE_H_
 # define GET_NEXT_LINE_H_
 
-# define SIZE_READ 1
+# define SIZE_READ 100
 
 char		*get_next_line(const int fd);
 

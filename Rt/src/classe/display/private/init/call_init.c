@@ -5,7 +5,7 @@
 ** Login   <collio_v@epitech.net>
 **
 ** Started on  Mon May 27 16:36:06 2013 vincent colliot
-** Last update Fri May 31 03:16:47 2013 vincent colliot
+** Last update Fri May 31 21:57:38 2013 vincent colliot
 */
 
 #include "xmalloc.h"
@@ -17,7 +17,7 @@ static t_scan	*ini_scan(void)
 
   tab = xmalloc(sizeof(*tab) * (3 + 1));
   tab[0].call = add_lum;
-  tab[0].div = "<lum>";
+  tab[0].div = "<light>";
   tab[1].call = add_eye;
   tab[1].div = "<eye>";
   tab[2].call = add_object;

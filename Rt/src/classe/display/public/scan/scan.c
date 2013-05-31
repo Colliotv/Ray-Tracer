@@ -5,7 +5,7 @@
 ** Login   <collio_v@epitech.net>
 **
 ** Started on  Mon May 27 16:48:42 2013 vincent colliot
-** Last update Fri May 31 03:09:33 2013 vincent colliot
+** Last update Fri May 31 21:49:42 2013 vincent colliot
 */
 
 #include <unistd.h>
@@ -29,10 +29,12 @@ static BOOL check_fd(char *s, FD xml, FLAG i, char **r)
     return (TRUE);
   else if (i == INIT)
     return (FALSE);
+  if ((s = (*r = get_next_line(xml))) == NULL)
+    (void)lerror("no </scene> close");
   if (i == END && MATCH("</scene>", s + hempty(s)))
-    return (FALSE);
+    (void)lerror("no </scene> close");
   else if (i == END)
-    return (FALSE);
+    return (TRUE);
   return (FALSE);
 }
 
@@ -42,12 +44,16 @@ static void	scan_line(CLASS_DISPLAY *d, FD xml, char *s)
 
   i = 0;
   while (((d->scan)[i]).call)
-    if (NMATCH(((d->scan)[i]).div, s + hempty(s)))
-      {
-	(((d->scan)[i]).call)(d, xml, s);
-	return ;
-      }
-  printf("error :%s not recognized", s);
+    {
+      if (NMATCH(((d->scan)[i]).div, s + hempty(s)))
+	{
+	  (((d->scan)[i]).call)(d, xml, s);
+	  return ;
+	}
+      i++;
+    }
+  fprintf(stderr, "error :%s not recognized", s);
+  exit(-1);
 }
 
 void	xml_scan(CLASS_DISPLAY *d, int ac, char **av)
@@ -57,7 +63,8 @@ void	xml_scan(CLASS_DISPLAY *d, int ac, char **av)
   FD	xml;
 
   check = FALSE;
-  if (ac != 2 && (xml = open(av[1], O_RDONLY)) == -1)
+  display_init(d);
+  if (ac != 2 || (xml = open(av[1], O_RDONLY)) == -1)
     lerror(USAGE);
   if ((check = check_fd(get_next_line(xml), xml, INIT, &s)) == FALSE)
     lerror(USAGE);// || WRONG_FILE ?

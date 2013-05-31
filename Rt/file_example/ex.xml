@@ -1,25 +1,24 @@
 <scene>
   <eye>
-    <position x="" y= "" z= "" /><!-- espace possible entre = et "", mais pas " 4.0 "
+    <position x="0.0" y= "15.0" z= "-8.0" /><!-- espace possible entre = et "", mais pas " 4.0 "
     peut être sur plusieurs ligne-->
-    <angle x="" y="" z=""/>
+    <direction x="0.0" y="0" z="0.0"/>
   </eye>
-  <lum>
-    <position x="" y="" z="" /><!-- espace possible entre ? et =, = et "", mais pas " n "
+  <light>
+    <position x="0" y="20" z="1.8" /><!-- espace possible entre ? et =, = et "", mais pas " n "
     peut être sur plusieurs ligne-->
-    <color r="" g="" b=""/>
+    <color r="255" g="255" b="255"/>
     <!-- <fov alpha=""/>  fov définissable pour effectuer certains effets?-->
-  </lum>
+  </light>
   <object type = "plan"> <!-- structure de commentaire
 			      (possible sur multi-ligne -->
-    <position x="" y="" z="" />
-    <rotation x="" y="" z="" />
-    <high D="" />
-    <perturbation type = "x" value = "4.0"/>
+    <position x="0" y="0" z="0" />
+    <rotation x="0" y="0" z="0" />
+    <high D="-1" />
   </object>
   <object type = "sphere">
-    <position x="4.0" y="" z="" />
-    <rotation x="" y="" z="" />
+    <position x="0.0" y="-1" z="0" />
     <rayon R=""/>
+    <color r="15" g="255" b="105"/>
   </object>
 </scene>

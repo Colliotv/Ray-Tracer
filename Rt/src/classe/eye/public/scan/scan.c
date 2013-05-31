@@ -5,7 +5,7 @@
 ** Login   <collio_v@epitech.net>
 **
 ** Started on  Fri May 31 02:20:08 2013 vincent colliot
-** Last update Fri May 31 02:49:20 2013 vincent colliot
+** Last update Fri May 31 21:01:17 2013 vincent colliot
 */
 
 #include <stdio.h>
@@ -46,6 +46,8 @@ static void	scan_line(CLASS_EYE *eye, FD xml, char *s)
 	(((eye->scan)[i]).call)(eye, token);
 	return ;
       }
+    else
+      i++;
   (void)printf("error :%s not recognized", name);
 }
 

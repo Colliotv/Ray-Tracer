@@ -5,20 +5,20 @@
 ** Login   <collio_v@epitech.net>
 **
 ** Started on  Tue May 28 00:19:33 2013 vincent colliot
-** Last update Fri May 31 13:43:20 2013 vincent colliot
+** Last update Fri May 31 22:08:45 2013 vincent colliot
 */
 
 #include "strings.h"
 #include "token.h"
 #include "xmalloc.h"
 
-static t_token	*tokenize(char *s, FD xml, t_token *prev)
+static t_token	*tokenize(char *s, FD xml, t_token *prev, char *end)
 {
   t_token	*link;
 
-  if (NMATCH("/>", s += hempty(s)))
+  if (NMATCH(end, s += hempty(s)))
     {
-      s += strlen("/>");
+      s += strlen(end);
       while (s && NMATCH(OPEN_COMMENT, s += hempty(s)))
 	s = move_to_end_comment(s, xml);
       return (prev);
@@ -37,12 +37,12 @@ static t_token	*tokenize(char *s, FD xml, t_token *prev)
   if (!IN('"', s))
     return (NULL);
   link->token = my_strndup(s, strilen(s, '"'));
-  if (tokenize(s + strlen(link->token) + 2, xml, link) == NULL)
+  if (tokenize(s + strlen(link->token) + 1, xml, link, end) == NULL)
     return (NULL);
   return (link);
 }
 
-static char	*token_ini(t_token **tok, char *s, FD xml)
+static char	*token_ini(t_token **tok, char *s, FD xml, char *end)
 {
   char	*name;
 
@@ -56,7 +56,7 @@ static char	*token_ini(t_token **tok, char *s, FD xml)
   s += 1;
   name = my_strndup(s, sstrlen(s, " \t"));
   s += strlen(name) + hempty(s + strlen(name));
-  if ((*tok = tokenize(s, xml, NULL)) == NULL)
+  if ((*tok = tokenize(s, xml, NULL, end)) == NULL)
     return (NULL);
   return (name);
 }
@@ -76,8 +76,8 @@ char	*token_resolve(t_token **tok, t_token *link, char *s, t_token *prev)
     *tok = link->next;
   else
     prev->next = link->next;
-  free(link);
   free(link->name);
+  free(link);
   return (r);
 }
 
@@ -85,11 +85,12 @@ char	*xml_token(t_token **tok, char *s, FLAG lap, FD xml)
 {
   if (!s)
     return (NULL);
-  if (lap == INIT)
-    return (token_ini(tok, s + hempty(s), xml));
-  else if (lap == RESOLVE)
+  if (lap & INIT)
+    return (token_ini(tok, s + hempty(s), xml,
+		      (lap & A_END) ? (">") : ("/>")));
+  else if (lap & RESOLVE)
     return (token_resolve(tok, *tok, s, NULL));
-  else if (lap == END)
+  else if (lap & END)
     {
       if (*tok == NULL)
 	return (NULL);

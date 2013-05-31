@@ -5,7 +5,7 @@
 ** Login   <collio_v@epitech.net>
 **
 ** Started on  Tue May 28 17:36:19 2013 vincent colliot
-** Last update Tue May 28 18:03:23 2013 vincent colliot
+** Last update Fri May 31 22:05:55 2013 vincent colliot
 */
 
 #ifndef TOKEN_H_
@@ -21,11 +21,12 @@ typedef struct s_token{
 }		t_token;
 
 # define OPEN_COMMENT	"<!--"
-# define END_COMMENT	"--!>"
+# define END_COMMENT	"-->"
 
-# define INIT		0b001
-# define RESOLVE	0b010
-# define END		0b100
+# define INIT		0b0001
+# define RESOLVE	0b0010
+# define END		0b0100
+# define A_END		0b1000
 
 char    *move_to_end_comment(char *, FD);
 

@@ -5,7 +5,7 @@
 ** Login   <collio_v@epitech.net>
 **
 ** Started on  Mon May 27 17:11:47 2013 vincent colliot
-** Last update Fri May 31 17:00:30 2013 vincent colliot
+** Last update Fri May 31 21:01:19 2013 vincent colliot
 */
 
 #include <stdio.h>
@@ -46,6 +46,8 @@ static void	scan_line(CLASS_LIGHT *light, FD xml, char *s)
 	(((light->scan)[i]).call)(light, token);
 	return ;
       }
+    else
+      i++;
   (void)printf("error :%s not recognized", name);
 }
 

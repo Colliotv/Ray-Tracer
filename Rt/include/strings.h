@@ -5,7 +5,7 @@
 ** Login   <collio_v@epitech.net>
 **
 ** Started on  Mon May 27 21:27:30 2013 vincent colliot
-** Last update Fri May 31 02:55:57 2013 vincent colliot
+** Last update Fri May 31 20:44:05 2013 vincent colliot
 */
 
 #ifndef STRING_H_
@@ -20,7 +20,7 @@
 # define NMATCH(s, c)	(!strncmp(s, c, strlen(s)))
 # define IN(c, s)	(s[strilen(s, c)] != 0)
 # define S_IN(c, s)     (s[strslen(s, c)] != 0)
-# define O_IN(c, s)	(s[strspn(s, c)] != 0)
+# define O_IN(s, c)	((s)[strspn(s, c)] == 0)
 
 	/* s_len */
 size_t	strilen(const char *, char);
