@@ -5,14 +5,18 @@
 ** Login   <collio_v@epitech.net>
 **
 ** Started on  Mon May 27 17:28:16 2013 vincent colliot
-** Last update Tue May 28 01:11:44 2013 vincent colliot
+** Last update Thu May 30 23:31:17 2013 vincent colliot
 */
 
+#include <stdio.h>
+#include <unistd.h>
+#include "strings.h"
+#include "light.h"
 #include "string.h"
 
 static void	def_error(char *s)
 {
-  printf("in light def, error :%s not defined\n", no, s);
+  (void)printf("in light def, error :%s not defined\n", s);
   exit(-1);
 }
 

@@ -5,10 +5,9 @@
 ** Login   <collio_v@epitech.net>
 **
 ** Started on  Mon May 27 16:36:06 2013 vincent colliot
-** Last update Wed May 29 17:19:27 2013 vincent colliot
+** Last update Thu May 30 22:56:52 2013 vincent colliot
 */
 
-#include "xml_scan.h"
 #include "xmalloc.h"
 #include "display.h"
 
@@ -25,12 +24,13 @@ static t_scan	*ini_scan(void)
   tab[2].div = "<object";
   tab[3].call = NULL;
   tab[3].div = NULL;
+  return (tab);
 }
 
 void	display_init(CLASS_DISPLAY *d)
 {
   d->eye = NULL;
-  d->light = NULL;
+  d->lights = NULL;
   d->objects = NULL;
   d->scan = ini_scan();
 }

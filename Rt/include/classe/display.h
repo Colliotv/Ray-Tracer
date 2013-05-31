@@ -5,7 +5,7 @@
 ** Login   <collio_v@epitech.net>
 **
 ** Started on  Thu May 16 22:01:55 2013 vincent colliot
-** Last update Wed May 29 17:16:37 2013 vincent colliot
+** Last update Thu May 30 22:56:56 2013 vincent colliot
 */
 
 #ifndef DISPLAY_H_
@@ -13,12 +13,13 @@
 
 /* class */
 # include "eye.h"
-# include "lum.h"
-# inlcude "object.h"
+# include "light.h"
+# include "object.h"
 /* type mod */
 # include "bool.h"
 # include "fd.h"
 /* fonctions */
+#include "xml_scan.h"
 
 typedef struct s_display{
   /* public */
@@ -26,7 +27,7 @@ typedef struct s_display{
   CLASS_LIGHT	*lights;
   CLASS_OBJECT	*objects;
   /* private */
-  t_scan	**scan;
+  t_scan	*scan;
 }		t_display;
 
 # define CLASS_DISPLAY	t_display

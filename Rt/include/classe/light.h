@@ -5,23 +5,27 @@
 ** Login   <collio_v@epitech.net>
 **
 ** Started on  Mon May 27 21:46:39 2013 vincent colliot
-** Last update Tue May 28 00:18:14 2013 vincent colliot
+** Last update Thu May 30 23:33:26 2013 vincent colliot
 */
 
 #ifndef LIGHT_H_
 # define LIGHT_H_
 
+#include "xml_scan.h"
 #include "dim.h"
+#include "u_color.h"
 
 typedef struct	s_light{
   /* public */
   struct s_light	*next;
   /*private */
-  t_scan	*scan;
-  t_3d	color;
-  t_3d	postion;
+  t_token_scan	*scan;
+  t_color	color;
+  t_3d		position;
 }		t_light;
 
-# define CLASS_LIGHT t_light;
+# define CLASS_LIGHT t_light
+
+void	light_init(void *,void *);
 
 #endif

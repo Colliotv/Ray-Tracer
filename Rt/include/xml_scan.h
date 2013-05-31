@@ -5,21 +5,34 @@
 ** Login   <collio_v@epitech.net>
 **
 ** Started on  Wed May 29 17:15:51 2013 vincent colliot
-** Last update Wed May 29 17:17:35 2013 vincent colliot
+** Last update Thu May 30 23:33:06 2013 vincent colliot
 */
 
 #ifndef XML_SCAN_H_
 # define XML_SCAN_H_
 
+#include "token.h"
 #include "fd.h"
+
+typedef struct s_token_scan{
+  char	*name;
+  void  (*call)(void *, t_token*);
+}		t_token_scan;
 
 typedef struct s_scan{
   char	*div;
-  void	(*call)(void *, FD, int);
+  void	(*call)(void *, FD, char *);
 }		t_scan;
 
-void	add_lum(void *,FD, int);
-void	add_eye(void *,FD, int);
-void	add_object(void *,FD, int);
+char	*xml_token(t_token **, char *, FLAG, FD);
+
+	/*display scan call*/
+void	add_lum(void *,FD, char *);
+void	add_eye(void *,FD, char *);
+void	add_object(void *,FD, char *);
+
+	/*light scan call*/
+void	light_pos(void *, t_token *);
+void	light_color(void *, t_token *);
 
 #endif

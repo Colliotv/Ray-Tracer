@@ -5,21 +5,22 @@
 ** Login   <collio_v@epitech.net>
 **
 ** Started on  Thu May 16 22:11:47 2013 vincent colliot
-** Last update Tue May 28 18:52:18 2013 vincent colliot
+** Last update Thu May 30 23:00:07 2013 vincent colliot
 */
 
 #ifndef OBJECT_H_
 # define OBJECT_H_
 
+# include "xml_scan.h"
 # include "dim.h"
 struct s_object;
 typedef struct s_sphere{
   /* public */
-  struct s_sphere	*next;
+  void	*next;
   t_3d	(*collide)(void *, t_3d, t_3d);
   t_3d	(*normal)(void *, t_3d, t_3d);
   /* private */
-  t_scan *scan;
+  t_token_scan *scan;
   struct s_object	*nega;
   /*int	*permtab_perlin*/
   t_3d	position;
@@ -28,11 +29,11 @@ typedef struct s_sphere{
 
 typedef struct s_plan{
   /* public */
-  t_sphere	*next;
+  void	*next;
   t_3d	(*collide)(void *, t_3d, t_3d);
   t_3d	(*normal)(void *, t_3d, t_3d);
   /* private */
-  t_scan *scan;
+  t_token_scan *scan;
   struct s_object	*nega;
   /*int	*permtab_perlin*/
   t_3d	position;
@@ -43,11 +44,11 @@ typedef struct s_plan{
 
 typedef struct s_object{
   /* public */
-  t_object	*next;
+  struct s_object	*next;
   t_3d	(*collide)(void *, t_3d, t_3d);
   t_3d	(*normal)(void *, t_3d, t_3d);
   /* private */
-  t_scan *scan;
+  t_token_scan *scan;
   struct s_object	*nega;
   /*int	*permtab_perlin*/
 }		t_object;

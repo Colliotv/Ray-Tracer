@@ -4,7 +4,7 @@
 ## Login   <collio_v@epitech.net>
 ##
 ## Started on Thu Oct 25 22:06:03 2012 vincent colliot
-## Last update Wed May 29 17:20:56 2013 vincent colliot
+## Last update Thu May 30 23:40:39 2013 vincent colliot
 ##
 
 NAME    = rt
@@ -26,6 +26,7 @@ LIB	=$(S_LIB)s_lenth.c\
 	$(S_LIB)s_xml.c\
 	$(S_LIB)s_alloc.c\
 	$(X_LIB)xmalloc.c\
+	$(X_LIB)lerror.c\
 
 F_GTN	=$(SRCF)get/
 GTN	=$(F_GTN)get_next_line.c\
@@ -62,10 +63,25 @@ DISPLAY	=$(DPRIV)\
 
 ######  LIGHT  #######
 
+F_LPRIV	=$(FCLASSE)light/private/
+
+LU_FINIT=$(F_LPRIV)init/
+LU_INIT	=$(LU_FINIT)init.c
+
+LU_FSCAN=$(F_LPRIV)scan/
+LU_SCAN	=$(LU_FSCAN)def.c\
+	$(LU_FSCAN)scan.c\
+
+LPRIV	=$(LU_INIT)\
+	$(LU_SCAN)\
+
+##
+
+##
+
+LIGHT	=$(LPRIV)\
+
 ###### OBJECTS #######
-
-
-
 
 ######################
 #		     #
@@ -76,7 +92,7 @@ SRC     =$(MAIN)\
 	$(GTN)\
 	$(LIB)\
 	$(DISPLAY)\
-
+	$(LIGHT)\
 ######################
 
 INC	=-I $(FO)include/ -I include/classe

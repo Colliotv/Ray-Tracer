@@ -5,10 +5,17 @@
 ** Login   <collio_v@epitech.net>
 **
 ** Started on  Mon May 27 17:11:47 2013 vincent colliot
-** Last update Wed May 29 16:30:39 2013 vincent colliot
+** Last update Thu May 30 23:30:30 2013 vincent colliot
 */
 
-static void check_fd(char *s, FD xml, FLAG i, char **r)
+#include <stdio.h>
+#include "light.h"
+#include "bool.h"
+#include "strings.h"
+#include "xmalloc.h"
+#include "get_next_line.h"
+
+static BOOL check_fd(char *s, FD xml, FLAG i, char **r)
 {
   s = get_next_line(xml);
   while (s && NMATCH(OPEN_COMMENT, s += hempty(s)))
@@ -17,15 +24,15 @@ static void check_fd(char *s, FD xml, FLAG i, char **r)
   if (!s)
     fprintf(stderr, "no <light> close\n");
   if (!s)
-    return ;
+    return (FALSE);
   if (i == END && MATCH("</light>", s + hempty(s)))
     return (FALSE);
   else if (i == END)
-    return (FALSE);
+    return (TRUE);
   return (FALSE);
 }
 
-static void	*scan_line(CLASS_LIGHT *light, FD xml, char *s)
+static void	scan_line(CLASS_LIGHT *light, FD xml, char *s)
 {
   t_token	*token;
   char		*name;
@@ -33,14 +40,13 @@ static void	*scan_line(CLASS_LIGHT *light, FD xml, char *s)
 
   name = xml_token(&token, s, INIT, xml);
   i = 0;
-  while ((d->scan)[i])
-    if (NMATCH(((d->scan)[i]).div, name))
+  while ((light->scan)[i].name)
+    if (NMATCH(((light->scan)[i]).name, name))
       {
-	(((d->scan)[i]).call)();
+	(((light->scan)[i]).call)(light, token);
 	return ;
       }
-  (*no)++;
-  printf("error :%s not recognized", name);
+  (void)printf("error :%s not recognized", name);
 }
 
 void	add_lum(void *d, FD xml, char *s)
@@ -52,5 +58,5 @@ void	add_lum(void *d, FD xml, char *s)
   light = xmalloc(sizeof(*light));
   light_init(light, d);
   while ((check = check_fd(s, xml, END, &s)))
-    scan_line(light, mxl, s, &no);
+    scan_line(light, xml, s);
 }
