@@ -4,15 +4,13 @@
 # Libraries
 *.a
 
-# Shared objects
-# Do we have to put this = *.so
-
 # Executables
 *.out
 
 # My_Files
 *~
 #*#
+.#*
 
 # Rt
 rt

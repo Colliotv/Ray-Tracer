@@ -7,17 +7,17 @@
   <lum>
     <position x="" y="" z="" /><!-- espace possible entre ? et =, = et "", mais pas " n "
     peut être sur plusieurs ligne-->
-    <angle x="" y="" z=""/>
+    <color r="" g="" b=""/>
     <!-- <fov alpha=""/>  fov définissable pour effectuer certains effets?-->
   </lum>
   <object type = "plan"> <!-- structure de commentaire
 			      (possible sur multi-ligne -->
     <position x="" y="" z="" />
     <rotation x="" y="" z="" />
-    <highness D="" />
+    <high D="" />
   </object>
   <object type = "sphere">
-    <position x="" y="" z="" />
+    <position x="4.0" y="" z="" />
     <rotation x="" y="" z="" />
     <rayon R=""/>
   </object>

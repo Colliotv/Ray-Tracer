@@ -5,7 +5,7 @@
 ** Login   <collio_v@epitech.net>
 **
 ** Started on  Mon May 27 17:17:33 2013 vincent colliot
-** Last update Fri May 31 02:33:41 2013 vincent colliot
+** Last update Fri May 31 13:23:26 2013 vincent colliot
 */
 
 #include "light.h"
