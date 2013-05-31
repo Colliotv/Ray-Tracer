@@ -5,7 +5,7 @@
 ** Login   <collio_v@epitech.net>
 **
 ** Started on  Mon May 27 16:48:42 2013 vincent colliot
-** Last update Thu May 30 23:08:54 2013 vincent colliot
+** Last update Fri May 31 03:09:33 2013 vincent colliot
 */
 
 #include <unistd.h>
@@ -19,7 +19,6 @@
 #include "lerror.h"
 #include "fd.h"
 #include "display.h"
-#include "display_private.h"
 
 static BOOL check_fd(char *s, FD xml, FLAG i, char **r)
 {
@@ -42,7 +41,7 @@ static void	scan_line(CLASS_DISPLAY *d, FD xml, char *s)
   size_t	i;
 
   i = 0;
-  while (i < TO_DEFINE)
+  while (((d->scan)[i]).call)
     if (NMATCH(((d->scan)[i]).div, s + hempty(s)))
       {
 	(((d->scan)[i]).call)(d, xml, s);

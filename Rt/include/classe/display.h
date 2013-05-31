@@ -5,7 +5,7 @@
 ** Login   <collio_v@epitech.net>
 **
 ** Started on  Thu May 16 22:01:55 2013 vincent colliot
-** Last update Thu May 30 22:56:56 2013 vincent colliot
+** Last update Fri May 31 03:11:35 2013 vincent colliot
 */
 
 #ifndef DISPLAY_H_
@@ -28,6 +28,7 @@ typedef struct s_display{
   CLASS_OBJECT	*objects;
   /* private */
   t_scan	*scan;
+  t_token_scan	*objects_def;
 }		t_display;
 
 # define CLASS_DISPLAY	t_display

@@ -4,7 +4,7 @@
 ## Login   <collio_v@epitech.net>
 ##
 ## Started on Thu Oct 25 22:06:03 2012 vincent colliot
-## Last update Thu May 30 23:40:39 2013 vincent colliot
+## Last update Fri May 31 02:41:36 2013 vincent colliot
 ##
 
 NAME    = rt
@@ -65,21 +65,51 @@ DISPLAY	=$(DPRIV)\
 
 F_LPRIV	=$(FCLASSE)light/private/
 
-LU_FINIT=$(F_LPRIV)init/
-LU_INIT	=$(LU_FINIT)init.c
-
-LU_FSCAN=$(F_LPRIV)scan/
-LU_SCAN	=$(LU_FSCAN)def.c\
-	$(LU_FSCAN)scan.c\
-
 LPRIV	=$(LU_INIT)\
 	$(LU_SCAN)\
 
 ##
 
+F_LPUB	=$(FCLASSE)light/public/
+
+LP_FINIT=$(F_LPUB)init/
+LP_INIT	=$(LP_FINIT)init.c
+
+LP_FSCAN=$(F_LPUB)scan/
+LP_SCAN	=$(LP_FSCAN)def.c\
+	$(LP_FSCAN)scan.c\
+
+LPUB	=$(LP_INIT)\
+	$(LP_SCAN)
+
 ##
 
-LIGHT	=$(LPRIV)\
+LIGHT	=$(LPUB)\
+
+######  LIGHT  #######
+
+F_EPRIV	=$(FCLASSE)light/private/
+
+EPRIV	=$(LU_INIT)\
+	$(LU_SCAN)\
+
+##
+
+F_EPUB	=$(FCLASSE)eye/public/
+
+EP_FINIT=$(F_EPUB)init/
+EP_INIT	=$(EP_FINIT)init.c
+
+EP_FSCAN=$(F_EPUB)scan/
+EP_SCAN	=$(EP_FSCAN)def.c\
+	$(EP_FSCAN)scan.c\
+
+EPUB	=$(EP_INIT)\
+	$(EP_SCAN)
+
+##
+
+EYE	=$(EPUB)\
 
 ###### OBJECTS #######
 
@@ -93,6 +123,8 @@ SRC     =$(MAIN)\
 	$(LIB)\
 	$(DISPLAY)\
 	$(LIGHT)\
+	$(EYE)\
+
 ######################
 
 INC	=-I $(FO)include/ -I include/classe

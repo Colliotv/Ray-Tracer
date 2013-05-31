@@ -5,7 +5,7 @@
 ** Login   <collio_v@epitech.net>
 **
 ** Started on  Thu May 16 22:11:47 2013 vincent colliot
-** Last update Thu May 30 23:00:07 2013 vincent colliot
+** Last update Fri May 31 03:16:03 2013 vincent colliot
 */
 
 #ifndef OBJECT_H_
@@ -54,5 +54,11 @@ typedef struct s_object{
 }		t_object;
 
 # define CLASS_OBJECT t_object
+
+	/* objects defines */
+void    sphere_init(void *, t_token *);
+void    plan_init(void *, t_token *);
+void    cone_init(void *, t_token *);
+void    cylindre_init(void *, t_token *);
 
 #endif

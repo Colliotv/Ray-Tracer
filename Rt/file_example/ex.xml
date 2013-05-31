@@ -10,17 +10,15 @@
     <angle x="" y="" z=""/>
     <!-- <fov alpha=""/>  fov définissable pour effectuer certains effets?-->
   </lum>
-  <object> <!-- structure de commentaire (possible sur multi-ligne -->
-    <plan>
-      <position x="" y="" z="" />
-      <rotation x="" y="" z="" />
-      <highness D="" />
-    </plan>
-    <sphere>
-      <position x="" y="" z="" />
-      <rotation x="" y="" z="" />
-      <rayon R=""/>
-    </sphere>
-    <!-- ... -->
-  </object><!-- 1-x objets définissible entre balise de eyes-->
+  <object type = "plan"> <!-- structure de commentaire
+			      (possible sur multi-ligne -->
+    <position x="" y="" z="" />
+    <rotation x="" y="" z="" />
+    <highness D="" />
+  </object>
+  <object type = "sphere">
+    <position x="" y="" z="" />
+    <rotation x="" y="" z="" />
+    <rayon R=""/>
+  </object>
 </scene>

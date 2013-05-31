@@ -5,7 +5,7 @@
 ** Login   <collio_v@epitech.net>
 **
 ** Started on  Tue May 28 17:43:17 2013 vincent colliot
-** Last update Tue May 28 17:44:50 2013 vincent colliot
+** Last update Fri May 31 02:55:31 2013 vincent colliot
 */
 
 #include "strings.h"
@@ -13,4 +13,16 @@
 size_t	hempty(const char *s)
 {
   return (strspn(s, " \t"));
+}
+
+BOOL	empty(const char *s)
+{
+  int	i;
+
+  i = 0;
+  while (s[i] == ' ' || s[i] == 9)
+    i++;
+  if (!s[i])
+    return (TRUE);
+  return (FALSE);
 }

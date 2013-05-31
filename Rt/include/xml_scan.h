@@ -5,7 +5,7 @@
 ** Login   <collio_v@epitech.net>
 **
 ** Started on  Wed May 29 17:15:51 2013 vincent colliot
-** Last update Thu May 30 23:33:06 2013 vincent colliot
+** Last update Fri May 31 02:43:37 2013 vincent colliot
 */
 
 #ifndef XML_SCAN_H_
@@ -34,5 +34,9 @@ void	add_object(void *,FD, char *);
 	/*light scan call*/
 void	light_pos(void *, t_token *);
 void	light_color(void *, t_token *);
+
+	/*eye scan call*/
+void	eye_pos(void *, t_token *);
+void	eye_focus(void *, t_token *);
 
 #endif

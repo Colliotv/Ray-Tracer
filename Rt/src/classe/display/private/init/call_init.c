@@ -5,7 +5,7 @@
 ** Login   <collio_v@epitech.net>
 **
 ** Started on  Mon May 27 16:36:06 2013 vincent colliot
-** Last update Thu May 30 22:56:52 2013 vincent colliot
+** Last update Fri May 31 03:16:47 2013 vincent colliot
 */
 
 #include "xmalloc.h"
@@ -27,10 +27,29 @@ static t_scan	*ini_scan(void)
   return (tab);
 }
 
+static t_token_scan	*def_init(void)
+{
+  t_token_scan	*tab;
+
+  tab = xmalloc(sizeof(*tab) * (3 + 1));
+  tab[0].call = sphere_init;
+  tab[0].name = "sphere";
+  tab[1].call = plan_init;
+  tab[1].name = "plan";
+  tab[2].call = cone_init;
+  tab[2].name = "cone";
+  tab[2].call = cylindre_init;
+  tab[2].name = "cylndre";
+  tab[3].call = NULL;
+  tab[3].name = NULL;
+  return (tab);
+}
+
 void	display_init(CLASS_DISPLAY *d)
 {
   d->eye = NULL;
   d->lights = NULL;
   d->objects = NULL;
   d->scan = ini_scan();
+  d->objects_def = def_init();
 }

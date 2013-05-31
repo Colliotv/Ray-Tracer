@@ -5,7 +5,7 @@
 ** Login   <collio_v@epitech.net>
 **
 ** Started on  Mon May 27 21:27:30 2013 vincent colliot
-** Last update Tue May 28 18:26:58 2013 vincent colliot
+** Last update Fri May 31 02:55:57 2013 vincent colliot
 */
 
 #ifndef STRING_H_
@@ -14,6 +14,7 @@
 # include <stdlib.h>
 # include <string.h>
 # include "fd.h"
+#include "bool.h"
 
 # define MATCH(s, c)	(!strcmp(s, c))
 # define NMATCH(s, c)	(!strncmp(s, c, strlen(s)))
@@ -28,6 +29,7 @@ size_t	sstrlen(const char *, const char *);
 
 	/* s_match */
 size_t	hempty(const char *);
+BOOL	empty(const char *);
 
 	/* s_alloc */
 void	*my_strdup(const char *);
