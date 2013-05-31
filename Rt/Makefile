@@ -4,7 +4,7 @@
 ## Login   <collio_v@epitech.net>
 ##
 ## Started on Thu Oct 25 22:06:03 2012 vincent colliot
-## Last update Fri May 31 02:41:36 2013 vincent colliot
+## Last update Fri May 31 16:56:56 2013 vincent colliot
 ##
 
 NAME    = rt
@@ -27,6 +27,9 @@ LIB	=$(S_LIB)s_lenth.c\
 	$(S_LIB)s_alloc.c\
 	$(X_LIB)xmalloc.c\
 	$(X_LIB)lerror.c\
+
+F_CONVERT=$(SRCF)convert/
+CONVERT	=$(F_CONVERT)convert.c
 
 F_GTN	=$(SRCF)get/
 GTN	=$(F_GTN)get_next_line.c\
@@ -113,6 +116,51 @@ EYE	=$(EPUB)\
 
 ###### OBJECTS #######
 
+F_OPRIV	=$(FCLASSE)object/private/
+
+F_CONE	=$(F_OPRIV)cone/
+
+CONE	=$(F_CONE)init/init.c\
+	$(F_CONE)scan/scan.c\
+
+F_SPHERE=$(F_OPRIV)sphere/
+
+SPHERE	=$(F_SPHERE)init/init.c\
+	$(F_SPHERE)scan/scan.c
+
+F_PLAN	=$(F_OPRIV)plan/
+
+PLAN	=$(F_PLAN)init/init.c\
+	$(F_PLAN)scan/scan.c
+
+F_CYLIND=$(F_OPRIV)cylindre/
+
+CYLINDER=$(F_CYLIND)init/init.c\
+	$(F_CYLIND)scan/scan.c\
+
+SUBF	=$(CONE)\
+	$(CYLINDER)\
+	$(SPHERE)\
+	$(PLAN)\
+
+OPRIV	=$(SUBF)\
+
+##
+
+F_OPUB	=$(FCLASSE)object/public/
+
+OP_SCAN=$(F_OPUB)scan/scan.c\
+
+OP_INIT=$(F_OPUB)init/init.c\
+
+OPUB	=$(OP_SCAN)\
+	$(OP_INIT)\
+
+##
+
+OBJECTS	=$(OPRIV)\
+	$(OPUB)\
+
 ######################
 #		     #
 #		     #
@@ -124,10 +172,12 @@ SRC     =$(MAIN)\
 	$(DISPLAY)\
 	$(LIGHT)\
 	$(EYE)\
+	$(OBJECTS)\
+	$(CONVERT)\
 
 ######################
 
-INC	=-I $(FO)include/ -I include/classe
+INC	=-I $(FO)include/ -I include/classe -I include/classe/methode/ -lm
 
 CFLAGS	= -Wall -Wextra $(INC)
 

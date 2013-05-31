@@ -5,8 +5,11 @@
 ** Login   <collio_v@epitech.net>
 **
 ** Started on  Fri May 31 13:27:54 2013 vincent colliot
-** Last update Fri May 31 13:30:20 2013 vincent colliot
+** Last update Fri May 31 15:04:19 2013 vincent colliot
 */
+
+#include "object.h"
+#include "xmalloc.h"
 
 static t_token_scan	*ini_scan(void)
 {
@@ -17,14 +20,16 @@ static t_token_scan	*ini_scan(void)
   (tab[0]).name = "position";
   (tab[1]).call = cylindre_color;
   (tab[1]).name = "color";
-  (tab[1]).call = cylindre_focus;
-  (tab[1]).name = "direction";//<--- serait bien de faire des defines;;;;plus tard
+  (tab[2]).call = cylindre_focus;
+  (tab[2]).name = "direction";//<--- serait bien de faire des defines;;;;plus tard
+  (tab[1]).call = cylindre_rayon;
+  (tab[1]).name = "rayon";
   (tab[2]).call = NULL;
   (tab[2]).name = NULL;
   return (tab);
 }
 
-void	cylindre_init(void *o, void *token)
+void	cylindre_init(void *o, t_token *token)
 {
   t_cylindre	*s;
 
@@ -33,5 +38,5 @@ void	cylindre_init(void *o, void *token)
   s->scan = ini_scan();
   s->collide = NULL;
   s->normal = NULL;
-  *((T_CYLINDRE*)o) = s;
+  *((t_cylindre**)o) = s;
 }

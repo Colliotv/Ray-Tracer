@@ -1,15 +1,15 @@
 /*
-** scan.c<2> for  in /home/collio_v/rendu_svn/Ray-Tracer/Rt/src/classe/display/public/scan
+** scan.c for  in /home/collio_v/rendu_svn/Ray-Tracer/Rt
 **
 ** Made by vincent colliot
 ** Login   <collio_v@epitech.net>
 **
-** Started on  Mon May 27 17:11:47 2013 vincent colliot
-** Last update Fri May 31 17:00:30 2013 vincent colliot
+** Started on  Fri May 31 16:57:37 2013 vincent colliot
+** Last update Fri May 31 17:02:27 2013 vincent colliot
 */
 
 #include <stdio.h>
-#include "light.h"
+#include "object.h"
 #include "bool.h"
 #include "strings.h"
 #include "xmalloc.h"
@@ -22,17 +22,17 @@ static BOOL check_fd(char *s, FD xml, FLAG i, char **r)
     s = move_to_end_comment(s, xml);
   *r = s;
   if (!s)
-    fprintf(stderr, "no <light> close\n");
+    fprintf(stderr, "no <object> close\n");
   if (!s)
     return (FALSE);
-  if (i == END && MATCH("</light>", s + hempty(s)))
+  if (i == END && MATCH("</object>", s + hempty(s)))
     return (FALSE);
   else if (i == END)
     return (TRUE);
   return (FALSE);
 }
 
-static void	scan_line(CLASS_LIGHT *light, FD xml, char *s)
+static void	scan_line(CLASS_OBJECT *object, FD xml, char *s)
 {
   t_token	*token;
   char		*name;
@@ -40,23 +40,22 @@ static void	scan_line(CLASS_LIGHT *light, FD xml, char *s)
 
   name = xml_token(&token, s, INIT, xml);
   i = 0;
-  while ((light->scan)[i].name)
-    if (NMATCH(((light->scan)[i]).name, name))
+  while ((object->scan)[i].name)
+    if (NMATCH(((object->scan)[i]).name, name))
       {
-	(((light->scan)[i]).call)(light, token);
+	(((object->scan)[i]).call)(object, token);
 	return ;
       }
   (void)printf("error :%s not recognized", name);
 }
 
-void	add_lum(void *d, FD xml, char *s)
+void	add_object(void *d, FD xml, char *s)
 {
   BOOL check;
-  CLASS_LIGHT	*light;
+  CLASS_OBJECT	*object;
 
   check = TRUE;
-  light = xmalloc(sizeof(*light));
-  light_init(light, d);
+  objects_init(&object, d, s, xml);
   while ((check = check_fd(s, xml, END, &s)))
-    scan_line(light, xml, s);
+    scan_line(object, xml, s);
 }

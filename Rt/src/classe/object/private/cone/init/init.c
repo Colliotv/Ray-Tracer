@@ -5,8 +5,11 @@
 ** Login   <collio_v@epitech.net>
 **
 ** Started on  Fri May 31 13:30:13 2013 vincent colliot
-** Last update Fri May 31 13:38:27 2013 vincent colliot
+** Last update Fri May 31 15:08:40 2013 vincent colliot
 */
+
+#include "object.h"
+#include "xmalloc.h"
 
 static t_token_scan	*ini_scan(void)
 {
@@ -26,7 +29,7 @@ static t_token_scan	*ini_scan(void)
   return (tab);
 }
 
-void	cone_init(void *o, void *token)
+void	cone_init(void *o, t_token *token)
 {
   t_cone	*s;
 
@@ -35,5 +38,5 @@ void	cone_init(void *o, void *token)
   s->scan = ini_scan();
   s->collide = NULL;
   s->normal = NULL;
-  *((T_CONE*)o) = s;
+  *((t_cone**)o) = s;
 }

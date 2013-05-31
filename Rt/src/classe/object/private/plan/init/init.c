@@ -5,8 +5,11 @@
 ** Login   <collio_v@epitech.net>
 **
 ** Started on  Fri May 31 13:19:02 2013 vincent colliot
-** Last update Fri May 31 13:32:50 2013 vincent colliot
+** Last update Fri May 31 15:01:39 2013 vincent colliot
 */
+
+#include "object.h"
+#include "xmalloc.h"
 
 static t_token_scan	*ini_scan(void)
 {
@@ -19,14 +22,14 @@ static t_token_scan	*ini_scan(void)
   (tab[1]).name = "color";
   (tab[2]).call = plan_focus;
   (tab[2]).name = "direction";//<--- serait bien de faire des defines;;;;plus tard
-  (tab[3]).call = plan_d;
+  (tab[3]).call = plan_high;
   (tab[3]).name = "high";
   (tab[4]).call = NULL;
   (tab[4]).name = NULL;
   return (tab);
 }
 
-void	plan_init(void *o, void	*token)
+void	plan_init(void *o, t_token *token)
 {
   t_plan	*s;
 
@@ -35,5 +38,5 @@ void	plan_init(void *o, void	*token)
   s->scan = ini_scan();
   s->collide = NULL;
   s->normal = NULL;
-  *((t_plan*)o) = s;
+  *((t_plan**)o) = s;
 }

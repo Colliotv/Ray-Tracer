@@ -5,8 +5,11 @@
 ** Login   <collio_v@epitech.net>
 **
 ** Started on  Fri May 31 13:33:06 2013 vincent colliot
-** Last update Fri May 31 13:34:06 2013 vincent colliot
+** Last update Fri May 31 15:03:36 2013 vincent colliot
 */
+
+#include "object.h"
+#include "xmalloc.h"
 
 static t_token_scan	*ini_scan(void)
 {
@@ -24,7 +27,7 @@ static t_token_scan	*ini_scan(void)
   return (tab);
 }
 
-void	sphere_init(void *o, void *token)
+void	sphere_init(void *o, t_token *token)
 {
   t_sphere	*s;
 
@@ -33,5 +36,5 @@ void	sphere_init(void *o, void *token)
   s->scan = ini_scan();
   s->collide = NULL;
   s->normal = NULL;
-  *((T_SPHERE*)o) = s;
+  *((t_sphere**)o) = s;
 }

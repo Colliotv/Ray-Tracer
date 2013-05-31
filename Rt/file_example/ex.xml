@@ -15,6 +15,7 @@
     <position x="" y="" z="" />
     <rotation x="" y="" z="" />
     <high D="" />
+    <perturbation type = "x" value = "4.0"/>
   </object>
   <object type = "sphere">
     <position x="4.0" y="" z="" />

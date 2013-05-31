@@ -5,7 +5,7 @@
 ** Login   <collio_v@epitech.net>
 **
 ** Started on  Mon May 27 18:24:15 2013 vincent colliot
-** Last update Mon May 27 21:52:20 2013 vincent colliot
+** Last update Fri May 31 15:37:52 2013 vincent colliot
 */
 
 #ifndef DIM_H_
@@ -33,4 +33,6 @@ typedef struct s_2i{
   int	y;
 }		t_2i;
 
+	/* convert */
+t_3d	convert_focus(t_3d);
 #endif
