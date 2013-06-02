@@ -5,7 +5,7 @@
 ** Login   <collio_v@epitech.net>
 **
 ** Started on  Thu May 16 22:11:47 2013 vincent colliot
-** Last update Sat Jun  1 23:41:33 2013 vincent colliot
+** Last update Mon Jun  3 01:18:21 2013 vincent colliot
 */
 
 #ifndef OBJECT_H_
@@ -23,7 +23,7 @@ typedef struct s_cylindre{
   /* public */
   void	*next;
   t_3d	(*collide)(void *, t_3d, t_3d, t_collide *);
-  t_3d	(*normal)(void *, t_3d, t_3d);
+  t_3d	(*normal)(void *, t_3d);
   FLAG perturb;
   /* private */
   t_token_scan *obj_scan;
@@ -41,7 +41,7 @@ typedef struct s_cone{
   /* public */
   void	*next;
   t_3d	(*collide)(void *, t_3d, t_3d, t_collide *);
-  t_3d	(*normal)(void *, t_3d, t_3d);
+  t_3d	(*normal)(void *, t_3d);
   FLAG perturb;
   /* private */
   t_token_scan *obj_scan;
@@ -59,7 +59,7 @@ typedef struct s_sphere{
   /* public */
   void	*next;
   t_3d	(*collide)(void *, t_3d, t_3d, t_collide *);
-  t_3d	(*normal)(void *, t_3d, t_3d);
+  t_3d	(*normal)(void *, t_3d);
   FLAG perturb;
   /* private */
   t_token_scan *obj_scan;
@@ -76,7 +76,7 @@ typedef struct s_plan{
   /* public */
   void	*next;
   t_3d	(*collide)(void *, t_3d, t_3d, t_collide *);
-  t_3d	(*normal)(void *, t_3d, t_3d);
+  t_3d	(*normal)(void *, t_3d);
   FLAG perturb;
   /* private */
   t_token_scan *obj_scan;
@@ -84,7 +84,6 @@ typedef struct s_plan{
   struct s_object	*nega;
   t_color	color;
   /*int	*permtab_perlin*/
-  t_3d	position;
   t_3d	focus;
   float d;
 }		t_plan;
@@ -93,7 +92,7 @@ typedef struct s_object{
   /* public */
   struct s_object	*next;
   t_3d	(*collide)(void *, t_3d, t_3d, t_collide *);
-  t_3d	(*normal)(void *, t_3d, t_3d);
+  t_3d	(*normal)(void *, t_3d);
   FLAG perturb;
   /* private */
   t_token_scan *obj_scan;

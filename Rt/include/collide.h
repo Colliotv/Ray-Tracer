@@ -5,7 +5,7 @@
 ** Login   <collio_v@epitech.net>
 **
 ** Started on  Sat Jun  1 22:59:52 2013 vincent colliot
-** Last update Sun Jun  2 03:40:00 2013 vincent colliot
+** Last update Mon Jun  3 00:49:54 2013 vincent colliot
 */
 
 #ifndef COLLIDE_H_
@@ -14,12 +14,15 @@
 # include <stdlib.h>
 
 # define MAX_DEGREE_LVL	2
+# define K_COL		0.1
 
 typedef struct s_collide{
   size_t	defined;
+  size_t	up_to;
   double	k[MAX_DEGREE_LVL];
   t_3d		collide;
   t_3d		normal;
+  t_color	color;
 }		t_collide;
 
 t_3d	collide_arrange(t_collide *, t_3d, t_3d);

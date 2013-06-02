@@ -4,7 +4,7 @@
 ## Login   <collio_v@epitech.net>
 ##
 ## Started on Thu Oct 25 22:06:03 2012 vincent colliot
-## Last update Sun Jun  2 03:52:38 2013 vincent colliot
+## Last update Mon Jun  3 00:06:29 2013 vincent colliot
 ##
 
 NAME    = rt
@@ -39,6 +39,14 @@ GTN	=$(F_GTN)get_next_line.c\
 
 F_MAIN	=$(SRCF)main/
 MAIN	=$(F_MAIN)main.c\
+
+F_LOAD	=$(SRCF)screen_load/
+LOAD	=$(F_LOAD)img.c\
+	$(F_LOAD)screen.c\
+	$(F_LOAD)put_pixel.c\
+
+F_RAY	=$(SRCF)ray_tracing/
+RAY	=$(F_RAY)load.c\
 
 ##     CLASSE       ##
 #		     #
@@ -182,10 +190,13 @@ SRC     =$(MAIN)\
 	$(OBJECTS)\
 	$(CONVERT)\
 	$(COLLIDE)\
+	$(LOAD)\
+	$(RAY)\
 
 ######################
 
-INC	=-I $(FO)include/ -I include/classe -I include/classe/methode/ -lm
+INC	=-I $(FO)include/ -I include/classe -I include/classe/methode/ -lm \
+	-L/usr/lib64 -lmlx_${HOSTTYPE} -L/usr/lib64/X11 -lXext -lX11 -I/usr/X11R6/include
 
 CFLAGS	= -Wall -Wextra $(INC)
 

@@ -5,7 +5,7 @@
 ** Login   <collio_v@epitech.net>
 **
 ** Started on  Thu May 16 22:01:55 2013 vincent colliot
-** Last update Fri May 31 19:46:50 2013 vincent colliot
+** Last update Sun Jun  2 23:29:32 2013 vincent colliot
 */
 
 #ifndef DISPLAY_H_
@@ -38,5 +38,6 @@ typedef struct s_display{
 
 	/* init */
 void	display_init(CLASS_DISPLAY*);
+void	xml_scan(CLASS_DISPLAY *, int, char **);
 
 #endif

@@ -5,7 +5,7 @@
 ** Login   <collio_v@epitech.net>
 **
 ** Started on  Fri May 31 02:33:31 2013 vincent colliot
-** Last update Fri May 31 02:48:37 2013 vincent colliot
+** Last update Sun Jun  2 23:55:16 2013 vincent colliot
 */
 
 #include "eye.h"
@@ -31,4 +31,5 @@ void	eye_init(void *eye, void *d)
 {
   ((CLASS_EYE*)eye)->scan = ini_scan();
   ((CLASS_DISPLAY*)d)->eye = eye;
+  ((CLASS_EYE*)eye)->scale = 1;
 }

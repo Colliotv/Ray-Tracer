@@ -5,7 +5,7 @@
 ** Login   <collio_v@epitech.net>
 **
 ** Started on  Fri May 31 16:57:37 2013 vincent colliot
-** Last update Sat Jun  1 21:20:56 2013 vincent colliot
+** Last update Mon Jun  3 01:20:49 2013 vincent colliot
 */
 
 #include <stdio.h>
@@ -38,17 +38,20 @@ static void	scan_line(CLASS_OBJECT *object, FD xml, char *s)
   char		*name;
   size_t	i;
 
-  name = xml_token(&token, s, INIT, xml);
-  i = 0;
-  while ((object->scan)[i].name)
-    if (NMATCH(((object->scan)[i]).name, name))
-      {
-	(((object->scan)[i]).call)(object, token);
-	return ;
-      }
-    else
-      i++;
+  if ((name = xml_token(&token, s, INIT, xml)))
+    {
+      i = 0;
+      while ((object->scan)[i].name)
+	if (NMATCH(((object->scan)[i]).name, name))
+	  {
+	    (((object->scan)[i]).call)(object, token);
+	    return ;
+	  }
+	else
+	  i++;
+    }
   (void)printf("error :%s not recognized\n", name);
+  (void)(exit(-42));
 }
 
 void	add_object(void *d, FD xml, char *s)
