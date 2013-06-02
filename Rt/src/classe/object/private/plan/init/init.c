@@ -5,7 +5,7 @@
 ** Login   <collio_v@epitech.net>
 **
 ** Started on  Fri May 31 13:19:02 2013 vincent colliot
-** Last update Sat Jun  1 21:38:53 2013 vincent colliot
+** Last update Sun Jun  2 03:56:32 2013 vincent colliot
 */
 
 #include "object.h"
@@ -36,7 +36,7 @@ void	plan_init(void *o, t_token *token)
   (void)token;
   s = xmalloc(sizeof(*s));
   s->scan = ini_scan();
-  s->collide = NULL;
+  s->collide = collide_plan;
   s->normal = NULL;
   *((t_plan**)o) = s;
 }

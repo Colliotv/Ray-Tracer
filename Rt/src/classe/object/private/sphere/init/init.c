@@ -5,7 +5,7 @@
 ** Login   <collio_v@epitech.net>
 **
 ** Started on  Fri May 31 13:33:06 2013 vincent colliot
-** Last update Sat Jun  1 23:05:44 2013 vincent colliot
+** Last update Sun Jun  2 03:56:47 2013 vincent colliot
 */
 
 #include "object.h"
@@ -34,7 +34,7 @@ void	sphere_init(void *o, t_token *token)
   (void)token;
   s = xmalloc(sizeof(*s));
   s->scan = ini_scan();
-  s->collide = NULL;
+  s->collide = collide_sphere;
   s->normal = NULL;
   *((t_sphere**)o) = s;
 }

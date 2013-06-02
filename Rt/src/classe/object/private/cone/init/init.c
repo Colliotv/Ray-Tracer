@@ -5,7 +5,7 @@
 ** Login   <collio_v@epitech.net>
 **
 ** Started on  Fri May 31 13:30:13 2013 vincent colliot
-** Last update Sat Jun  1 21:41:31 2013 vincent colliot
+** Last update Sun Jun  2 03:56:04 2013 vincent colliot
 */
 
 #include "object.h"
@@ -36,7 +36,7 @@ void	cone_init(void *o, t_token *token)
   (void)token;
   s = xmalloc(sizeof(*s));
   s->scan = ini_scan();
-  s->collide = NULL;
+  s->collide = collide_cone;
   s->normal = NULL;
   *((t_cone**)o) = s;
 }

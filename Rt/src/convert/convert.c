@@ -5,7 +5,7 @@
 ** Login   <collio_v@epitech.net>
 **
 ** Started on  Fri May 31 15:40:03 2013 vincent colliot
-** Last update Sat Jun  1 23:49:49 2013 vincent colliot
+** Last update Sun Jun  2 03:04:28 2013 vincent colliot
 */
 
 #include "math.h"

@@ -5,7 +5,7 @@
 ** Login   <collio_v@epitech.net>
 **
 ** Started on  Mon May 27 18:24:15 2013 vincent colliot
-** Last update Sun Jun  2 01:46:44 2013 vincent colliot
+** Last update Sun Jun  2 03:33:56 2013 vincent colliot
 */
 
 #ifndef DIM_H_
@@ -46,5 +46,5 @@ typedef struct s_2i{
 # define C(r) ((r) * (r))
 	/* convert */
 t_3d	convert_focus(t_3d);
-t_3d	convert_dist(t_3d,t_3d,double);
+t_3d	dist_convert(t_3d, t_3d, double);
 #endif

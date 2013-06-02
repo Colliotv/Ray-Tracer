@@ -5,7 +5,7 @@
 ** Login   <collio_v@epitech.net>
 **
 ** Started on  Fri May 31 13:27:54 2013 vincent colliot
-** Last update Sat Jun  1 21:41:46 2013 vincent colliot
+** Last update Sun Jun  2 03:56:20 2013 vincent colliot
 */
 
 #include "object.h"
@@ -36,7 +36,7 @@ void	cylindre_init(void *o, t_token *token)
   (void)token;
   s = xmalloc(sizeof(*s));
   s->scan = ini_scan();
-  s->collide = NULL;
+  s->collide = collide_cylindre;
   s->normal = NULL;
   *((t_cylindre**)o) = s;
 }

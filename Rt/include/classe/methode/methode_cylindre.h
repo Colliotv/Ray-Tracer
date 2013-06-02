@@ -5,7 +5,7 @@
 ** Login   <collio_v@epitech.net>
 **
 ** Started on  Fri May 31 15:04:37 2013 vincent colliot
-** Last update Fri May 31 15:09:16 2013 vincent colliot
+** Last update Sun Jun  2 03:55:15 2013 vincent colliot
 */
 
 #ifndef M_CYLINDRE_H_
@@ -16,5 +16,8 @@ void	cylindre_pos(void*,t_token*);
 void	cylindre_color(void*,t_token*);
 void	cylindre_rayon(void*,t_token*);
 void	cylindre_focus(void*,t_token*);
+
+	/* collide */
+t_3d	collide_cylindre(void *, t_3d, t_3d, t_collide *);
 
 #endif

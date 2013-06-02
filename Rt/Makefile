@@ -4,7 +4,7 @@
 ## Login   <collio_v@epitech.net>
 ##
 ## Started on Thu Oct 25 22:06:03 2012 vincent colliot
-## Last update Fri May 31 16:56:56 2013 vincent colliot
+## Last update Sun Jun  2 03:52:38 2013 vincent colliot
 ##
 
 NAME    = rt
@@ -30,6 +30,9 @@ LIB	=$(S_LIB)s_lenth.c\
 
 F_CONVERT=$(SRCF)convert/
 CONVERT	=$(F_CONVERT)convert.c
+
+F_COLLIDE=$(SRCF)collide/
+COLLIDE	=$(F_COLLIDE)collide.c\
 
 F_GTN	=$(SRCF)get/
 GTN	=$(F_GTN)get_next_line.c\
@@ -122,21 +125,25 @@ F_CONE	=$(F_OPRIV)cone/
 
 CONE	=$(F_CONE)init/init.c\
 	$(F_CONE)scan/scan.c\
+	$(F_CONE)calc/collide.c\
 
 F_SPHERE=$(F_OPRIV)sphere/
 
 SPHERE	=$(F_SPHERE)init/init.c\
-	$(F_SPHERE)scan/scan.c
+	$(F_SPHERE)scan/scan.c\
+	$(F_SPHERE)calc/collide.c\
 
 F_PLAN	=$(F_OPRIV)plan/
 
 PLAN	=$(F_PLAN)init/init.c\
-	$(F_PLAN)scan/scan.c
+	$(F_PLAN)scan/scan.c\
+	$(F_PLAN)calc/collide.c\
 
 F_CYLIND=$(F_OPRIV)cylindre/
 
 CYLINDER=$(F_CYLIND)init/init.c\
 	$(F_CYLIND)scan/scan.c\
+	$(F_CYLIND)calc/collide.c\
 
 SUBF	=$(CONE)\
 	$(CYLINDER)\
@@ -174,6 +181,7 @@ SRC     =$(MAIN)\
 	$(EYE)\
 	$(OBJECTS)\
 	$(CONVERT)\
+	$(COLLIDE)\
 
 ######################
 
