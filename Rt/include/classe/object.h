@@ -5,7 +5,7 @@
 ** Login   <collio_v@epitech.net>
 **
 ** Started on  Thu May 16 22:11:47 2013 vincent colliot
-** Last update Fri May 31 17:04:06 2013 vincent colliot
+** Last update Sat Jun  1 23:41:33 2013 vincent colliot
 */
 
 #ifndef OBJECT_H_
@@ -14,14 +14,15 @@
 # include "u_color.h"
 # include "xml_scan.h"
 # include "dim.h"
-
+# include "methode_name.h"
+# include "collide.h"
 struct s_object;
 
 #include "methode_cylindre.h"
 typedef struct s_cylindre{
   /* public */
   void	*next;
-  t_3d	(*collide)(void *, t_3d, t_3d);
+  t_3d	(*collide)(void *, t_3d, t_3d, t_collide *);
   t_3d	(*normal)(void *, t_3d, t_3d);
   FLAG perturb;
   /* private */
@@ -39,7 +40,7 @@ typedef struct s_cylindre{
 typedef struct s_cone{
   /* public */
   void	*next;
-  t_3d	(*collide)(void *, t_3d, t_3d);
+  t_3d	(*collide)(void *, t_3d, t_3d, t_collide *);
   t_3d	(*normal)(void *, t_3d, t_3d);
   FLAG perturb;
   /* private */
@@ -57,7 +58,7 @@ typedef struct s_cone{
 typedef struct s_sphere{
   /* public */
   void	*next;
-  t_3d	(*collide)(void *, t_3d, t_3d);
+  t_3d	(*collide)(void *, t_3d, t_3d, t_collide *);
   t_3d	(*normal)(void *, t_3d, t_3d);
   FLAG perturb;
   /* private */
@@ -74,7 +75,7 @@ typedef struct s_sphere{
 typedef struct s_plan{
   /* public */
   void	*next;
-  t_3d	(*collide)(void *, t_3d, t_3d);
+  t_3d	(*collide)(void *, t_3d, t_3d, t_collide *);
   t_3d	(*normal)(void *, t_3d, t_3d);
   FLAG perturb;
   /* private */
@@ -91,7 +92,7 @@ typedef struct s_plan{
 typedef struct s_object{
   /* public */
   struct s_object	*next;
-  t_3d	(*collide)(void *, t_3d, t_3d);
+  t_3d	(*collide)(void *, t_3d, t_3d, t_collide *);
   t_3d	(*normal)(void *, t_3d, t_3d);
   FLAG perturb;
   /* private */

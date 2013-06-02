@@ -5,7 +5,7 @@
 ** Login   <collio_v@epitech.net>
 **
 ** Started on  Fri May 31 16:57:37 2013 vincent colliot
-** Last update Fri May 31 21:01:37 2013 vincent colliot
+** Last update Sat Jun  1 21:20:56 2013 vincent colliot
 */
 
 #include <stdio.h>
@@ -48,7 +48,7 @@ static void	scan_line(CLASS_OBJECT *object, FD xml, char *s)
       }
     else
       i++;
-  (void)printf("error :%s not recognized", name);
+  (void)printf("error :%s not recognized\n", name);
 }
 
 void	add_object(void *d, FD xml, char *s)

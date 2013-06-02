@@ -5,7 +5,7 @@
 ** Login   <collio_v@epitech.net>
 **
 ** Started on  Fri May 31 03:06:12 2013 vincent colliot
-** Last update Fri May 31 22:36:08 2013 vincent colliot
+** Last update Sat Jun  1 21:15:02 2013 vincent colliot
 */
 
 #include "display.h"
@@ -37,6 +37,6 @@ void	objects_init(CLASS_OBJECT **object, void *d, char *s, FD xml)
   *object = def_them(((CLASS_DISPLAY*)d)->objects_def,
 		     xml_token(&token, "type", RESOLVE, 0),
 		     token);
-  ((CLASS_OBJECT*)object)->next = ((CLASS_DISPLAY*)d)->objects;
+  (*object)->next = ((CLASS_DISPLAY*)d)->objects;
   ((CLASS_DISPLAY*)d)->objects = *object;
 }

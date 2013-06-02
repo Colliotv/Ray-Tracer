@@ -5,7 +5,7 @@
 ** Login   <collio_v@epitech.net>
 **
 ** Started on  Fri May 31 13:19:02 2013 vincent colliot
-** Last update Fri May 31 15:01:39 2013 vincent colliot
+** Last update Sat Jun  1 21:38:53 2013 vincent colliot
 */
 
 #include "object.h"
@@ -17,11 +17,11 @@ static t_token_scan	*ini_scan(void)
 
   tab = xmalloc(sizeof(*tab) * (4 + 1));
   (tab[0]).call = plan_pos;
-  (tab[0]).name = "position";
+  (tab[0]).name = POSITION;
   (tab[1]).call = plan_color;
-  (tab[1]).name = "color";
+  (tab[1]).name = COLOR;
   (tab[2]).call = plan_focus;
-  (tab[2]).name = "direction";//<--- serait bien de faire des defines;;;;plus tard
+  (tab[2]).name = FOCUS;//<--- serait bien de faire des defines;;;;plus tard
   (tab[3]).call = plan_high;
   (tab[3]).name = "high";
   (tab[4]).call = NULL;

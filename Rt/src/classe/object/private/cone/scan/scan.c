@@ -5,7 +5,7 @@
 ** Login   <collio_v@epitech.net>
 **
 ** Started on  Fri May 31 15:12:00 2013 vincent colliot
-** Last update Fri May 31 20:36:20 2013 vincent colliot
+** Last update Sun Jun  2 02:41:41 2013 vincent colliot
 */
 
 #include <stdio.h>
@@ -52,19 +52,19 @@ void    cone_focus(void *l, t_token *token)
     def_error("x");
   if (!O_IN(s + strspn(s, "-+"), "0123456789."))
     def_error("x");
-  ((t_cone*)l)->focus.x = atof(s);
+  ((t_cone*)l)->focus.x = (atof(s) * M_PI) / 180;
   free(s);
   if ((s = xml_token(&token, "z", RESOLVE, 0)) == NULL)
     def_error("z");
   if (!O_IN(s + strspn(s, "-+"), "0123456789."))
     def_error("z");
-  ((t_cone*)l)->focus.z = atof(s);
+  ((t_cone*)l)->focus.z = (atof(s) * M_PI) / 180;
   free(s);
   if ((s = xml_token(&token, "y", RESOLVE, 0)) == NULL)
     def_error("y");
   if (!O_IN(s + strspn(s, "-+"), "0123456789."))
     def_error("y");
-  ((t_cone*)l)->focus.y = atof(s);
+  ((t_cone*)l)->focus.y = (atof(s) * M_PI) / 180;
   free(s);
   ((t_cone*)l)->focus = convert_focus(((t_cone*)l)->focus);
 }
@@ -77,7 +77,8 @@ void	cone_angle(void *l, t_token *token)
     def_error("angle");
   if (!O_IN(s + strspn(s, "-+"), "0123456789."))
     def_error("angle");
-  (((t_cone*)l)->angle) = atof(s);
+  (((t_cone*)l)->angle) = (atof(s) * M_PI) / 180;
+  free(s);
 }
 
 void	cone_color(void *l, t_token *token)

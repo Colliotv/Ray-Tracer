@@ -5,7 +5,7 @@
 ** Login   <collio_v@epitech.net>
 **
 ** Started on  Mon May 27 16:48:42 2013 vincent colliot
-** Last update Fri May 31 21:49:42 2013 vincent colliot
+** Last update Sat Jun  1 23:09:57 2013 vincent colliot
 */
 
 #include <unistd.h>
@@ -32,7 +32,7 @@ static BOOL check_fd(char *s, FD xml, FLAG i, char **r)
   if ((s = (*r = get_next_line(xml))) == NULL)
     (void)lerror("no </scene> close");
   if (i == END && MATCH("</scene>", s + hempty(s)))
-    (void)lerror("no </scene> close");
+    return (FALSE);
   else if (i == END)
     return (TRUE);
   return (FALSE);
@@ -64,7 +64,7 @@ void	xml_scan(CLASS_DISPLAY *d, int ac, char **av)
 
   check = FALSE;
   display_init(d);
-  if (ac != 2 || (xml = open(av[1], O_RDONLY)) == -1)
+  if (ac != 2 || (xml = open(av[1], O_RDWR)) == -1)
     lerror(USAGE);
   if ((check = check_fd(get_next_line(xml), xml, INIT, &s)) == FALSE)
     lerror(USAGE);// || WRONG_FILE ?

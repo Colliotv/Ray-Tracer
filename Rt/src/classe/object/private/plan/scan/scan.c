@@ -5,7 +5,7 @@
 ** Login   <collio_v@epitech.net>
 **
 ** Started on  Fri May 31 15:20:09 2013 vincent colliot
-** Last update Fri May 31 20:36:43 2013 vincent colliot
+** Last update Sat Jun  1 23:25:15 2013 vincent colliot
 */
 
 #include <stdio.h>
@@ -52,19 +52,19 @@ void    plan_focus(void *l, t_token *token)
     def_error("x");
   if (!O_IN(s + strspn(s, "-+"), "0123456789."))
     def_error("x");
-  ((t_plan*)l)->focus.x = atof(s);
+  ((t_plan*)l)->focus.x = (atof(s) * M_PI) / 180.0;
   free(s);
   if ((s = xml_token(&token, "z", RESOLVE, 0)) == NULL)
     def_error("z");
   if (!O_IN(s + strspn(s, "-+"), "0123456789."))
     def_error("z");
-  ((t_plan*)l)->focus.z = atof(s);
+  ((t_plan*)l)->focus.z = (atof(s) * M_PI) / 180.0;
   free(s);
   if ((s = xml_token(&token, "y", RESOLVE, 0)) == NULL)
     def_error("y");
   if (!O_IN(s + strspn(s, "-+"), "0123456789."))
     def_error("y");
-  ((t_plan*)l)->focus.y = atof(s);
+  ((t_plan*)l)->focus.y = (atof(s) * M_PI) / 180.0;
   free(s);
   ((t_plan*)l)->focus = convert_focus(((t_plan*)l)->focus);
 }
@@ -73,7 +73,7 @@ void	plan_high(void *l, t_token *token)
 {
   char	*s;
 
-  if ((s = xml_token(&token, "R", RESOLVE, 0)) == NULL)
+  if ((s = xml_token(&token, "D", RESOLVE, 0)) == NULL)
     def_error("rayon");
   if (!O_IN(s + strspn(s, "-+"), "0123456789."))
     def_error("rayon");

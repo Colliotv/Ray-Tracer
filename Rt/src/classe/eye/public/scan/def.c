@@ -5,9 +5,10 @@
 ** Login   <collio_v@epitech.net>
 **
 ** Started on  Fri May 31 02:39:32 2013 vincent colliot
-** Last update Fri May 31 20:35:17 2013 vincent colliot
+** Last update Sat Jun  1 23:17:33 2013 vincent colliot
 */
 
+#include <math.h>
 #include <stdio.h>
 #include <unistd.h>
 #include "strings.h"
@@ -52,18 +53,18 @@ void    eye_focus(void *l, t_token *token)
     def_error("x");
   if (!O_IN(s + strspn(s, "-+"), "0123456789."))
     def_error("x");
-  ((CLASS_EYE*)l)->focus.x = atof(s);
+  ((CLASS_EYE*)l)->focus.x = (atof(s) * M_PI) / 180;
   free(s);
   if ((s = xml_token(&token, "z", RESOLVE, 0)) == NULL)
     def_error("z");
   if (!O_IN(s + strspn(s, "-+"), "0123456789."))
     def_error("z");
-  ((CLASS_EYE*)l)->focus.z = atof(s);
+  ((CLASS_EYE*)l)->focus.z = (atof(s) * M_PI) / 180;
   free(s);
   if ((s = xml_token(&token, "y", RESOLVE, 0)) == NULL)
     def_error("y");
   if (!O_IN(s + strspn(s, "-+"), "0123456789."))
     def_error("y");
-  ((CLASS_EYE*)l)->focus.y = atof(s);
+  ((CLASS_EYE*)l)->focus.y = (atof(s) * M_PI) / 180;
   free(s);
 }

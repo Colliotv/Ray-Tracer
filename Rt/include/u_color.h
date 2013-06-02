@@ -5,14 +5,14 @@
 ** Login   <collio_v@epitech.net>
 **
 ** Started on  Thu May 30 23:33:33 2013 vincent colliot
-** Last update Thu May 30 23:35:14 2013 vincent colliot
+** Last update Sat Jun  1 23:19:13 2013 vincent colliot
 */
 
 #ifndef U_COLOR_H_
 # define U_COLOR_H_
 
 typedef union u_color{
-  char rgb[4];
+  unsigned char rgb[4];
   unsigned int i;
 }		t_color;
 

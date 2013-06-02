@@ -5,7 +5,7 @@
 ** Login   <collio_v@epitech.net>
 **
 ** Started on  Fri May 31 13:33:06 2013 vincent colliot
-** Last update Fri May 31 15:03:36 2013 vincent colliot
+** Last update Sat Jun  1 23:05:44 2013 vincent colliot
 */
 
 #include "object.h"
@@ -17,13 +17,13 @@ static t_token_scan	*ini_scan(void)
 
   tab = xmalloc(sizeof(*tab) * (3 + 1));
   (tab[0]).call = sphere_pos;
-  (tab[0]).name = "position";
+  (tab[0]).name = POSITION;
   (tab[1]).call = sphere_color;
-  (tab[1]).name = "color";
-  (tab[1]).call = sphere_rayon;
-  (tab[1]).name = "rayon";//<--- serait bien de faire des defines;;;;plus tard
-  (tab[2]).call = NULL;
-  (tab[2]).name = NULL;
+  (tab[1]).name = COLOR;
+  (tab[2]).call = sphere_rayon;
+  (tab[2]).name = "rayon";//<--- serait bien de faire des defines;;;;plus tard
+  (tab[3]).call = NULL;
+  (tab[3]).name = NULL;
   return (tab);
 }
 

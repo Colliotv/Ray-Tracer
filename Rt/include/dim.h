@@ -5,12 +5,21 @@
 ** Login   <collio_v@epitech.net>
 **
 ** Started on  Mon May 27 18:24:15 2013 vincent colliot
-** Last update Fri May 31 15:37:52 2013 vincent colliot
+** Last update Sun Jun  2 01:46:44 2013 vincent colliot
 */
 
 #ifndef DIM_H_
 # define DIM_H_
 
+#include <math.h>
+	/* calculs */
+typedef struct s_3e{
+  double a;
+  double b;
+  double c;
+}		t_3e;
+
+	/* coord */
 typedef struct s_3d{
   double	x;
   double	y;
@@ -33,6 +42,9 @@ typedef struct s_2i{
   int	y;
 }		t_2i;
 
+	/* calc */
+# define C(r) ((r) * (r))
 	/* convert */
 t_3d	convert_focus(t_3d);
+t_3d	convert_dist(t_3d,t_3d,double);
 #endif
