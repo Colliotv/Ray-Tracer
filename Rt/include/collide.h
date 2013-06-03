@@ -5,7 +5,7 @@
 ** Login   <collio_v@epitech.net>
 **
 ** Started on  Sat Jun  1 22:59:52 2013 vincent colliot
-** Last update Mon Jun  3 16:04:20 2013 vincent colliot
+** Last update Mon Jun  3 17:09:22 2013 vincent colliot
 */
 
 #ifndef COLLIDE_H_
@@ -31,11 +31,15 @@ typedef struct s_collide{
   double	k[MAX_DEGREE_LVL];
   t_3d		collide;
   t_3d		normal;
+  /* light part */
+  t_3d		light;
+  t_3d		r_light;
+  void		*ld;
   /* color part */
   t_color	color;
   double	shining;
-  double	alpha;//reverb
-  double	gamma;//transparence
+  double	alpha;
+  double	gamma;
 }		t_collide;
 
 t_3d	collide_arrange(t_collide *, t_3d, t_3d);

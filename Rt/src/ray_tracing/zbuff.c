@@ -5,7 +5,7 @@
 ** Login   <collio_v@epitech.net>
 **
 ** Started on  Mon Jun  3 00:47:07 2013 vincent colliot
-** Last update Mon Jun  3 16:14:50 2013 vincent colliot
+** Last update Mon Jun  3 17:32:35 2013 vincent colliot
 */
 
 #include <strings.h>
@@ -13,6 +13,7 @@
 #include "screen.h"
 #include "dim.h"
 #include "spot.h"
+#include "get_color.h"
 
 static BOOL	fill_collide(CLASS_OBJECT *object, t_3d ray, t_3d pos,
 			     t_collide *collide)
@@ -55,4 +56,35 @@ t_color	zbuffering(CLASS_DISPLAY *d, CLASS_OBJECT *object, t_3d ray, double reve
       object = object->next;
     }
   return (collide.color);
+}
+
+t_color	spot_add(t_collide collide, t_color color, double ct,
+		 CLASS_OBJECT *object)
+{
+  t_3d		posit;
+  size_t	i;
+  t_collide     new;
+  t_color	new_color;
+
+  bzero(&new_color, sizeof(new_color));
+  bzero(&new, sizeof(new));
+  if (!object || !color.i || ct <= 0)
+    return (add_color(new_color, color, ct, &color));
+  if (!fill_collide(object, collide.r_light, collide.light, &new))
+    return (spot_add(collide, color, ct, object->next));
+  new.alpha = ct - object->alpha + (i = 0);
+  new.gamma = ct - object->gamma;
+  posit = ((CLASS_DISPLAY*)(collide.ld))->eye->position;
+  while (new.up_to + i < new.defined && ct > 0)
+    {
+      ((CLASS_DISPLAY*)(collide.ld))->eye->position
+	= dist_convert(collide.light, collide.r_light,
+		       (new.k)[new.up_to + (i++)]);
+      color = add_color(color, object->get_color(collide.ld,
+						 (void*)object, new,
+						 collide.r_light),
+			ct -= object->gamma, &color);
+    }
+  ((CLASS_DISPLAY*)(collide.ld))->eye->position = posit;
+  return (spot_add(collide, color, ct, object->next));
 }

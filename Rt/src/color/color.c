@@ -5,7 +5,7 @@
 ** Login   <collio_v@epitech.net>
 **
 ** Started on  Mon Jun  3 13:28:19 2013 vincent colliot
-** Last update Mon Jun  3 15:58:45 2013 vincent colliot
+** Last update Mon Jun  3 17:25:19 2013 vincent colliot
 */
 
 #define IN_
@@ -48,6 +48,7 @@ static t_3d	gamma_ray(t_collide collide, t_3d ray)
 
 t_color	get_color(CLASS_DISPLAY *d, void *object, t_collide collide, t_3d ray)
 {
+  t_3d		posit;
   t_color	color;
   t_color	calpha;
   t_color	cgamma;
@@ -55,10 +56,13 @@ t_color	get_color(CLASS_DISPLAY *d, void *object, t_collide collide, t_3d ray)
   bzero(&calpha, sizeof(calpha));
   bzero(&cgamma, sizeof(cgamma));
   color = ((CLASS_OBJECT*)object)->color;
+  posit = d->eye->position;
+  d->eye->position = collide.collide;
   if (collide.alpha > 0)
     calpha = zbuffering(d, d->objects, alpha_ray(collide, ray), collide.alpha);
   if (collide.gamma > 0)
     cgamma = zbuffering(d, d->objects, gamma_ray(collide, ray), collide.gamma);
+  d->eye->position = posit;
   if (collide.alpha > 0)
     add_color(color, calpha, collide.alpha, &color);
   if (collide.gamma > 0)
@@ -67,10 +71,16 @@ t_color	get_color(CLASS_DISPLAY *d, void *object, t_collide collide, t_3d ray)
 }
 
 
-void	add_color(t_color c1, t_color c2, double value, t_color *r)
+t_color	add_color(t_color c1, t_color c2, double value, t_color *r)
 {
+  if (value <= 0)
+    {
+      bzero(r, sizeof(r));
+      return (*r);
+    }
   value -= (int)value;
   (r->rgb)[R] = (c1.rgb)[R] * (1 - value) + (c2.rgb)[R] * value;
   (r->rgb)[G] = (c1.rgb)[G] * (1 - value) + (c2.rgb)[G] * value;
   (r->rgb)[B] = (c1.rgb)[B] * (1 - value) + (c2.rgb)[B] * value;
+  return (*r);
 }
