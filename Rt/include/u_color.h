@@ -5,7 +5,7 @@
 ** Login   <collio_v@epitech.net>
 **
 ** Started on  Thu May 30 23:33:33 2013 vincent colliot
-** Last update Sat Jun  1 23:19:13 2013 vincent colliot
+** Last update Mon Jun  3 15:39:19 2013 vincent colliot
 */
 
 #ifndef U_COLOR_H_

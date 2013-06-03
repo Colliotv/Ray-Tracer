@@ -4,7 +4,7 @@
 ## Login   <collio_v@epitech.net>
 ##
 ## Started on Thu Oct 25 22:06:03 2012 vincent colliot
-## Last update Mon Jun  3 01:51:58 2013 vincent colliot
+## Last update Mon Jun  3 16:33:53 2013 vincent colliot
 ##
 
 NAME    = rt
@@ -29,7 +29,8 @@ LIB	=$(S_LIB)s_lenth.c\
 	$(X_LIB)lerror.c\
 
 F_CONVERT=$(SRCF)convert/
-CONVERT	=$(F_CONVERT)convert.c
+CONVERT	=$(F_CONVERT)convert.c\
+	$(F_CONVERT)convert2.c\
 
 F_COLLIDE=$(SRCF)collide/
 COLLIDE	=$(F_COLLIDE)collide.c\
@@ -47,6 +48,13 @@ LOAD	=$(F_LOAD)img.c\
 
 F_RAY	=$(SRCF)ray_tracing/
 RAY	=$(F_RAY)load.c\
+	$(F_RAY)zbuff.c\
+
+F_COLOR	=$(SRCF)color/
+COLOR	=$(F_COLOR)color.c
+
+F_SPOT	=$(SRCF)spot/
+SPOT	=$(F_SPOT)spot.c\
 
 ##     CLASSE       ##
 #		     #
@@ -196,6 +204,8 @@ SRC     =$(MAIN)\
 	$(COLLIDE)\
 	$(LOAD)\
 	$(RAY)\
+	$(COLOR)\
+	$(SPOT)\
 
 ######################
 

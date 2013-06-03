@@ -5,7 +5,7 @@
 ** Login   <collio_v@epitech.net>
 **
 ** Started on  Fri May 31 15:09:00 2013 vincent colliot
-** Last update Mon Jun  3 01:50:43 2013 vincent colliot
+** Last update Mon Jun  3 15:37:26 2013 vincent colliot
 */
 
 #ifndef M_CONE_H_

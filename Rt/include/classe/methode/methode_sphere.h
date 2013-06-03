@@ -5,7 +5,7 @@
 ** Login   <collio_v@epitech.net>
 **
 ** Started on  Fri May 31 15:02:25 2013 vincent colliot
-** Last update Mon Jun  3 01:50:15 2013 vincent colliot
+** Last update Mon Jun  3 15:37:52 2013 vincent colliot
 */
 
 #ifndef M_SPHERE_H_

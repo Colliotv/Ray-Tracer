@@ -5,12 +5,13 @@
 ** Login   <collio_v@epitech.net>
 **
 ** Started on  Fri May 31 03:06:12 2013 vincent colliot
-** Last update Sat Jun  1 21:15:02 2013 vincent colliot
+** Last update Mon Jun  3 15:39:01 2013 vincent colliot
 */
 
 #include "display.h"
 #include "strings.h"
 #include "lerror.h"
+#include "get_color.h"
 
 static void	*def_them(t_token_scan *scan, char *type, t_token *token)
 {
@@ -38,5 +39,6 @@ void	objects_init(CLASS_OBJECT **object, void *d, char *s, FD xml)
 		     xml_token(&token, "type", RESOLVE, 0),
 		     token);
   (*object)->next = ((CLASS_DISPLAY*)d)->objects;
+  (*object)->get_color = get_color;
   ((CLASS_DISPLAY*)d)->objects = *object;
 }

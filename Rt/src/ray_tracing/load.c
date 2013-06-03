@@ -5,10 +5,11 @@
 ** Login   <collio_v@epitech.net>
 **
 ** Started on  Sun Jun  2 23:40:44 2013 vincent colliot
-** Last update Mon Jun  3 02:07:44 2013 vincent colliot
+** Last update Mon Jun  3 16:02:15 2013 vincent colliot
 */
 
-# include "screen.h"
+#include "screen.h"
+#include "zbuffer.h"
 
 static t_3d	ray_adapt(t_3d f, t_2i pix)
 {
@@ -40,7 +41,8 @@ void	load_img(t_screen *screen, CLASS_DISPLAY *d)
       pix.x = 0;
       while (pix.x < SCREEN_SIZE_X)
 	{
-	  color.i = zbuffering(d, d->objects, ray_adapt(d->eye->focus, pix),
+	  color = zbuffering(d, d->objects,
+			       convert_norm(ray_adapt(d->eye->focus, pix)),
 			       1);
 	  pix_it(screen, pix, color);
 	  pix.x += d->eye->scale;

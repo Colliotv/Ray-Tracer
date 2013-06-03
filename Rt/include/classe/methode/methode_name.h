@@ -5,7 +5,7 @@
 ** Login   <collio_v@epitech.net>
 **
 ** Started on  Sat Jun  1 21:37:40 2013 vincent colliot
-** Last update Sat Jun  1 21:38:35 2013 vincent colliot
+** Last update Mon Jun  3 15:33:33 2013 vincent colliot
 */
 
 #ifndef METHODE_NAME_H_

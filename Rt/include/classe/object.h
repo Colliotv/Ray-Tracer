@@ -5,7 +5,7 @@
 ** Login   <collio_v@epitech.net>
 **
 ** Started on  Thu May 16 22:11:47 2013 vincent colliot
-** Last update Mon Jun  3 01:18:21 2013 vincent colliot
+** Last update Mon Jun  3 16:09:39 2013 vincent colliot
 */
 
 #ifndef OBJECT_H_
@@ -17,14 +17,18 @@
 # include "methode_name.h"
 # include "collide.h"
 struct s_object;
-
+struct s_display;
 #include "methode_cylindre.h"
 typedef struct s_cylindre{
   /* public */
   void	*next;
   t_3d	(*collide)(void *, t_3d, t_3d, t_collide *);
   t_3d	(*normal)(void *, t_3d);
+  t_color (*get_color)(struct s_display *, void *, t_collide, t_3d);
   FLAG perturb;
+  double alpha;
+  double gamma;
+  double shine;
   /* private */
   t_token_scan *obj_scan;
   t_token_scan *scan;
@@ -42,7 +46,11 @@ typedef struct s_cone{
   void	*next;
   t_3d	(*collide)(void *, t_3d, t_3d, t_collide *);
   t_3d	(*normal)(void *, t_3d);
+  t_color (*get_color)(struct s_display *, void *, t_collide, t_3d);
   FLAG perturb;
+  double alpha;
+  double gamma;
+  double shine;
   /* private */
   t_token_scan *obj_scan;
   t_token_scan *scan;
@@ -60,7 +68,11 @@ typedef struct s_sphere{
   void	*next;
   t_3d	(*collide)(void *, t_3d, t_3d, t_collide *);
   t_3d	(*normal)(void *, t_3d);
+  t_color (*get_color)(struct s_display *, void *, t_collide, t_3d);
   FLAG perturb;
+  double alpha;
+  double gamma;
+  double shine;
   /* private */
   t_token_scan *obj_scan;
   t_token_scan *scan;
@@ -77,7 +89,11 @@ typedef struct s_plan{
   void	*next;
   t_3d	(*collide)(void *, t_3d, t_3d, t_collide *);
   t_3d	(*normal)(void *, t_3d);
+  t_color (*get_color)(struct s_display *, void *, t_collide, t_3d);
   FLAG perturb;
+  double alpha;
+  double gamma;
+  double shine;
   /* private */
   t_token_scan *obj_scan;
   t_token_scan *scan;
@@ -93,7 +109,11 @@ typedef struct s_object{
   struct s_object	*next;
   t_3d	(*collide)(void *, t_3d, t_3d, t_collide *);
   t_3d	(*normal)(void *, t_3d);
+  t_color (*get_color)(struct s_display *, void *, t_collide, t_3d);
   FLAG perturb;
+  double alpha;
+  double gamma;
+  double shine;
   /* private */
   t_token_scan *obj_scan;
   t_token_scan *scan;
