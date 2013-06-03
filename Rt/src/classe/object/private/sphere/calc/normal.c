@@ -5,8 +5,11 @@
 ** Login   <collio_v@epitech.net>
 **
 ** Started on  Mon Jun  3 01:21:18 2013 vincent colliot
-** Last update Mon Jun  3 01:38:06 2013 vincent colliot
+** Last update Mon Jun  3 01:49:31 2013 vincent colliot
 */
+
+#include "object.h"
+#include "dim.h"
 
 t_3d	normal_sphere(void *sphere, t_3d collide)
 {

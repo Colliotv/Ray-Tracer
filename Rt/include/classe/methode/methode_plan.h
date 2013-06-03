@@ -5,7 +5,7 @@
 ** Login   <collio_v@epitech.net>
 **
 ** Started on  Fri May 31 14:57:19 2013 vincent colliot
-** Last update Sun Jun  2 03:55:01 2013 vincent colliot
+** Last update Mon Jun  3 01:50:24 2013 vincent colliot
 */
 
 #ifndef M_PLAN_H_
@@ -19,5 +19,6 @@ void	plan_high(void*,t_token*);
 
 	/* collide */
 t_3d	collide_plan(void *, t_3d, t_3d, t_collide *);
+t_3d	normal_plan(void *, t_3d);
 
 #endif

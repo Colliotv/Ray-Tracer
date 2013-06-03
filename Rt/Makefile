@@ -4,7 +4,7 @@
 ## Login   <collio_v@epitech.net>
 ##
 ## Started on Thu Oct 25 22:06:03 2012 vincent colliot
-## Last update Mon Jun  3 00:06:29 2013 vincent colliot
+## Last update Mon Jun  3 01:51:58 2013 vincent colliot
 ##
 
 NAME    = rt
@@ -134,24 +134,28 @@ F_CONE	=$(F_OPRIV)cone/
 CONE	=$(F_CONE)init/init.c\
 	$(F_CONE)scan/scan.c\
 	$(F_CONE)calc/collide.c\
+	$(F_CONE)calc/normal.c\
 
 F_SPHERE=$(F_OPRIV)sphere/
 
 SPHERE	=$(F_SPHERE)init/init.c\
 	$(F_SPHERE)scan/scan.c\
 	$(F_SPHERE)calc/collide.c\
+	$(F_SPHERE)calc/normal.c\
 
 F_PLAN	=$(F_OPRIV)plan/
 
 PLAN	=$(F_PLAN)init/init.c\
 	$(F_PLAN)scan/scan.c\
 	$(F_PLAN)calc/collide.c\
+	$(F_PLAN)calc/normal.c\
 
 F_CYLIND=$(F_OPRIV)cylindre/
 
 CYLINDER=$(F_CYLIND)init/init.c\
 	$(F_CYLIND)scan/scan.c\
 	$(F_CYLIND)calc/collide.c\
+	$(F_CYLIND)calc/normal.c\
 
 SUBF	=$(CONE)\
 	$(CYLINDER)\

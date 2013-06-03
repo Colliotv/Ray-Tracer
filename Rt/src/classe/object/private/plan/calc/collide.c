@@ -5,7 +5,7 @@
 ** Login   <collio_v@epitech.net>
 **
 ** Started on  Sat Jun  1 23:42:58 2013 vincent colliot
-** Last update Mon Jun  3 01:19:01 2013 vincent colliot
+** Last update Mon Jun  3 01:48:25 2013 vincent colliot
 */
 
 #include "object.h"

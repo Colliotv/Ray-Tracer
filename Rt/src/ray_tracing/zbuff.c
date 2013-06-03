@@ -5,7 +5,7 @@
 ** Login   <collio_v@epitech.net>
 **
 ** Started on  Mon Jun  3 00:47:07 2013 vincent colliot
-** Last update Mon Jun  3 01:09:56 2013 vincent colliot
+** Last update Mon Jun  3 02:13:56 2013 vincent colliot
 */
 
 #include <strings.h>
@@ -35,17 +35,20 @@ static BOOL	fill_collide(CLASS_OBJECT *object, t_3d ray, t_3d pos,
   return (TRUE);
 }
 
-t_color	zbuffering(CLASS_DISPLAY *d, CLASS_OBJECT *o, t_3d ray)
+t_color	zbuffering(CLASS_DISPLAY *d, CLASS_OBJECT *object, t_3d ray, double reverb)
 {
   t_collide	collide;
 
   bzero(&collide, sizeof(collide));
-  while (o)
+  while (object)
     {
-      if (fill_collide(o, ray, d->eye->position, &collide))
+      if (fill_collide(object, ray, d->eye->position, &collide))
 	{
-
+	  collide.alpha = reverb - object.alpha;
+	  collide.gamma = reverb - object.gamma;
+	  collide.color = object->get_color(d, (void*)object, collide, ray);
+	  collide.color = add_spot_color(collide, d->lights, d->objects);
 	}
-      o = o->next;
+      object = object->next;
     }
 }

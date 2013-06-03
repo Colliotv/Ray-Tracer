@@ -5,8 +5,11 @@
 ** Login   <collio_v@epitech.net>
 **
 ** Started on  Mon Jun  3 01:23:44 2013 vincent colliot
-** Last update Mon Jun  3 01:41:32 2013 vincent colliot
+** Last update Mon Jun  3 01:49:12 2013 vincent colliot
 */
+
+#include "object.h"
+#include "dim.h"
 
 t_3d	normal_cylindre(void *cylindre, t_3d collide)
 {

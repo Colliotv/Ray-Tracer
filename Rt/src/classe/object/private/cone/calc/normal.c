@@ -5,8 +5,11 @@
 ** Login   <collio_v@epitech.net>
 **
 ** Started on  Mon Jun  3 01:41:25 2013 vincent colliot
-** Last update Mon Jun  3 01:44:54 2013 vincent colliot
+** Last update Mon Jun  3 01:48:49 2013 vincent colliot
 */
+
+#include "object.h"
+#include "dim.h"
 
 t_3d	normal_cone(void *cone, t_3d collide)
 {

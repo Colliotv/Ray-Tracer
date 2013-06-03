@@ -5,7 +5,7 @@
 ** Login   <collio_v@epitech.net>
 **
 ** Started on  Sun Jun  2 23:40:44 2013 vincent colliot
-** Last update Mon Jun  3 00:48:37 2013 vincent colliot
+** Last update Mon Jun  3 02:07:44 2013 vincent colliot
 */
 
 # include "screen.h"
@@ -40,7 +40,8 @@ void	load_img(t_screen *screen, CLASS_DISPLAY *d)
       pix.x = 0;
       while (pix.x < SCREEN_SIZE_X)
 	{
-	  color.i = zbuffering(d, d->objects, ray_adapt(d->eye->focus, pix));
+	  color.i = zbuffering(d, d->objects, ray_adapt(d->eye->focus, pix),
+			       1);
 	  pix_it(screen, pix, color);
 	  pix.x += d->eye->scale;
 	}
