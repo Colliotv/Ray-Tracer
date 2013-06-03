@@ -5,9 +5,10 @@
 ** Login   <collio_v@epitech.net>
 **
 ** Started on  Fri May 31 13:30:13 2013 vincent colliot
-** Last update Mon Jun  3 01:48:12 2013 vincent colliot
+** Last update Mon Jun  3 21:34:16 2013 vincent colliot
 */
 
+#include <strings.h>
 #include "object.h"
 #include "xmalloc.h"
 
@@ -35,6 +36,7 @@ void	cone_init(void *o, t_token *token)
 
   (void)token;
   s = xmalloc(sizeof(*s));
+  bzero(s, sizeof(*s));
   s->scan = ini_scan();
   s->collide = collide_cone;
   s->normal = normal_cone;

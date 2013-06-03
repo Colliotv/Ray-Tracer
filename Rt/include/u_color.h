@@ -5,7 +5,7 @@
 ** Login   <collio_v@epitech.net>
 **
 ** Started on  Thu May 30 23:33:33 2013 vincent colliot
-** Last update Mon Jun  3 15:39:19 2013 vincent colliot
+** Last update Mon Jun  3 21:21:07 2013 vincent colliot
 */
 
 #ifndef U_COLOR_H_
@@ -17,8 +17,8 @@ typedef union u_color{
 }		t_color;
 
 # define A 0
-# define R 1
-# define G 2
-# define B 3
+# define R 0
+# define G 1
+# define B 2
 
 #endif

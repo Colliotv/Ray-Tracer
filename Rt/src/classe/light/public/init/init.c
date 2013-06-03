@@ -5,9 +5,10 @@
 ** Login   <collio_v@epitech.net>
 **
 ** Started on  Mon May 27 17:17:33 2013 vincent colliot
-** Last update Fri May 31 13:23:26 2013 vincent colliot
+** Last update Mon Jun  3 19:32:07 2013 vincent colliot
 */
 
+#include "strings.h"
 #include "light.h"
 #include "string.h"
 #include "xmalloc.h"
@@ -29,6 +30,7 @@ static t_token_scan	*ini_scan(void)
 
 void	light_init(void *light, void *d)
 {
+  bzero(light, sizeof(CLASS_LIGHT));
   ((CLASS_LIGHT*)light)->scan = ini_scan();
   ((CLASS_LIGHT*)light)->next = ((CLASS_DISPLAY*)d)->lights;
   ((CLASS_DISPLAY*)d)->lights = light;

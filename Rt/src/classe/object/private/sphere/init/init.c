@@ -5,9 +5,10 @@
 ** Login   <collio_v@epitech.net>
 **
 ** Started on  Fri May 31 13:33:06 2013 vincent colliot
-** Last update Mon Jun  3 01:49:25 2013 vincent colliot
+** Last update Mon Jun  3 21:34:08 2013 vincent colliot
 */
 
+#include <strings.h>
 #include "object.h"
 #include "xmalloc.h"
 
@@ -33,6 +34,7 @@ void	sphere_init(void *o, t_token *token)
 
   (void)token;
   s = xmalloc(sizeof(*s));
+  bzero(s, sizeof(*s));
   s->scan = ini_scan();
   s->collide = collide_sphere;
   s->normal = normal_sphere;

@@ -1,0 +1,40 @@
+==31073== Memcheck, a memory error detector
+==31073== Copyright (C) 2002-2010, and GNU GPL'd, by Julian Seward et al.
+==31073== Using Valgrind-3.6.1 and LibVEX; rerun with -h for copyright info
+==31073== Command: ./rt file_example/ex.xml
+==31073== Parent PID: 6607
+==31073==
+==31073== Invalid write of size 4
+==31073==    at 0x407C66: save (put_pixel.c:18)
+==31073==    by 0x407CAB: pix_it (put_pixel.c:23)
+==31073==    by 0x4082B9: load_img (load.c:47)
+==31073==    by 0x401729: main (main.c:27)
+==31073==  Address 0x6b9b000 is not stack'd, malloc'd or (recently) free'd
+==31073==
+==31073==
+==31073== Process terminating with default action of signal 11 (SIGSEGV)
+==31073==  Access not within mapped region at address 0x6B9B000
+==31073==    at 0x407C66: save (put_pixel.c:18)
+==31073==    by 0x407CAB: pix_it (put_pixel.c:23)
+==31073==    by 0x4082B9: load_img (load.c:47)
+==31073==    by 0x401729: main (main.c:27)
+==31073==  If you believe this happened as a result of a stack
+==31073==  overflow in your program's main thread (unlikely but
+==31073==  possible), you can try to increase the size of the
+==31073==  main thread stack using the --main-stacksize= flag.
+==31073==  The main thread stack size used in this run was 8388608.
+==31073==
+==31073== HEAP SUMMARY:
+==31073==     in use at exit: 64,159 bytes in 118 blocks
+==31073==   total heap usage: 302 allocs, 184 frees, 70,361 bytes allocated
+==31073==
+==31073== LEAK SUMMARY:
+==31073==    definitely lost: 3,249 bytes in 39 blocks
+==31073==    indirectly lost: 0 bytes in 0 blocks
+==31073==      possibly lost: 0 bytes in 0 blocks
+==31073==    still reachable: 60,910 bytes in 79 blocks
+==31073==         suppressed: 0 bytes in 0 blocks
+==31073== Rerun with --leak-check=full to see details of leaked memory
+==31073==
+==31073== For counts of detected and suppressed errors, rerun with: -v
+==31073== ERROR SUMMARY: 139 errors from 70 contexts (suppressed: 7 from 7)

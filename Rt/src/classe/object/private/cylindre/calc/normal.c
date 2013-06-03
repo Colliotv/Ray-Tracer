@@ -5,21 +5,24 @@
 ** Login   <collio_v@epitech.net>
 **
 ** Started on  Mon Jun  3 01:23:44 2013 vincent colliot
-** Last update Mon Jun  3 01:49:12 2013 vincent colliot
+** Last update Mon Jun  3 23:44:30 2013 vincent colliot
 */
 
+#include <strings.h>
 #include "object.h"
 #include "dim.h"
 
 t_3d	normal_cylindre(void *cylindre, t_3d collide)
 {
+  t_3d	normal;
   t_3d	narmol;
 
+  bzero(&normal, sizeof(normal));
   narmol.x = collide.x - ((t_cylindre*)cylindre)->position.x;
-  narmol.y = collide.x - ((t_cylindre*)cylindre)->position.x;
-  narmol.z = collide.y - ((t_cylindre*)cylindre)->position.y;
-  narmol.x = narmol.x - narmol.x * ((t_cylindre*)cylindre)->focus.x;
-  narmol.x = narmol.y - narmol.y * ((t_cylindre*)cylindre)->focus.y;
-  narmol.z = narmol.z - narmol.z * ((t_cylindre*)cylindre)->focus.z;
-  return (narmol);
+  narmol.y = collide.y - ((t_cylindre*)cylindre)->position.y;
+  narmol.z = collide.z - ((t_cylindre*)cylindre)->position.z;
+  normal.x -= narmol.x - narmol.x * ((t_cylindre*)cylindre)->focus.x;
+  normal.y -= narmol.y - narmol.y * ((t_cylindre*)cylindre)->focus.y;
+  normal.z -= narmol.z - narmol.z * ((t_cylindre*)cylindre)->focus.z;
+  return (normal);
 }

@@ -5,7 +5,7 @@
 ** Login   <collio_v@epitech.net>
 **
 ** Started on  Mon May 27 16:36:06 2013 vincent colliot
-** Last update Fri May 31 21:57:38 2013 vincent colliot
+** Last update Mon Jun  3 20:37:31 2013 vincent colliot
 */
 
 #include "xmalloc.h"
@@ -39,7 +39,7 @@ static t_token_scan	*def_init(void)
   tab[2].call = cone_init;
   tab[2].name = "cone";
   tab[2].call = cylindre_init;
-  tab[2].name = "cylndre";
+  tab[2].name = "cylindre";
   tab[3].call = NULL;
   tab[3].name = NULL;
   return (tab);

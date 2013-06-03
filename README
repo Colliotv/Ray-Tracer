@@ -1,0 +1,1 @@
+--->pour tout testeur de valgrind -->ignorez le serreurs affiché par valgrind sur strspn c'est un erreur non-existante (mais les autres sont bien réelles)

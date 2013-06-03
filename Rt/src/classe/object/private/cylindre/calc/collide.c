@@ -5,7 +5,7 @@
 ** Login   <collio_v@epitech.net>
 **
 ** Started on  Sun Jun  2 01:41:50 2013 vincent colliot
-** Last update Sun Jun  2 03:36:53 2013 vincent colliot
+** Last update Mon Jun  3 20:57:11 2013 vincent colliot
 */
 
 #include "object.h"
@@ -27,15 +27,15 @@ t_3d	collide_cylindre(void *cylindre, t_3d pos, t_3d r, t_collide *k)
 
   init(&p, &f, &rayon, (t_cylindre*)cylindre);
   D.a = C(r.x) + C(r.y) + C(r.z) - C(f.x * r.x + f.y * r.y + f.z * r.z);
-  D.b = 2 * (r.x * (pos.x - p.x) + r.y * (pos.y - p.y) + r.y * (pos.y - p.y))
+  D.b = 2 * (r.x * (pos.x - p.x) + r.y * (pos.y - p.y) + r.z * (pos.z - p.z))
     - 2 * (r.x * f.x + r.y * f.y + r.z * f.z)
     * (f.x * (pos.x - p.x) + f.y * (pos.y - p.y) + f.z * (pos.z - p.z));
-  D.c = C(pos.x - p.x) + C(pos.y - p.y) + C(pos.x - p.x) - C(rayon)
+  D.c = C(pos.x - p.x) + C(pos.y - p.y) + C(pos.z - p.z) - C(rayon)
     - C(f.x * (pos.x - p.x) + f.y * (pos.y - p.y) + f.z * (pos.z - p.z));
   if ((k->defined = 2 * (C(D.b) - 4 * D.a * D.c > 0)))
     {
-      (k->k)[0] = -D.b + sqrtf(C(D.b) - 4 * D.a * D.c);
-      (k->k)[0] = -D.b - sqrtf(C(D.b) - 4 * D.a * D.c);
+      (k->k)[0] = (-D.b + sqrtf(C(D.b) - 4 * D.a * D.c)) / (2 * D.a);
+      (k->k)[1] = (-D.b - sqrtf(C(D.b) - 4 * D.a * D.c)) / (2 * D.a);
       return (collide_arrange(k, pos, r));
     }
   else if ((k->defined = 1 * (C(D.b) - 4 * D.a * D.c == 0)))

@@ -5,7 +5,7 @@
 ** Login   <collio_v@epitech.net>
 **
 ** Started on  Sun Jun  2 23:13:19 2013 vincent colliot
-** Last update Mon Jun  3 00:00:42 2013 vincent colliot
+** Last update Mon Jun  3 18:00:26 2013 vincent colliot
 */
 
 #ifndef SCREEN_H_
@@ -51,5 +51,7 @@ void    pix_it(t_screen *, t_2i, t_color);
 	/*screen define*/
 # define SCREEN_SIZE_X 1920
 # define SCREEN_SIZE_Y 1080
+
+# define IMG_PUT(mlx,win,img,x,y) mlx_put_image_to_window(mlx,win,img,x,y)
 
 #endif

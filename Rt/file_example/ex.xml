@@ -1,24 +1,30 @@
 <scene>
   <eye>
-    <position x="0.0" y= "15.0" z= "-8.0" /><!-- espace possible entre = et "", mais pas " 4.0 "
+    <position x="0.0" y= "20.0" z= "-20.0" /><!-- espace possible entre = et "", mais pas " 4.0 "
     peut être sur plusieurs ligne-->
-    <direction x="0.0" y="0" z="0.0"/>
+    <direction x="45" y="0" z="0"/>
   </eye>
   <light>
-    <position x="0" y="20" z="1.8" /><!-- espace possible entre ? et =, = et "", mais pas " n "
+    <position x="2" y="20" z="0" /><!-- espace possible entre ? et =, = et "", mais pas " n "
+    peut être sur plusieurs ligne-->
+    <color r="255" g="255" b="255"/>
+    <!-- <fov alpha=""/>  fov définissable pour effectuer certains effets?-->
+  </light>
+  <light>
+    <position x="-2" y="20" z="0" /><!-- espace possible entre ? et =, = et "", mais pas " n "
     peut être sur plusieurs ligne-->
     <color r="255" g="255" b="255"/>
     <!-- <fov alpha=""/>  fov définissable pour effectuer certains effets?-->
   </light>
   <object type = "plan"> <!-- structure de commentaire
 			      (possible sur multi-ligne -->
-    <position x="0" y="0" z="0" />
     <rotation x="0" y="0" z="180" />
-    <high D="-1" />
+    <high D="0" />
+    <color r="255" g="255" b="255"/>
   </object>
   <object type = "sphere">
-    <position x="0.0" y="-1" z="0" />
+    <position x="0.0" y="10" z="0" />
     <rayon R="5.0"/>
-    <color r="15" g="255" b="105"/>
+    <color r="255" g="255" b="255"/>
   </object>
 </scene>

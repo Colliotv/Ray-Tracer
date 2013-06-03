@@ -5,7 +5,7 @@
 ** Login   <collio_v@epitech.net>
 **
 ** Started on  Sat Jun  1 23:42:08 2013 vincent colliot
-** Last update Sun Jun  2 03:38:20 2013 vincent colliot
+** Last update Mon Jun  3 20:30:36 2013 vincent colliot
 */
 
 #include "object.h"
@@ -38,8 +38,8 @@ t_3d	collide_cone(void *cone, t_3d pos, t_3d r, t_collide *k)
     C(f.x * (pos.x - p.x) + f.y * (pos.y - p.y) + f.z * (pos.z - p.z));
   if ((k->defined = 2 * (C(D.b) - 4 * D.a * D.c > 0)))
     {
-      (k->k)[0] = -D.b + sqrtf(C(D.b) - 4 * D.a * D.c);
-      (k->k)[0] = -D.b - sqrtf(C(D.b) - 4 * D.a * D.c);
+      (k->k)[0] = (-D.b + sqrtf(C(D.b) - 4 * D.a * D.c)) / (2 * D.a);
+      (k->k)[1] = (-D.b - sqrtf(C(D.b) - 4 * D.a * D.c)) / (2 * D.a);
       return (collide_arrange(k, pos, r));
     }
   else if ((k->defined = 1 * (C(D.b) - 4 * D.a * D.c == 0)))

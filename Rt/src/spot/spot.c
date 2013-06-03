@@ -5,7 +5,7 @@
 ** Login   <collio_v@epitech.net>
 **
 ** Started on  Mon Jun  3 14:30:25 2013 vincent colliot
-** Last update Mon Jun  3 17:33:26 2013 vincent colliot
+** Last update Mon Jun  3 23:52:15 2013 vincent colliot
 */
 
 /*
@@ -14,37 +14,85 @@
  * ¤¤¤¤¤¤¤¤¤
 **/
 
+#include <strings.h>
 #include "display.h"
 #include "zbuffer.h"
+#include "spot.h"
+
+static double	add_dist(t_collide collide)
+{
+  t_3d	n;
+
+  return (1);
+  n.x = collide.collide.x - collide.light.x;
+  n.y = collide.collide.y - collide.light.y;
+  n.z = collide.collide.z - collide.light.z;
+  return (sqrt(C(n.x) + C(n.y) + C(n.z)));
+}
 
 static t_color	spot_modify(t_collide collide, t_color final, double angle)
 {
   t_color	r;
 
-  (r.rgb)[R] = angle * (final.rgb)[R] *(((collide.color).rgb)[R] / 255
-					     + collide.shining);
-  (r.rgb)[G] = angle * (final.rgb)[B] *(((collide.color).rgb)[G] / 255
-					     + collide.shining);
-  (r.rgb)[B] = angle * (final.rgb)[B] *(((collide.color).rgb)[B] / 255
-					     + collide.shining);
+  bzero(&r, sizeof(r));
+  if (angle <= 0)
+    return (r);
+  (r.rgb)[R] = angle * (final.rgb)[R] * (((collide.color).rgb)[R] / 255
+					 + collide.shining)
+    / add_dist(collide);
+  (r.rgb)[G] = angle * (final.rgb)[G] * (((collide.color).rgb)[G] / 255
+					 + collide.shining)
+    / add_dist(collide);
+  (r.rgb)[B] = angle * (final.rgb)[B] * (((collide.color).rgb)[B] / 255
+					 + collide.shining)
+    / add_dist(collide);
   return (r);
 }
 
-t_color	add_spot_color(t_collide collide, CLASS_LIGHT *light, CLASS_OBJECT *object)
+static void	add_all_color(t_color c1, int c2[3], int r[3])
 {
-  t_color	final;
+  (r)[R] = (c1.rgb)[R] + (c2)[R];
+  (r)[G] = (c1.rgb)[G] + (c2)[G];
+  (r)[B] = (c1.rgb)[B] + (c2)[B];
+}
 
+static inline t_color	div_all_color(int c[3], size_t i)
+{
+  t_color r;
+
+  bzero(&r, sizeof(r));
+  if (!i)
+    return (r);
+  (c)[R] /= i;
+  (c)[G] /= i;
+  (c)[B] /= i;
+  (r.rgb)[R] = c[R];
+  (r.rgb)[G] = c[G];
+  (r.rgb)[B] = c[B];
+  return (r);
+}
+
+t_color	add_spot_color(t_collide collide, CLASS_LIGHT *light,
+		       CLASS_OBJECT *object, double reverb)
+{
+  size_t	i;
+  int		final[3];
+  t_color	cont;
+
+  bzero(&final, sizeof(final));
+  i = 0;
   while (light)
     {
       collide.light = light->position;
       collide.r_light = convert_ray(light->position, collide.collide);
-      final = spot_add(collide, light->color, 1, object);
-      final = spot_modify(collide, final,
+      cont = spot_add(collide, light->color, reverb, object);
+      cont = spot_modify(collide, cont,
 			  convert_cos(convert_ray(light->position,
 						  collide.collide),
 				      collide.normal));
-      collide.color = final;
+      (void)add_all_color(cont, final, final);
       light = light->next;
+      i++;
     }
-  return (collide.color);
+  return (div_all_color(final, i));
 }

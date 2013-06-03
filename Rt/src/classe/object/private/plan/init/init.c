@@ -5,9 +5,10 @@
 ** Login   <collio_v@epitech.net>
 **
 ** Started on  Fri May 31 13:19:02 2013 vincent colliot
-** Last update Mon Jun  3 01:48:42 2013 vincent colliot
+** Last update Mon Jun  3 21:34:26 2013 vincent colliot
 */
 
+#include <strings.h>
 #include "object.h"
 #include "xmalloc.h"
 
@@ -33,6 +34,7 @@ void	plan_init(void *o, t_token *token)
 
   (void)token;
   s = xmalloc(sizeof(*s));
+  bzero(s, sizeof(*s));
   s->scan = ini_scan();
   s->collide = collide_plan;
   s->normal = normal_plan;

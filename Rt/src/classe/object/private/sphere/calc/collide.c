@@ -5,7 +5,7 @@
 ** Login   <collio_v@epitech.net>
 **
 ** Started on  Sun Jun  2 02:47:48 2013 vincent colliot
-** Last update Sun Jun  2 03:10:10 2013 vincent colliot
+** Last update Mon Jun  3 20:08:40 2013 vincent colliot
 */
 
 #include "object.h"
@@ -23,8 +23,8 @@ t_3d	collide_sphere(void *sphere, t_3d pos, t_3d r, t_collide *k)
   D.c = C(pos.x - p.x) + C(pos.y - p.y) + C(pos.z - p.z) - C(rayon);
   if ((k->defined = 2 * (C(D.b) - 4 * D.a * D.c > 0)))
     {
-      (k->k)[0] = -D.b + sqrtf(C(D.b) - 4 * D.a * D.c);
-      (k->k)[0] = -D.b - sqrtf(C(D.b) - 4 * D.a * D.c);
+      (k->k)[0] = (-D.b + sqrtf(C(D.b) - 4 * D.a * D.c)) / (2 * D.a);
+      (k->k)[1] = (-D.b - sqrtf(C(D.b) - 4 * D.a * D.c)) / (2 * D.a);
       return (collide_arrange(k, pos, r));
     }
   else if ((k->defined = 1 * (C(D.b) - 4 * D.a * D.c == 0)))
