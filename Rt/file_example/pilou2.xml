@@ -17,7 +17,7 @@
     <color r="204" g="153" b="51"/>
   </object>
   <object type = "sphere">
-    <position x="0.0" y="9" z="0" />
+    <position x="0.0" y="9" z="30" />
     <rayon R="2.5"/>
     <color r="0" g="255" b="0"/>
   </object>
