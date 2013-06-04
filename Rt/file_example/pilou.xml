@@ -1,24 +1,18 @@
 <scene>
   <eye>
-    <position x="0.0" y= "30.0" z= "-30.0" /><!-- espace possible entre = et "", mais pas " 4.0 "                                                                                            
-    peut être sur plusieurs ligne-->
+    <position x="0.0" y= "60.0" z= "-30.0" />
     <direction x="45" y="0" z="0"/>
   </eye>
   <light>
-    <position x="160" y="300" z="0" /><!-- espace possible entre ? et =, = et "", mais pas " n "                                                                                                
-    peut être sur plusieurs ligne-->
+    <position x="160" y="300" z="0" />
     <color r="255" g="255" b="255"/>
-    <!-- <fov alpha=""/>  fov définissable pour effectuer certains effets?-->
   </light>
   <light>
-    <position x="-2" y="20" z="0" /><!-- espace possible entre ? et =, = et "", mais pas " n "                                                                                               
-    peut être sur plusieurs ligne-->
+    <position x="160" y="300" z="0" />
     <color r="255" g="255" b="255"/>
-    <!-- <fov alpha=""/>  fov définissable pour effectuer certains effets?-->
   </light>
-  <object type = "plan"> <!-- structure de commentaire                                                                                                                                       
-                              (possible sur multi-ligne -->
-    <rotation x="20" y="-3000" z="200" />
+  <object type = "plan">
+    <rotation x="-100" y="-3000" z="100" />
     <high D="0" />
     <color r="204" g="153" b="51"/>
   </object>
@@ -28,12 +22,12 @@
     <color r="0" g="255" b="0"/>
   </object>
   <object type = "sphere">
-    <position x="0.0" y="15" z="0" />
-    <rayon R="2.5"/>
+    <position x="15.0" y="25" z="35" />
+    <rayon R="9.5"/>
     <color r="0" g="255" b="0"/>
   </object>
   <object type = "cylindre">
-    <position x="-10.0" y="10" z="28" />
+    <position x="-10.0" y="10" z="0" />
     <rayon R="5.5"/>
     <color r="0" g="200" b="255"/>
     <rotation x="0" y="0" z="35"/>
