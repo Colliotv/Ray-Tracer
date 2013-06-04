@@ -18,7 +18,7 @@
   </light>
   <object type = "plan"> <!-- structure de commentaire                                                                                                                                       
                               (possible sur multi-ligne -->
-    <rotation x="28" y="-3000" z="190" />
+    <rotation x="20" y="-3000" z="200" />
     <high D="0" />
     <color r="255" g="255" b="230"/>
   </object>
@@ -43,5 +43,11 @@
     <rayon R="8.5"/>
     <color r="0" g="200" b="255"/>
     <rotation x="0" y="0" z="35"/>
+  </object>
+  <object type = "cylindre">
+    <position x="-55.0" y="-15" z="15" />
+    <rayon R="2.5"/>
+    <color r="0" g="200" b="255"/>
+    <rotation x="100" y="-78" z="200"/>
   </object>
 </scene>
