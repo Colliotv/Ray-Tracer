@@ -8,11 +8,10 @@
     <position x="10.0" y="10" z="0" />
     <rayon R="1.5"/>
     <color r="255" g="255" b="255"/>
-    <rotation x="0" y="0" z="0"/>
   </object>
   <object type = "plan"> <!-- structure de commentaire
 			      (possible sur multi-ligne -->
-    <rotation x="0" y="0" z="180" />
+    <rotation x="0" y="0" z="0" />
     <high D="0" />
     <color r="255" g="255" b="255"/>
   </object>
