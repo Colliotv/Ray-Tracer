@@ -5,7 +5,7 @@
 ** Login   <collio_v@epitech.net>
 **
 ** Started on  Sun Jun  2 01:41:50 2013 vincent colliot
-** Last update Mon Jun  3 20:57:11 2013 vincent colliot
+** Last update Tue Jun  4 13:39:56 2013 vincent colliot
 */
 
 #include "object.h"
@@ -15,6 +15,9 @@ static void	init(t_3d *pos, t_3d *focus, double *rayon, t_cylindre *cylindre)
 {
   *pos = cylindre->position;
   *focus = cylindre->focus;
+  if (!(focus->x + focus->y + focus->z))
+    *focus = convert_focus(*focus);
+  cylindre->focus = *focus;
   *rayon = cylindre->rayon;
 }
 

@@ -5,7 +5,7 @@
 ** Login   <collio_v@epitech.net>
 **
 ** Started on  Fri May 31 15:02:25 2013 vincent colliot
-** Last update Mon Jun  3 15:37:52 2013 vincent colliot
+** Last update Tue Jun  4 14:16:28 2013 vincent colliot
 */
 
 #ifndef M_SPHERE_H_
@@ -18,6 +18,6 @@ void	sphere_rayon(void*,t_token*);
 
 	/* collide */
 t_3d	collide_sphere(void *, t_3d, t_3d, t_collide *);
-t_3d	normal_sphere(void *, t_3d);
+t_3d	normal_sphere(void *, t_3d, t_collide*);
 
 #endif

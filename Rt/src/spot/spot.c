@@ -5,7 +5,11 @@
 ** Login   <collio_v@epitech.net>
 **
 ** Started on  Mon Jun  3 14:30:25 2013 vincent colliot
-** Last update Mon Jun  3 23:52:15 2013 vincent colliot
+<<<<<<< HEAD
+** Last update Tue Jun  4 14:23:27 2013 vincent colliot
+=======
+** Last update Tue Jun  4 14:05:18 2013 pierre-louis rebours
+>>>>>>> 786e49a2cc6941b4bc6ef4031ec3a1fd25a2152e
 */
 
 /*
@@ -35,9 +39,11 @@ static t_color	spot_modify(t_collide collide, t_color final, double angle)
   t_color	r;
 
   bzero(&r, sizeof(r));
-  if (angle <= 0)
+  if (angle <= 0 && collide.n_spec)
+    angle = -angle;
+  else if (!collide.n_spec && angle <= 0)
     return (r);
-  (r.rgb)[R] = angle * (final.rgb)[R] * (((collide.color).rgb)[R] / 255
+  (r.rgb)[R] = angle * (final.rgb)[R] * (((double)((collide.color).rgb)[R]) / 255
 					 + collide.shining)
     / add_dist(collide);
   (r.rgb)[G] = angle * (final.rgb)[G] * (((collide.color).rgb)[G] / 255

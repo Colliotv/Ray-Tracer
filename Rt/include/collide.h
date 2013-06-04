@@ -5,7 +5,7 @@
 ** Login   <collio_v@epitech.net>
 **
 ** Started on  Sat Jun  1 22:59:52 2013 vincent colliot
-** Last update Mon Jun  3 17:09:22 2013 vincent colliot
+** Last update Tue Jun  4 13:24:59 2013 vincent colliot
 */
 
 #ifndef COLLIDE_H_
@@ -14,6 +14,7 @@
 # include <stdlib.h>
 #include "u_color.h"
 #include "dim.h"
+#include "flag.h"
 
 # define MAX_DEGREE_LVL	2
 # define K_COL		0.1
@@ -31,6 +32,7 @@ typedef struct s_collide{
   double	k[MAX_DEGREE_LVL];
   t_3d		collide;
   t_3d		normal;
+  FLAG		n_spec;
   /* light part */
   t_3d		light;
   t_3d		r_light;
