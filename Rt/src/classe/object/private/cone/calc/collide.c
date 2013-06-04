@@ -6,7 +6,7 @@
 ** Login   <collio_v@epitech.net>
 **
 ** Started on  Sat Jun  1 23:42:08 2013 vincent colliot
-** Last update Tue Jun  4 10:12:55 2013 quentin cloarec
+** Last update Tue Jun  4 16:43:03 2013 vincent colliot
 */
 
 #include "object.h"
@@ -28,12 +28,12 @@ t_3d	collide_cone(void *cone, t_3d pos, t_3d r, t_collide *k)
   init(&p, &f, &angle, (t_cone*)cone);
   D.a = C(r.x) + C(r.y) + C(r.z) - C(f.x * r.x + f.y * r.y + f.z * r.z)
     - C(f.x * r.x + f.y * r.y + f.z * r.z) * C(tan(angle));
-  D.b = 2 * (r.x * (pos.x - p.x) + r.y * (pos.y - p.y) + r.y * (pos.y - p.y))
+  D.b = 2 * (r.x * (pos.x - p.x) + r.y * (pos.y - p.y) + r.z * (pos.z - p.z))
     - 2 * (r.x * f.x + r.y * f.y + r.z * f.z)
     * (f.x * (pos.x - p.x) + f.y * (pos.y - p.y) + f.z * (pos.z - p.z))
     - 2 * (r.x * f.x + r.y * f.y + r.z * f.z) * C(tan(angle))
     * (f.x * (pos.x - p.x) + f.y * (pos.y - p.y) + f.z * (pos.z - p.z));
-  D.c = C(pos.x - p.x) + C(pos.y - p.y) + C(pos.x - p.x)
+  D.c = C(pos.x - p.x) + C(pos.y - p.y) + C(pos.z - p.z)
     - C(f.x * (pos.x - p.x) + f.y * (pos.y - p.y) + f.z * (pos.z - p.z))
     - C(tan(angle)) *
     C(f.x * (pos.x - p.x) + f.y * (pos.y - p.y) + f.z * (pos.z - p.z));
