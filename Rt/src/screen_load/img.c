@@ -5,9 +5,10 @@
 ** Login   <collio_v@epitech.net>
 **
 ** Started on  Sun Jun  2 23:16:02 2013 vincent colliot
-** Last update Mon Jun  3 00:06:04 2013 vincent colliot
+** Last update Tue Jun  4 13:25:21 2013 vincent colliot
 */
 
+#include <strings.h>
 #include <mlx.h>
 #include <stdlib.h>
 #include "screen.h"
@@ -22,5 +23,7 @@ void    img_init(t_image *img, t_screen *screen)
   img->bpp = bpp;
   img->window = screen;
   img->big_E = big_E;
+  bzero(img->stack, sizeof(char) * (SCREEN_SIZE_X * (img->bpp / 8)
+				    + SCREEN_SIZE_Y * (img->size_line)));
 }
 

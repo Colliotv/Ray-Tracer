@@ -5,7 +5,7 @@
 ** Login   <collio_v@epitech.net>
 **
 ** Started on  Sat Jun  1 22:59:52 2013 vincent colliot
-** Last update Tue Jun  4 13:17:46 2013 vincent colliot
+** Last update Tue Jun  4 13:24:59 2013 vincent colliot
 */
 
 #ifndef COLLIDE_H_
@@ -14,6 +14,7 @@
 # include <stdlib.h>
 #include "u_color.h"
 #include "dim.h"
+#include "flag.h"
 
 # define MAX_DEGREE_LVL	2
 # define K_COL		0.1
