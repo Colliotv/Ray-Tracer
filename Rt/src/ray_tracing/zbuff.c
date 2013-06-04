@@ -5,7 +5,7 @@
 ** Login   <collio_v@epitech.net>
 **
 ** Started on  Mon Jun  3 00:47:07 2013 vincent colliot
-** Last update Mon Jun  3 23:50:00 2013 vincent colliot
+** Last update Tue Jun  4 14:18:35 2013 vincent colliot
 */
 
 #include <strings.h>
@@ -37,7 +37,7 @@ static BOOL	fill_collide(CLASS_OBJECT *object, t_3d ray, t_3d pos,
     return (TRUE);
   else
     collide->normal =
-      convert_norm((object->normal)((void*)object, collide->collide));
+      convert_norm((object->normal)((void*)object, collide->collide, collide));
   return (TRUE);
 }
 

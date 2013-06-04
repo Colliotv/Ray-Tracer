@@ -5,19 +5,20 @@
 ** Login   <collio_v@epitech.net>
 **
 ** Started on  Mon Jun  3 01:41:25 2013 vincent colliot
-** Last update Mon Jun  3 01:48:49 2013 vincent colliot
+** Last update Tue Jun  4 13:58:20 2013 vincent colliot
 */
 
 #include "object.h"
 #include "dim.h"
 
-t_3d	normal_cone(void *cone, t_3d collide)
+t_3d	normal_cone(void *cone, t_3d collide, t_collide *v)
 {
   t_3d	narmol;
 
+  (void)v;
   narmol.x = collide.x - ((t_cone*)cone)->position.x;
-  narmol.y = collide.x - ((t_cone*)cone)->position.x;
-  narmol.z = collide.y - ((t_cone*)cone)->position.y;
+  narmol.y = collide.y - ((t_cone*)cone)->position.y;
+  narmol.z = collide.z - ((t_cone*)cone)->position.z;
   narmol.x = narmol.x - narmol.x * ((t_cone*)cone)->focus.x
     - narmol.x * ((t_cone*)cone)->focus.x * C(tan(((t_cone*)cone)->angle));
   narmol.y = narmol.y - narmol.y * ((t_cone*)cone)->focus.y
