@@ -8,7 +8,7 @@
     <color r="255" g="255" b="255"/>
   </light>
   <light>
-    <position x="160" y="300" z="0" />
+    <position x="-180" y="200" z="60" />
     <color r="255" g="255" b="255"/>
   </light>
   <object type = "plan">
@@ -30,13 +30,13 @@
     <position x="-10.0" y="0" z="0" />
     <rayon R="5.5"/>
     <color r="0" g="200" b="255"/>
-    <rotation x="0" y="0" z="-35"/>
+    <rotation x="100" y="-70" z="35"/>
   </object>
   <object type = "cylindre">
     <position x="-55.0" y="-35" z="28" />
     <rayon R="5.5"/>
     <color r="0" g="200" b="255"/>
-    <rotation x="0" y="0" z="-35"/>
+    <rotation x="100" y="-70" z="35"/>
   </object>
   <object type = "cylindre">
     <position x="-55.0" y="-15" z="15" />
