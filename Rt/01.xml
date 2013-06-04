@@ -30,7 +30,7 @@
   <object type = "sphere">
     <position x="4" y="10" z="10" />
     <rayon R="2.2"/>
-    <color r="255" g="255" b="255"/>
+    <color r="255" g="0" b="0"/>
   </object>
   <object type = "sphere">
     <position x="-4" y="10" z="10" />
