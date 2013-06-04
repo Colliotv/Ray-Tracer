@@ -28,3 +28,14 @@
     <color r="0" g="155" b="0"/>
   </object>
 </scene>
+
+
+
+
+
+
+ <object type = "cylindre">
+    <position x="10.0" y="10" z="0"/>
+    <rayon R="1.5"/>
+    <color r="255" g="255" b="255" />
+ </object>
