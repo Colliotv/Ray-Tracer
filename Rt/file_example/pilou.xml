@@ -27,10 +27,10 @@
     <color r="0" g="255" b="0"/>
   </object>
   <object type = "cylindre">
-    <position x="-10.0" y="10" z="0" />
+    <position x="-10.0" y="0" z="0" />
     <rayon R="5.5"/>
     <color r="0" g="200" b="255"/>
-    <rotation x="0" y="0" z="35"/>
+    <rotation x="0" y="0" z="-35"/>
   </object>
   <object type = "cylindre">
     <position x="-80.0" y="-60" z="28" />
