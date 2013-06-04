@@ -8,7 +8,7 @@
     <position x="10.0" y="10" z="0" />
     <rayon R="1.5"/>
     <color r="255" g="0" b="0"/>
-    <rotation x="0" y="0" z="-45" />
+    <rotation x="0" y="0" z="180" />
   </object>
   <object type = "plan"> <!-- structure de commentaire
 			      (possible sur multi-ligne -->
