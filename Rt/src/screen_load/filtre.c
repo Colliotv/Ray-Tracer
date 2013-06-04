@@ -5,7 +5,7 @@
 ** Login   <lecorr_b@epitech.net>
 **
 ** Started on  Tue Jun  4 15:35:59 2013 thomas lecorre
-** Last update Tue Jun  4 21:26:15 2013 thomas lecorre
+** Last update Tue Jun  4 21:39:30 2013 quentin cloarec
 */
 
 #include "u_color.h"
@@ -37,5 +37,25 @@ t_color		filtre(t_color pix)
   /* (pix.rgb)[G] = 255 - (pix.rgb)[G]; */
   /* (pix.rgb)[B] = 255 - (pix.rgb)[B]; */
 
+  /* BLANC ET NOIR */
+
+  float	stock;
+
+  stock = 0.0;
+  stock += (pix.rgb)[R];
+  stock += (pix.rgb)[G];
+  stock += (pix.rgb)[B];
+  if ((stock / 3) > 60.0)
+    {
+      (pix.rgb)[R] = 255;
+      (pix.rgb)[G] = 255;
+      (pix.rgb)[B] = 255;
+    }
+  else
+    {
+      (pix.rgb)[R] = 0;
+      (pix.rgb)[G] = 0;
+      (pix.rgb)[B] = 0;
+    }
   return (pix);
 }
