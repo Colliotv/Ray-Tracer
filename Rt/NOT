@@ -1,0 +1,8 @@
+git clone --> crée le depot
+
+git pull -> pour UP
+
+git add *  -> COMMIT
+git commit -a
+git pull
+git push
