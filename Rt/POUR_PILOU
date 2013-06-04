@@ -1,0 +1,8 @@
+pour up:
+-git pull
+
+pour commit:
+-git add * (depuis la racine de depot)
+-git commit -a (mettre en texte les modifs apportees par le commit)
+-git pull (pour eviter les conflits)
+-git push
