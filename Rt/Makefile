@@ -4,7 +4,7 @@
 ## Login   <collio_v@epitech.net>
 ##
 ## Started on Thu Oct 25 22:06:03 2012 vincent colliot
-## Last update Mon Jun  3 16:33:53 2013 vincent colliot
+## Last update Tue Jun  4 16:00:10 2013 thomas lecorre
 ##
 
 NAME    = rt
@@ -45,6 +45,7 @@ F_LOAD	=$(SRCF)screen_load/
 LOAD	=$(F_LOAD)img.c\
 	$(F_LOAD)screen.c\
 	$(F_LOAD)put_pixel.c\
+	$(F_LOAD)filtre.c\
 
 F_RAY	=$(SRCF)ray_tracing/
 RAY	=$(F_RAY)load.c\
