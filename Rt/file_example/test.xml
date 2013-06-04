@@ -8,11 +8,12 @@
     <position x="10.0" y="10" z="0" />
     <rayon R="1.5"/>
     <color r="255" g="255" b="255"/>
-<<<<<<< HEAD
-    <rotation x="0" y="0" z="0"/>
-=======
->>>>>>> 86c27fb7829870c0e898fd0f269eda1b04e64d29
   </object>
+  <object type = "sphere">
+    <position x="20.0" y="0" z="5" />
+    <rayon R="3.0" />
+    <color r="255" g="0" b="0"/>
+   </object>
   <object type = "plan"> <!-- structure de commentaire
 			      (possible sur multi-ligne -->
     <rotation x="0" y="0" z="180" />

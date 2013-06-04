@@ -5,7 +5,7 @@
 ** Login   <collio_v@epitech.net>
 **
 ** Started on  Sun Jun  2 23:40:44 2013 vincent colliot
-** Last update Mon Jun  3 21:34:45 2013 vincent colliot
+** Last update Tue Jun  4 11:41:29 2013 quentin cloarec
 */
 
 #include <stdio.h>
@@ -48,7 +48,7 @@ void	load_img(t_screen *screen, CLASS_DISPLAY *d)
 	  pix_it(screen, pix, color);
 	  pix.x += d->eye->scale;
 	}
-      printf("loading -- %f\n", ((double)pix.y / SCREEN_SIZE_Y));
+      /* printf("loading -- %f\n", ((double)pix.y / SCREEN_SIZE_Y)); */
       pix.y += d->eye->scale;
     }
 }

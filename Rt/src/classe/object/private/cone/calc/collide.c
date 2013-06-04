@@ -1,3 +1,4 @@
+
 /*
 ** collide.c for  in /home/collio_v/rendu_svn/Ray-Tracer/Rt
 **
@@ -5,7 +6,7 @@
 ** Login   <collio_v@epitech.net>
 **
 ** Started on  Sat Jun  1 23:42:08 2013 vincent colliot
-** Last update Mon Jun  3 20:30:36 2013 vincent colliot
+** Last update Tue Jun  4 10:12:55 2013 quentin cloarec
 */
 
 #include "object.h"
