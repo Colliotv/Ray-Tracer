@@ -108,7 +108,6 @@ def lumin(fichier):
     x = raw_input("Entrez les coordonnees du Spot\nPour x : ")
     y = raw_input("Pour y : ")
     z = raw_input("pour z : ")
-    fichier.write("<eye>\n")
     position = "<position x=\"" + str(x) + "\" y =\"" + str(y) + "\" z=\"" + str(z) + "\" />\n"
     fichier.write(position)
     r = raw_input("Entrez la couleur du Spot\nPour r : ")
@@ -129,11 +128,11 @@ def generator():
     while (nb_object > 0):
         objet(fichier)
         nb_object -= 1
-    fichier.write("</scene>\n")
     nb_lumin = input("Combien de Spot lumineux souhaitez vous ? : ")
     while (nb_lumin > 0):
         lumin(fichier)
         nb_lumin -= 1
+    fichier.write("</scene>\n")
     print("Votre fichier xml a bien ete cree !")
 
 if __name__ == "__main__":
