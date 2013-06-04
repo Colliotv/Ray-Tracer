@@ -5,12 +5,14 @@
 ** Login   <collio_v@epitech.net>
 **
 ** Started on  Mon Jun  3 01:23:44 2013 vincent colliot
-** Last update Tue Jun  4 13:58:53 2013 vincent colliot
+** Last update Tue Jun  4 14:47:43 2013 vincent colliot
 */
 
 #include <strings.h>
 #include "object.h"
 #include "dim.h"
+
+# define NORMAL(n) ((n > 0) ? (n) : (-n))
 
 t_3d	normal_cylindre(void *cylindre, t_3d collide, t_collide *v)
 {
