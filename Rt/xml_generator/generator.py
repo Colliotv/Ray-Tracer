@@ -3,9 +3,9 @@ import sys
 
 def plan(fichier):
     fichier.write("<object type = \"plan\">\n")
-    answer = raw_input("Souhaitez vous appliquer une rotation au cylindre ? (yes | no)")
+    answer = raw_input("Souhaitez vous appliquer une rotation au plan ? (yes | no)")
     if (answer == "yes"):
-        x = raw_input("Entrez les coordonnees rotation du cylindre\nPour x : ")
+        x = raw_input("Entrez les coordonnees rotation du plan\nPour x : ")
         y = raw_input("Pour y : ")
         z = raw_input("pour z : ")
         rotation = "<rotation x=\"" + str(x) + "\" y =\"" + str(y) + "\" z=\"" + str(z) + "\" />\n"
