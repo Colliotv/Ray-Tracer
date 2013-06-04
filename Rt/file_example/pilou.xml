@@ -13,14 +13,14 @@
   <light>
     <position x="-2" y="20" z="0" /><!-- espace possible entre ? et =, = et "", mais pas " n "                                                                                               
     peut être sur plusieurs ligne-->
-    <color r="0" g="0" b="255"/>
+    <color r="255" g="255" b="255"/>
     <!-- <fov alpha=""/>  fov définissable pour effectuer certains effets?-->
   </light>
   <object type = "plan"> <!-- structure de commentaire                                                                                                                                       
                               (possible sur multi-ligne -->
     <rotation x="20" y="-3000" z="200" />
     <high D="0" />
-    <color r="255" g="255" b="230"/>
+    <color r="204" g="153" b="51"/>
   </object>
   <object type = "sphere">
     <position x="0.0" y="9" z="0" />
