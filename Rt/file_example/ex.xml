@@ -1,6 +1,6 @@
 <scene>
   <eye>
-    <scale scale="0.15"/>
+    <scale scale="2"/>
     <position x="0.0" y= "20.0" z= "-20.0" /><!-- espace possible entre = et "", mais pas " 4.0 "
     peut être sur plusieurs ligne-->
     <direction x="45" y="0" z="0"/>

@@ -4,11 +4,8 @@
 ## Login   <collio_v@epitech.net>
 ##
 ## Started on Thu Oct 25 22:06:03 2012 vincent colliot
-<<<<<<< HEAD
-## Last update Wed Jun  5 03:42:13 2013 vincent colliot
-=======
+## Last update Wed Jun  5 04:15:40 2013 vincent colliot
 ## Last update Tue Jun  4 16:00:10 2013 thomas lecorre
->>>>>>> cff981e6ddb0ac6a617a902c86fc0a3e2c6eaf9d
 ##
 
 NAME    = rt
