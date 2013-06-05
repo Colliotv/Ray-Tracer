@@ -5,7 +5,7 @@
 ** Login   <collio_v@epitech.net>
 **
 ** Started on  Wed Jun  5 00:20:59 2013 vincent colliot
-** Last update Wed Jun  5 19:53:29 2013 vincent colliot
+** Last update Wed Jun  5 20:39:40 2013 vincent colliot
 */
 
 #ifndef THREAD_H_
@@ -21,7 +21,7 @@ typedef struct s_load_thread{
   pthread_mutex_t *lock;
 }		t_load_thread;
 
-# define NTHREAD	1
+# define NTHREAD	4
 
 # define TLD_CAST(tld) ((t_load_thread*)tld)
 

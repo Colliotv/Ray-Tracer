@@ -4,7 +4,6 @@
     <position x="0.0" y= "20.0" z= "-35.0" /><!-- espace possible entre = et "", mais pas " 4.0 "
     peut être sur plusieurs ligne-->
     <direction x="0" y="0" z="0"/>
-    <shading scale="5" n="75"/>
     <scale scale="1"/>
   </eye>
   <light>
