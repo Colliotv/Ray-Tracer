@@ -5,7 +5,7 @@
 ** Login   <collio_v@epitech.net>
 **
 ** Started on  Sun Jun  2 23:49:00 2013 vincent colliot
-** Last update Wed Jun  5 04:18:05 2013 vincent colliot
+** Last update Wed Jun  5 12:18:38 2013 thomas lecorre
 ** Last update Tue Jun  4 21:08:44 2013 thomas lecorre
 */
 
@@ -46,7 +46,7 @@ static inline void            save(t_image *screen, int x, int y, unsigned int r
 
 void            pix_it(t_screen *screen, t_2d pix, t_color color)
 {
-  /* color = filtre(color); */
+  color = filtre(color);
   save(screen->screensave, (int)pix.x, (int)pix.y,
        mlx_get_color_value(screen->mlx_ptr, color.i));
 }
