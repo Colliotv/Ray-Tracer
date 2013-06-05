@@ -6,7 +6,7 @@
     <direction x="0" y="0" z="0"/>
   </eye>
   <light>
-    <position x="20" y="20" z="0" /><!-- espace possible entre ? et =, = et "", mais pas " n "
+    <position x="10" y="10" z="0" /><!-- espace possible entre ? et =, = et "", mais pas " n "
     peut être sur plusieurs ligne-->
     <color r="255" g="255" b="255"/>
     <!-- <fov alpha=""/>  fov définissable pour effectuer certains effets?-->
@@ -20,23 +20,13 @@
   <object type = "plan"> <!-- structure de commentaire
 			      (possible sur multi-ligne -->
     <rotation x="0" y="0" z="180" />
-    <high D="0" />
-    <color r="0" g="0" b="255"/>
-    <shining shine="0.1"/>
-    <reflection alpha="0.80"/>
-  </object>
-  <object type = "cylindre">
-    <position x="0.0" y="20" z="15" />
-    <rayon R="5"/>
+    <high D="0"/>
     <color r="255" g="0" b="0"/>
-    <rotation x="255" y="255" z="255" />
-    <shining shine="0.55"/>
   </object>
   <object type = "sphere">
-    <position x="0.0" y="20" z="0" />
+    <position x="0.0" y="10" z="0" />
     <rayon R="5.0"/>
-    <shining shine="0.8"/>
-    <transparency gamma="0.80"/>
+    <reflection alpha="0.9"/>
   </object>
   <object type = "sphere">
     <position x="5.0" y="5" z="-5" />

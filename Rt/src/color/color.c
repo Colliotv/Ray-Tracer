@@ -5,7 +5,7 @@
 ** Login   <collio_v@epitech.net>
 **
 ** Started on  Mon Jun  3 13:28:19 2013 vincent colliot
-** Last update Wed Jun  5 18:28:04 2013 vincent colliot
+** Last update Wed Jun  5 19:59:11 2013 vincent colliot
 */
 
 #define IN_
@@ -65,6 +65,8 @@ t_color	mod_color(CLASS_DISPLAY *d, void *object, t_collide collide, t_3d view[2
   view[V_RAY] = alpha_ray(collide, ray);
   if (collide.alpha > 0)
     calpha = zbuffering(d, d->objects, view, collide.alpha);
+  if (collide.alpha > 0 && (calpha.rgb)[R] > 100)
+    bidon();
   view[V_RAY] = gamma_ray(collide, ray);
   view[V_POSIT] = dist_convert(posit, ray, (collide.k)[collide.defined]);
   if (collide.gamma > 0)
@@ -99,8 +101,8 @@ t_color	add_color(t_color c1, t_color c2, double value, t_color *r)
       return (*r);
     }
   value -= (int)value;
-  (r->rgb)[R] = (double)((c1.rgb)[R] * (1 - value)) + (double)((c2.rgb)[R] * value);
-  (r->rgb)[G] = (double)((c1.rgb)[G] * (1 - value)) + (double)((c2.rgb)[G] * value);
-  (r->rgb)[B] = (double)((c1.rgb)[B] * (1 - value)) + (double)((c2.rgb)[B] * value);
+  (r->rgb)[R] = (double)((c1.rgb)[R] * (1 - value)) + ((double)(c2.rgb)[R] * value);
+  (r->rgb)[G] = (double)((c1.rgb)[G] * (1 - value)) + ((double)(c2.rgb)[G] * value);
+  (r->rgb)[B] = (double)((c1.rgb)[B] * (1 - value)) + ((double)(c2.rgb)[B] * value);
   return (*r);
 }
