@@ -5,7 +5,7 @@
 ** Login   <collio_v@epitech.net>
 **
 ** Started on  Mon Jun  3 00:47:07 2013 vincent colliot
-** Last update Wed Jun  5 18:13:56 2013 vincent colliot
+** Last update Wed Jun  5 20:15:10 2013 vincent colliot
 */
 
 #include <strings.h>
@@ -62,8 +62,6 @@ t_color	zbuffering(CLASS_DISPLAY *d, CLASS_OBJECT *object, t_3d view[2], double 
     {
       if (fill_collide(object, view[V_RAY], view[V_POSIT], &collide))
 	{
-	  if (object->gamma)
-	    bidon();
 	  collide.shading = d->eye->render;
 	  collide.alpha = reverb - (1 - object->alpha);
 	  collide.gamma = reverb - (1 - object->gamma);
@@ -99,7 +97,9 @@ t_color	spot_add(t_collide collide, t_color color, double ct,
 
   bzero(&new_color, sizeof(new_color));
   new.defined  = MAX_DEGREE_LVL + 1 + (i = 0);
-  if (!object || !color.i || ct <= 0)
+  if ((!object || !color.i || ct <= 0) && collide.ct_init != 1)
+    return (add_color(color, new_color, 1 - ct, &color));
+  else if (!object || !color.i || ct <= 0)
     return (add_color(color, new_color, ct, &color));
   if (!fill_collide(object, collide.r_light, collide.light, &new))
     return (spot_add(collide, color, ct, object->next));
