@@ -5,9 +5,14 @@
 ** Login   <collio_v@epitech.net>
 **
 ** Started on  Sun Jun  2 23:49:00 2013 vincent colliot
+<<<<<<< HEAD
 ** Last update Wed Jun  5 04:11:38 2013 vincent colliot
+=======
+** Last update Tue Jun  4 21:08:44 2013 thomas lecorre
+>>>>>>> cff981e6ddb0ac6a617a902c86fc0a3e2c6eaf9d
 */
 
+#include "filtre.h"
 #include "screen.h"
 
 static unsigned int add_color(unsigned int get, unsigned int rgb)
@@ -44,8 +49,13 @@ static inline void            save(t_image *screen, int x, int y, unsigned int r
 
 void            pix_it(t_screen *screen, t_2d pix, t_color color)
 {
+<<<<<<< HEAD
 
   save(screen->screensave, (int)pix.x, (int)pix.y,
+=======
+  color = filtre(color);
+  save(screen->screensave, pix.x, pix.y,
+>>>>>>> cff981e6ddb0ac6a617a902c86fc0a3e2c6eaf9d
        mlx_get_color_value(screen->mlx_ptr, color.i));
 }
 

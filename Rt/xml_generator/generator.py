@@ -21,6 +21,7 @@ def plan(fichier):
     color = "<color r=\"" + str(r) + "\" g =\"" + str(g) + "\" b=\"" +str(b) + "\" />\n"
     fichier.write(color)
     fichier.write("</object>\n")
+    print("votre plan a bien ete cree")
 
     
 
@@ -52,6 +53,7 @@ def cylindre(fichier):
     else:
         fichier.write("<rotation x=\"0.0\" y=\"0.0\" z=\"0.0\" />\n")
     fichier.write("</object>\n")
+    print("votre cylindre a bien ete cree...")
 
 def sphere(fichier):
     fichier.write("<object type = \"sphere\">\n")
@@ -69,6 +71,7 @@ def sphere(fichier):
     color = "<color r=\"" + str(r) + "\" g =\"" + str(g) + "\" b=\"" + str(b) + "\" />\n"
     fichier.write(color)
     fichier.write("</object>\n")
+    print("votre sphere a bien ete cree...")
     
 def eye(fichier):
     x = raw_input("Entrez les coordonnees de l'oeil\nPour x : ")
@@ -87,6 +90,7 @@ def eye(fichier):
     else:
         fichier.write("<direction x=\"0.0\" y=\"0.0\" z=\"0.0\" />\n")
     fichier.write("</eye>\n")
+    print("votre oeil a bien ete place")
   
 def objet(fichier):
     type_objet = raw_input("Quel type d'objet souhaitez vous ? : ")
@@ -99,6 +103,22 @@ def objet(fichier):
     else:
         print("Cet objet n'existe pas\n")
 
+def lumin(fichier):
+    fichier.write("<light>\n")
+    x = raw_input("Entrez les coordonnees du Spot\nPour x : ")
+    y = raw_input("Pour y : ")
+    z = raw_input("pour z : ")
+    position = "<position x=\"" + str(x) + "\" y =\"" + str(y) + "\" z=\"" + str(z) + "\" />\n"
+    fichier.write(position)
+    r = raw_input("Entrez la couleur du Spot\nPour r : ")
+    g = raw_input("Pour g : ")
+    b = raw_input("pour b : ")
+    color = "<color r=\"" + str(r) + "\" g =\"" + str(g) + "\" b=\"" + str(b) + "\" />\n"
+    fichier.write(color)
+    fichier.write("</light>\n")
+    print("Votre Spot a bien ete cree...")
+
+
 def generator():
     name = raw_input("Entrez le nom de votre fichier : ")
     fichier = open(name, "w")
@@ -108,7 +128,12 @@ def generator():
     while (nb_object > 0):
         objet(fichier)
         nb_object -= 1
+    nb_lumin = input("Combien de Spot lumineux souhaitez vous ? : ")
+    while (nb_lumin > 0):
+        lumin(fichier)
+        nb_lumin -= 1
     fichier.write("</scene>\n")
+    print("Votre fichier xml a bien ete cree !")
 
 if __name__ == "__main__":
     generator()
