@@ -5,7 +5,7 @@
 ** Login   <collio_v@epitech.net>
 **
 ** Started on  Mon May 27 17:11:47 2013 vincent colliot
-** Last update Fri May 31 21:01:19 2013 vincent colliot
+** Last update Wed Jun  5 00:06:48 2013 vincent colliot
 */
 
 #include <stdio.h>
@@ -38,17 +38,20 @@ static void	scan_line(CLASS_LIGHT *light, FD xml, char *s)
   char		*name;
   size_t	i;
 
-  name = xml_token(&token, s, INIT, xml);
-  i = 0;
-  while ((light->scan)[i].name)
-    if (NMATCH(((light->scan)[i]).name, name))
-      {
-	(((light->scan)[i]).call)(light, token);
-	return ;
-      }
-    else
-      i++;
+  if ((name = xml_token(&token, s, INIT, xml)))
+    {
+      i = 0;
+      while ((light->scan)[i].name)
+	if (NMATCH(((light->scan)[i]).name, name))
+	  {
+	    (((light->scan)[i]).call)(light, token);
+	    return ;
+	  }
+	else
+	  i++;
+    }
   (void)printf("error :%s not recognized", name);
+  exit(-42);
 }
 
 void	add_lum(void *d, FD xml, char *s)

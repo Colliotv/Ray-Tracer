@@ -5,7 +5,7 @@
 ** Login   <collio_v@epitech.net>
 **
 ** Started on  Fri May 31 15:20:09 2013 vincent colliot
-** Last update Mon Jun  3 01:18:56 2013 vincent colliot
+** Last update Wed Jun  5 04:03:30 2013 vincent colliot
 */
 
 #include <stdio.h>
@@ -50,9 +50,9 @@ void	plan_high(void *l, t_token *token)
   char	*s;
 
   if ((s = xml_token(&token, "D", RESOLVE, 0)) == NULL)
-    def_error("rayon");
+    def_error("high");
   if (!O_IN(s + strspn(s, "-+"), "0123456789."))
-    def_error("rayon");
+    def_error("high");
   (((t_plan*)l)->d) = atof(s);
 }
 

@@ -4,7 +4,7 @@
 ## Login   <collio_v@epitech.net>
 ##
 ## Started on Thu Oct 25 22:06:03 2012 vincent colliot
-## Last update Mon Jun  3 16:33:53 2013 vincent colliot
+## Last update Wed Jun  5 03:42:13 2013 vincent colliot
 ##
 
 NAME    = rt
@@ -177,6 +177,7 @@ OPRIV	=$(SUBF)\
 F_OPUB	=$(FCLASSE)object/public/
 
 OP_SCAN=$(F_OPUB)scan/scan.c\
+	$(F_OPUB)scan/def.c\
 
 OP_INIT=$(F_OPUB)init/init.c\
 
@@ -209,8 +210,9 @@ SRC     =$(MAIN)\
 
 ######################
 
-INC	=-I $(FO)include/ -I include/classe -I include/classe/methode/ -lm \
-	-L/usr/lib64 -lmlx_${HOSTTYPE} -L/usr/lib64/X11 -lXext -lX11 -I/usr/X11R6/include
+INC	=-I $(FO)include/ -I include/classe -I include/classe/methode/ -lm -lpthread 	\
+	-L/usr/lib64 -lmlx_${HOSTTYPE} -L/usr/lib64/X11 -lXext -lX11 -I/usr/X11R6/include \
+	-O2 -O3
 
 CFLAGS	= -Wall -Wextra $(INC)
 

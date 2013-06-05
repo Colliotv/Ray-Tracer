@@ -5,7 +5,7 @@
 ** Login   <collio_v@epitech.net>
 **
 ** Started on  Mon Jun  3 00:47:07 2013 vincent colliot
-** Last update Tue Jun  4 14:18:35 2013 vincent colliot
+** Last update Wed Jun  5 03:23:42 2013 vincent colliot
 */
 
 #include <strings.h>
@@ -15,6 +15,7 @@
 #include "spot.h"
 #include "get_color.h"
 #include "bool.h"
+#include "view.h"
 
 static BOOL	fill_collide(CLASS_OBJECT *object, t_3d ray, t_3d pos,
 			     t_collide *collide)
@@ -41,7 +42,7 @@ static BOOL	fill_collide(CLASS_OBJECT *object, t_3d ray, t_3d pos,
   return (TRUE);
 }
 
-t_color	zbuffering(CLASS_DISPLAY *d, CLASS_OBJECT *object, t_3d ray, double reverb)
+t_color	zbuffering(CLASS_DISPLAY *d, CLASS_OBJECT *object, t_3d view[2], double reverb)
 {
   t_collide	collide;
 
@@ -49,12 +50,12 @@ t_color	zbuffering(CLASS_DISPLAY *d, CLASS_OBJECT *object, t_3d ray, double reve
   collide.defined = MAX_DEGREE_LVL + 1;
   while (object)
     {
-      if (fill_collide(object, ray, d->eye->position, &collide))
+      if (fill_collide(object, view[V_RAY], view[V_POSIT], &collide))
 	{
-	  collide.alpha = reverb - (1 - object->alpha) - 0.05;
-	  collide.gamma = reverb - (1 - object->gamma) - 0.05;
+	  collide.alpha = reverb - (1 - object->alpha);
+	  collide.gamma = reverb - (1 - object->gamma);
 	  collide.ld = d;
-	  collide.color = object->get_color(d, (void*)object, collide, ray);
+	  collide.color = get_color(d, object, collide, view);
 	  collide.color = add_spot_color(collide, d->lights, d->objects, reverb);
 	}
       object = object->next;
@@ -77,7 +78,7 @@ static BOOL	verif(t_collide new, t_collide collide, size_t i)
 t_color	spot_add(t_collide collide, t_color color, double ct,
 		 CLASS_OBJECT *object)
 {
-  t_3d		posit;
+  t_3d		view[2];
   size_t	i;
   t_collide     new;
   t_color	new_color;
@@ -88,19 +89,16 @@ t_color	spot_add(t_collide collide, t_color color, double ct,
     return (add_color(color, new_color, ct, &color));
   if (!fill_collide(object, collide.r_light, collide.light, &new))
     return (spot_add(collide, color, ct, object->next));
-  posit = ((CLASS_DISPLAY*)(collide.ld))->eye->position;
   while (new.up_to + i < new.defined && ct > 0 && verif(new, collide, i))
     {
       new.alpha = ct - (1 - object->alpha) - 0.05;
       new.gamma = ct - (1 - object->gamma) - 0.05;
-      ((CLASS_DISPLAY*)(collide.ld))->eye->position
-	= dist_convert(collide.light, collide.r_light,
+      new.collide = dist_convert(collide.light, collide.r_light,
 		       (new.k)[new.up_to + (i++)]);
+      view[V_RAY] = collide.r_light;
       color = add_color(color, object->get_color(collide.ld,
-						 (void*)object, new,
-						 collide.r_light),
+						 (void*)object, new, view),
 			ct -= 1 - object->gamma, &color);
     }
-  ((CLASS_DISPLAY*)(collide.ld))->eye->position = posit;
   return (spot_add(collide, color, ct, object->next));
 }

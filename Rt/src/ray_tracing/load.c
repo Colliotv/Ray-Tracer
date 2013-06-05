@@ -5,14 +5,16 @@
 ** Login   <collio_v@epitech.net>
 **
 ** Started on  Sun Jun  2 23:40:44 2013 vincent colliot
-** Last update Tue Jun  4 13:21:38 2013 vincent colliot
+** Last update Wed Jun  5 04:10:18 2013 vincent colliot
 */
 
+#include <strings.h>
 #include <stdio.h>
 #include "screen.h"
 #include "zbuffer.h"
+#include "thread.h"
 
-static t_3d	ray_adapt(t_3d f, t_2i pix)
+static t_3d	ray_adapt(t_3d f, t_2d pix)
 {
   t_3d ray;
   t_2d i;
@@ -31,24 +33,77 @@ static t_3d	ray_adapt(t_3d f, t_2i pix)
   return (ray);
 }
 
-void	load_img(t_screen *screen, CLASS_DISPLAY *d)
+static void	success_pix_it(double scale, t_screen *screen,
+			       t_2d pix, t_color color)
 {
-  t_color	color;
-  t_2i		pix;
+  t_2d	i;
+  t_2d	p;
 
-  pix.y = 0;
-  while (pix.y < SCREEN_SIZE_Y)
+  bzero(&i, sizeof(i));
+  while (i.y < scale && i.y + pix.y < SCREEN_SIZE_Y)
+    {
+      i.x = 0;
+      while (i.x < scale && i.x + pix.x < SCREEN_SIZE_X)
+	{
+	  p.x = i.x + pix.x;
+	  p.y = i.y + pix.y;
+	  pix_it(screen, p, color);
+	  i.x += 1;
+	}
+      i.y += 1;
+    }
+}
+
+void	*load_img_then(void *tld)
+{
+  t_screen *screen;
+  CLASS_DISPLAY *d;
+  t_color	color;
+  t_3d		view[2];
+  t_2d		pix;
+
+  pix.y = (TLD_CAST(tld))->begin;
+  screen = (TLD_CAST(tld))->screen;
+  d = (TLD_CAST(tld))->d;
+  while (pix.y < TLD_CAST(tld)->end)
     {
       pix.x = 0;
       while (pix.x < SCREEN_SIZE_X)
 	{
-	  color = zbuffering(d, d->objects,
-			       convert_norm(ray_adapt(d->eye->focus, pix)),
-			       1);
-	  pix_it(screen, pix, color);
+	  view[0] = convert_norm(ray_adapt(d->eye->focus, pix));
+	  view[1] = d->eye->position;
+	  color = zbuffering(d, d->objects, view, 1);
+	  success_pix_it(d->eye->scale, screen, pix, color);
 	  pix.x += d->eye->scale;
 	}
-      printf("loading -- %f\n", ((double)pix.y / SCREEN_SIZE_Y));
       pix.y += d->eye->scale;
     }
+  return (tld);
+}
+
+void	load_img(t_screen *screen, CLASS_DISPLAY *d)
+{
+  size_t	i;
+  pthread_t	thread[NTHREAD];
+  t_load_thread	load_thread[NTHREAD];
+
+  i = 0;
+  (load_thread[i]).screen = screen;
+  (load_thread[i]).d = d;
+  (load_thread[i]).begin = 0;
+  (load_thread[i]).end = SCREEN_SIZE_Y;
+  if (NTHREAD == 1)
+    load_img_then(&(load_thread[i]));
+  while (i < NTHREAD)
+    {
+      (load_thread[i]).screen = screen;
+      (load_thread[i]).d = d;
+      (load_thread[i]).begin = i * (SCREEN_SIZE_Y / NTHREAD);
+      (load_thread[i]).end = (i + 1) * (SCREEN_SIZE_Y / NTHREAD);
+      pthread_create(&(thread[i]), NULL, load_img_then, &(load_thread[i]));
+      i++;
+    }
+  i = 0;
+  while (i < NTHREAD)
+    pthread_join(thread[i++], NULL);
 }

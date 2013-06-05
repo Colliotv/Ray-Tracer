@@ -5,7 +5,7 @@
 ** Login   <collio_v@epitech.net>
 **
 ** Started on  Mon Jun  3 13:28:19 2013 vincent colliot
-** Last update Mon Jun  3 23:19:58 2013 vincent colliot
+** Last update Wed Jun  5 03:34:07 2013 vincent colliot
 */
 
 #define IN_
@@ -14,6 +14,7 @@
 #include "display.h"
 #include "get_color.h"
 #include "zbuffer.h"
+#include "view.h"
 
 static t_3d	alpha_ray(t_collide collide, t_3d ray)
 {
@@ -46,8 +47,9 @@ static t_3d	gamma_ray(t_collide collide, t_3d ray)
   return (r_alpha);
 }
 
-t_color	get_color(CLASS_DISPLAY *d, void *object, t_collide collide, t_3d ray)
+t_color	get_color(CLASS_DISPLAY *d, void *object, t_collide collide, t_3d view[2])
 {
+  t_3d		ray;
   t_3d		posit;
   t_color	color;
   t_color	calpha;
@@ -56,17 +58,21 @@ t_color	get_color(CLASS_DISPLAY *d, void *object, t_collide collide, t_3d ray)
   bzero(&calpha, sizeof(calpha));
   bzero(&cgamma, sizeof(cgamma));
   color = ((CLASS_OBJECT*)object)->color;
-  posit = d->eye->position;
-  d->eye->position = collide.collide;
+  ray = view[V_RAY];
+  posit = view[V_POSIT];
+  view[V_POSIT] = collide.collide;
+  view[V_RAY] = alpha_ray(collide, ray);
   if (collide.alpha > 0)
-    calpha = zbuffering(d, d->objects, alpha_ray(collide, ray), collide.alpha);
+    calpha = zbuffering(d, d->objects, view, collide.alpha);
+  view[V_RAY] = gamma_ray(collide, ray);
   if (collide.gamma > 0)
-    cgamma = zbuffering(d, d->objects, gamma_ray(collide, ray), collide.gamma);
-  d->eye->position = posit;
+    cgamma = zbuffering(d, d->objects, view, collide.gamma);
   if (collide.alpha > 0)
     add_color(color, calpha, collide.alpha, &color);
   if (collide.gamma > 0)
     add_color(color, cgamma, collide.gamma, &color);
+  view[V_RAY] = ray;
+  view[V_POSIT] = posit;
   return (color);
 }
 
@@ -79,8 +85,8 @@ t_color	add_color(t_color c1, t_color c2, double value, t_color *r)
       return (*r);
     }
   value -= (int)value;
-  (r->rgb)[R] = (c1.rgb)[R] * (1 - value) + (c2.rgb)[R] * value;
-  (r->rgb)[G] = (c1.rgb)[G] * (1 - value) + (c2.rgb)[G] * value;
-  (r->rgb)[B] = (c1.rgb)[B] * (1 - value) + (c2.rgb)[B] * value;
+  (r->rgb)[R] = (double)((c1.rgb)[R] * (1 - value)) + (double)((c2.rgb)[R] * value);
+  (r->rgb)[G] = (double)((c1.rgb)[G] * (1 - value)) + (double)((c2.rgb)[G] * value);
+  (r->rgb)[B] = (double)((c1.rgb)[B] * (1 - value)) + (double)((c2.rgb)[B] * value);
   return (*r);
 }

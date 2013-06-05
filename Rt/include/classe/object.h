@@ -5,7 +5,7 @@
 ** Login   <collio_v@epitech.net>
 **
 ** Started on  Thu May 16 22:11:47 2013 vincent colliot
-** Last update Tue Jun  4 13:57:27 2013 vincent colliot
+** Last update Wed Jun  5 03:24:41 2013 vincent colliot
 */
 
 #ifndef OBJECT_H_
@@ -15,7 +15,9 @@
 # include "xml_scan.h"
 # include "dim.h"
 # include "methode_name.h"
+# include "methode_object.h"
 # include "collide.h"
+
 struct s_object;
 struct s_display;
 #include "methode_cylindre.h"
@@ -24,7 +26,7 @@ typedef struct s_cylindre{
   void	*next;
   t_3d	(*collide)(void *, t_3d, t_3d, t_collide *);
   t_3d	(*normal)(void *, t_3d, t_collide*);
-  t_color (*get_color)(struct s_display *, void *, t_collide, t_3d);
+  t_color (*get_color)(struct s_display *, void *, t_collide, t_3d[2]);
   FLAG perturb;
   double alpha;
   double gamma;
@@ -46,7 +48,7 @@ typedef struct s_cone{
   void	*next;
   t_3d	(*collide)(void *, t_3d, t_3d, t_collide *);
   t_3d	(*normal)(void *, t_3d, t_collide*);
-  t_color (*get_color)(struct s_display *, void *, t_collide, t_3d);
+  t_color (*get_color)(struct s_display *, void *, t_collide, t_3d[2]);
   FLAG perturb;
   double alpha;
   double gamma;
@@ -68,7 +70,7 @@ typedef struct s_sphere{
   void	*next;
   t_3d	(*collide)(void *, t_3d, t_3d, t_collide *);
   t_3d	(*normal)(void *, t_3d, t_collide*);
-  t_color (*get_color)(struct s_display *, void *, t_collide, t_3d);
+  t_color (*get_color)(struct s_display *, void *, t_collide, t_3d[2]);
   FLAG perturb;
   double alpha;
   double gamma;
@@ -89,7 +91,7 @@ typedef struct s_plan{
   void	*next;
   t_3d	(*collide)(void *, t_3d, t_3d, t_collide *);
   t_3d	(*normal)(void *, t_3d, t_collide*);
-  t_color (*get_color)(struct s_display *, void *, t_collide, t_3d);
+  t_color (*get_color)(struct s_display *, void *, t_collide, t_3d[2]);
   FLAG perturb;
   double alpha;
   double gamma;
@@ -109,7 +111,7 @@ typedef struct s_object{
   struct s_object	*next;
   t_3d	(*collide)(void *, t_3d, t_3d, t_collide *);
   t_3d	(*normal)(void *, t_3d, t_collide*);
-  t_color (*get_color)(struct s_display *, void *, t_collide, t_3d);
+  t_color (*get_color)(struct s_display *, void *, t_collide, t_3d[2]);
   FLAG perturb;
   double alpha;
   double gamma;

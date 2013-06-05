@@ -5,7 +5,7 @@
 ** Login   <collio_v@epitech.net>
 **
 ** Started on  Fri May 31 13:19:02 2013 vincent colliot
-** Last update Mon Jun  3 21:34:26 2013 vincent colliot
+** Last update Wed Jun  5 00:01:15 2013 vincent colliot
 */
 
 #include <strings.h>
@@ -23,8 +23,10 @@ static t_token_scan	*ini_scan(void)
   (tab[1]).name = FOCUS;//<--- serait bien de faire des defines;;;;plus tard
   (tab[2]).call = plan_high;
   (tab[2]).name = "high";
-  (tab[3]).call = NULL;
-  (tab[3]).name = NULL;
+  (tab[3]).name = SHINING;
+  (tab[3]).call = object_shining;
+  (tab[4]).call = NULL;
+  (tab[4]).name = NULL;
   return (tab);
 }
 

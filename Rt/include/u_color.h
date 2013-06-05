@@ -5,7 +5,7 @@
 ** Login   <collio_v@epitech.net>
 **
 ** Started on  Thu May 30 23:33:33 2013 vincent colliot
-** Last update Tue Jun  4 13:48:45 2013 vincent colliot
+** Last update Wed Jun  5 00:11:07 2013 vincent colliot
 */
 
 #ifndef U_COLOR_H_
@@ -20,5 +20,7 @@ typedef union u_color{
 # define R 2
 # define G 1
 # define B 0
+
+# define N_C(n) (((n) > 255) ? (255) : (n))
 
 #endif

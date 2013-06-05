@@ -5,7 +5,7 @@
 ** Login   <collio_v@epitech.net>
 **
 ** Started on  Fri May 31 02:39:32 2013 vincent colliot
-** Last update Sat Jun  1 23:17:33 2013 vincent colliot
+** Last update Wed Jun  5 04:04:26 2013 vincent colliot
 */
 
 #include <math.h>
@@ -67,4 +67,15 @@ void    eye_focus(void *l, t_token *token)
     def_error("y");
   ((CLASS_EYE*)l)->focus.y = (atof(s) * M_PI) / 180;
   free(s);
+}
+
+void	eye_scale(void *l, t_token *token)
+{
+  char	*s;
+
+  if ((s = xml_token(&token, "scale", RESOLVE, 0)) == NULL)
+    def_error("scale");
+  if (!O_IN(s + strspn(s, "-+"), "0123456789."))
+    def_error("scale");
+  (((t_eye*)l)->scale) = atof(s);
 }
