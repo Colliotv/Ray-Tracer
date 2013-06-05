@@ -3,6 +3,7 @@
     <position x="19" y= "1" z= "41" />
     <direction x="-15" y="220" z="0"/>
     <scale scale="1" />
+    <shading scale="0.4" n="15" />
   </eye>
   <light>
     <position x="0" y="0" z="30" />
@@ -10,11 +11,11 @@
   </light>
   <light>
     <position x="10" y="20" z="0" />
-    <color r="255" g="255" b="255"/>
+    <color r="255" g="0" b="0"/>
   </light>
   <light>
     <position x="-10" y="20" z="0" />
-    <color r="255" g="255" b="255"/>
+    <color r="0" g="0" b="255"/>
   </light>
   <light>
     <position x="-19" y="0" z="41" />
@@ -37,28 +38,28 @@
     <rayon R="2.2"/>
     <color r="255" g="255" b="255"/>
     <shining shine="5" />
-    <reflection alpha="0.8" />
+    <reflection alpha="0.9" />
   </object>
   <object type = "sphere">
     <position x="-4" y="10" z="10" />
     <rayon R="2.2"/>
     <color r="255" g="255" b="255"/>
     <shining shine="5" />
-    <reflection alpha="0.8" />
+    <reflection alpha="0.9" />
   </object>
   <object type = "sphere">
     <position x="0" y="14" z="10" />
     <rayon R="2.2"/>
     <color r="255" g="255" b="255"/>
     <shining shine="5" />
-    <reflection alpha="0.8" />
+    <reflection alpha="0.9" />
   </object>
   <object type = "sphere">
     <position x="0" y="6" z="10" />
     <rayon R="2.2"/>
     <color r="255" g="255" b="255"/>
     <shining shine="5" />
-    <reflection alpha="0.8" />
+    <reflection alpha="0.9" />
   </object>
   <object type = "cylindre">
     <position x="0" y="10" z="10" />
@@ -66,7 +67,7 @@
     <color r="255" g="255" b="255"/>
     <rotation x="0" y="0" z="0"/>
     <shining shine="2" />
-    <reflection alpha="0.8" />
+    <reflection alpha="0.9" />
   </object>
   <object type = "cylindre">
     <position x="0" y="10" z="10" />
@@ -74,7 +75,7 @@
     <color r="255" g="255" b="255"/>
     <rotation x="0" y="0" z="90"/>
     <shining shine="2" />
-    <reflection alpha="0.8" />
+    <reflection alpha="0.9" />
   </object>
   <object type = "plan">
     <rotation x="0" y="0" z="180" />
@@ -112,7 +113,7 @@
     <color r="255" g="255" b="255"/>
     <rotation x="0" y="0" z="0"/>
     <shining shine="2" />
-    <reflection alpha="0.8" />
+    <reflection alpha="0.9" />
   </object>
   <object type = "cylindre">
     <position x="13" y="0" z="20" />
@@ -120,7 +121,7 @@
     <color r="255" g="255" b="255"/>
     <rotation x="0" y="0" z="0"/>
     <shining shine="2" />
-    <reflection alpha="0.8" />
+    <reflection alpha="0.9" />
   </object>
   <object type = "cylindre">
     <position x="0" y="5" z="20" />
@@ -128,7 +129,7 @@
     <color r="255" g="255" b="255"/>
     <rotation x="0" y="0" z="90"/>
     <shining shine="2" />
-    <reflection alpha="0.8" />
+    <reflection alpha="0.9" />
   </object>
   <object type = "cylindre">
     <position x="0" y="17" z="20" />
@@ -136,34 +137,34 @@
     <color r="255" g="255" b="255"/>
     <rotation x="0" y="0" z="90"/>
     <shining shine="2" />
-    <reflection alpha="0.8" />
+    <reflection alpha="0.9" />
   </object>
   <object type = "sphere">
     <position x="13" y="17" z="20" />
     <rayon R="2.2"/>
     <color r="255" g="255" b="255"/>
     <shining shine="5" />
-    <reflection alpha="0.8" />
+    <reflection alpha="0.9" />
   </object>
   <object type = "sphere">
     <position x="-13" y="17" z="20" />
     <rayon R="2.2"/>
     <color r="255" g="255" b="255"/>
     <shining shine="5" />
-    <reflection alpha="0.8" />
+    <reflection alpha="0.9" />
   </object>
   <object type = "sphere">
     <position x="-13" y="5" z="20" />
     <rayon R="2.2"/>
     <color r="255" g="255" b="255"/>
     <shining shine="5" />
-    <reflection alpha="0.8" />
+    <reflection alpha="0.9" />
   </object>
   <object type = "sphere">
     <position x="13" y="5" z="20" />
     <rayon R="2.2"/>
     <color r="255" g="255" b="255"/>
     <shining shine="5" />
-    <reflection alpha="0.8" />
+    <reflection alpha="0.9" />
   </object>
 </scene>

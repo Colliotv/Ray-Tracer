@@ -5,7 +5,11 @@
 ** Login   <collio_v@epitech.net>
 **
 ** Started on  Wed Jun  5 00:20:59 2013 vincent colliot
+<<<<<<< HEAD
 ** Last update Wed Jun  5 20:39:40 2013 vincent colliot
+=======
+** Last update Wed Jun  5 20:35:28 2013 thomas lecorre
+>>>>>>> 4e2e991f9f5d6559fc6d6d5e08167b6c104a2310
 */
 
 #ifndef THREAD_H_
