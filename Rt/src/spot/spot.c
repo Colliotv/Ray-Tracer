@@ -6,7 +6,7 @@
 **
 ** Started on  Mon Jun  3 14:30:25 2013 vincent colliot
 <<<<<<< HEAD
-** Last update Wed Jun  5 05:07:27 2013 vincent colliot
+** Last update Wed Jun  5 16:24:24 2013 vincent colliot
 =======
 ** Last update Tue Jun  4 14:05:18 2013 pierre-louis rebours
 >>>>>>> 786e49a2cc6941b4bc6ef4031ec3a1fd25a2152e
@@ -78,29 +78,52 @@ static inline t_color	div_all_color(int c[3], size_t i)
   return (r);
 }
 
+static BOOL shadow_rendering(t_collide *collide, CLASS_LIGHT *light, int n)
+{
+  t_3d	alt_light;
+
+  alt_light = light->position;
+  collide->light = light->position;
+  if (collide->shading.n == -1 && n == 0)
+    return (TRUE);
+  if (n >= collide->shading.n)
+    return (FALSE);
+  alt_light.x += ((random() % 100) * collide->shading.scale) / 100
+    - collide->shading.scale;
+  alt_light.y += ((random() % 100) * collide->shading.scale) / 100
+    - collide->shading.scale;
+  alt_light.z += ((random() % 100) * collide->shading.scale) / 100
+    - collide->shading.scale;
+  collide->light = alt_light;
+  return (TRUE);
+}
+
 t_color	add_spot_color(t_collide collide, CLASS_LIGHT *light,
 		       CLASS_OBJECT *object, double reverb)
 {
   size_t	i;
+  int		n;
   int		final[3];
   t_color	cont;
+  double	cosy;
 
   bzero(&final, sizeof(final));
   i = 0;
   while (light)
     {
-      collide.light = light->position;
-      collide.r_light = convert_ray(light->position, collide.collide);
-      if (object->gamma)
-	bidon();
-      cont = spot_add(collide, light->color, reverb, object);
-      cont = spot_modify(collide, cont,
-			  convert_cos(convert_ray(light->position,
-						  collide.collide),
-				      collide.normal));
-      (void)add_all_color(cont, final, final);
+      n = 0;
+      cosy = convert_cos(convert_ray(light->position, collide.collide),
+			collide.normal);
+      while (shadow_rendering(&collide, light, n))
+	{
+	  collide.r_light = convert_ray(collide.light, collide.collide);
+	  cont = spot_add(collide, light->color, reverb, object);
+	  cont = spot_modify(collide, cont, cosy);
+	  (void)add_all_color(cont, final, final);
+	  n++;
+	}
       light = light->next;
       i++;
     }
-  return (div_all_color(final, i));
+  return (div_all_color(final, i * n));
 }

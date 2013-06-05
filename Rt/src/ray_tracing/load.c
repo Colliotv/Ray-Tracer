@@ -5,7 +5,7 @@
 ** Login   <collio_v@epitech.net>
 **
 ** Started on  Sun Jun  2 23:40:44 2013 vincent colliot
-** Last update Wed Jun  5 04:51:42 2013 vincent colliot
+** Last update Wed Jun  5 17:35:31 2013 vincent colliot
 */
 
 #include <strings.h>

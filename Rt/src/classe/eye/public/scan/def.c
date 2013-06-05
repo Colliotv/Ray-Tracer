@@ -5,7 +5,7 @@
 ** Login   <collio_v@epitech.net>
 **
 ** Started on  Fri May 31 02:39:32 2013 vincent colliot
-** Last update Wed Jun  5 04:04:26 2013 vincent colliot
+** Last update Wed Jun  5 15:09:43 2013 vincent colliot
 */
 
 #include <math.h>
@@ -77,5 +77,24 @@ void	eye_scale(void *l, t_token *token)
     def_error("scale");
   if (!O_IN(s + strspn(s, "-+"), "0123456789."))
     def_error("scale");
-  (((t_eye*)l)->scale) = atof(s);
+  if (!((((t_eye*)l)->scale) = atof(s)))
+    (((t_eye*)l)->scale) = 1;
+}
+
+void	eye_shading(void *l, t_token *token)
+{
+  char	*s;
+
+  if ((s = xml_token(&token, "scale", RESOLVE, 0)) == NULL)
+    def_error("scale");
+  if (!O_IN(s + strspn(s, "-+"), "0123456789."))
+    def_error("scale");
+  if (!((((t_eye*)l)->render.scale) = atof(s)))
+    (((t_eye*)l)->render.scale) = -1;
+  if ((s = xml_token(&token, "n", RESOLVE, 0)) == NULL)
+    def_error("n");
+  if (!O_IN(s + strspn(s, "-+"), "0123456789."))
+    def_error("n");
+  if (!((((t_eye*)l)->render.n) = atof(s)))
+    (((t_eye*)l)->render.n) = -1;
 }

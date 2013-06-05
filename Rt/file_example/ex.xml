@@ -1,12 +1,12 @@
 <scene>
   <eye>
-    <scale scale="2"/>
-    <position x="0.0" y= "20.0" z= "-20.0" /><!-- espace possible entre = et "", mais pas " 4.0 "
+    <scale scale="3"/>
+    <position x="0.0" y= "20.0" z= "-35.0" /><!-- espace possible entre = et "", mais pas " 4.0 "
     peut être sur plusieurs ligne-->
     <direction x="45" y="0" z="0"/>
   </eye>
   <light>
-    <position x="2" y="20" z="0" /><!-- espace possible entre ? et =, = et "", mais pas " n "
+    <position x="20" y="20" z="0" /><!-- espace possible entre ? et =, = et "", mais pas " n "
     peut être sur plusieurs ligne-->
     <color r="255" g="255" b="255"/>
     <!-- <fov alpha=""/>  fov définissable pour effectuer certains effets?-->
@@ -21,11 +21,21 @@
 			      (possible sur multi-ligne -->
     <rotation x="0" y="0" z="0" />
     <high D="0" />
-    <color r="255" g="255" b="255"/>
-    <shining shine="0.9"/>
+    <color r="0" g="0" b="255"/>
+    <shining shine="0.0"/>
+    <reflection alpha="0.30"/>
   </object>
   <object type = "sphere">
-    <position x="0.0" y="10" z="0" />
+    <position x="0.0" y="20" z="0" />
     <rayon R="5.0"/>
+    <shining shine="0.2"/>
+    <color r="70" g="0" b="0"/>
+    <transparency gamma="0.90"/>
+  </object>
+  <object type = "sphere">
+    <position x="5.0" y="5" z="-5" />
+    <rayon R="2.0"/>
+    <color r="250" g="0" b="0"/>
+    <transparency gamma="0.60"/>
   </object>
 </scene>

@@ -5,7 +5,7 @@
 ** Login   <collio_v@epitech.net>
 **
 ** Started on  Fri May 31 15:17:18 2013 vincent colliot
-** Last update Tue Jun  4 15:29:59 2013 vincent colliot
+** Last update Wed Jun  5 13:48:44 2013 vincent colliot
 */
 
 #include <stdio.h>
@@ -14,7 +14,9 @@
 #include "object.h"
 #include "string.h"
 
-# define N(n) (((int)((n) + 90)) % 180 - 90 + (n) - (int)(n))
+# define NM(n) (((n) < 0) ? (-n) : (n))
+# define N_Y(n) (n)//(((int)((n) + 90)) % 180 - 90 + (n) - (int)(n))
+# define N_X(n) (n)//((int)(n) % 180 + (n) - (int)(n))
 
 static void	def_error(char *s)
 {
@@ -54,21 +56,27 @@ void    cylindre_focus(void *l, t_token *token)
     def_error("x");
   if (!O_IN(s + strspn(s, "-+"), "0123456789."))
     def_error("x");
-  ((t_cylindre*)l)->focus.x = (N(atof(s + strspn(s, "-+"))) * M_PI) / 180;
+  ((t_cylindre*)l)->focus.x = (N_X(atof(s + strspn(s, "-+"))) * M_PI) / 180;
   free(s);
   if ((s = xml_token(&token, "z", RESOLVE, 0)) == NULL)
     def_error("z");
   if (!O_IN(s + strspn(s, "-+"), "0123456789."))
     def_error("z");
-  ((t_cylindre*)l)->focus.z = (N(atof(s + strspn(s, "-+"))) * M_PI) / 180;
+  ((t_cylindre*)l)->focus.z = (N_Y(atof(s + strspn(s, "-+"))) * M_PI) / 180;
   free(s);
   if ((s = xml_token(&token, "y", RESOLVE, 0)) == NULL)
     def_error("y");
   if (!O_IN(s + strspn(s, "-+"), "0123456789."))
     def_error("y");
-  ((t_cylindre*)l)->focus.y = (N(atof(s + strspn(s, "-+"))) * M_PI) / 180;
+  ((t_cylindre*)l)->focus.y = (N_Y(atof(s + strspn(s, "-+"))) * M_PI) / 180;
   free(s);
-  ((t_cylindre*)l)->focus = convert_focus(((t_cylindre*)l)->focus);
+  printf("focus: %f %f %f\n", ((t_cylindre*)l)->focus.x, ((t_cylindre*)l)->focus.y, ((t_cylindre*)l)->focus.z);
+  ((t_cylindre*)l)->focus = convert_norm(convert_focus(((t_cylindre*)l)->focus));
+  printf("focus: %f %f %f\n", ((t_cylindre*)l)->focus.x, ((t_cylindre*)l)->focus.y, ((t_cylindre*)l)->focus.z);
+  ((t_cylindre*)l)->focus.y = NM(((t_cylindre*)l)->focus.y);
+  ((t_cylindre*)l)->focus.x = NM(((t_cylindre*)l)->focus.x);
+  ((t_cylindre*)l)->focus.z = NM(((t_cylindre*)l)->focus.z);
+  printf("focus: %f %f %f\n", ((t_cylindre*)l)->focus.x, ((t_cylindre*)l)->focus.y, ((t_cylindre*)l)->focus.z);
 }
 
 void	cylindre_rayon(void *l, t_token *token)

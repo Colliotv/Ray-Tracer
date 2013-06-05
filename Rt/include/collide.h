@@ -5,7 +5,7 @@
 ** Login   <collio_v@epitech.net>
 **
 ** Started on  Sat Jun  1 22:59:52 2013 vincent colliot
-** Last update Tue Jun  4 13:24:59 2013 vincent colliot
+** Last update Wed Jun  5 14:55:25 2013 vincent colliot
 */
 
 #ifndef COLLIDE_H_
@@ -24,6 +24,10 @@
  *gamma == transpa sur 0 -1
  *
  */
+typedef struct s_shadow{
+  int		n;
+  double	scale;
+}		t_shadow;
 
 typedef struct s_collide{
   /* collide part */
@@ -34,6 +38,7 @@ typedef struct s_collide{
   t_3d		normal;
   FLAG		n_spec;
   /* light part */
+  t_shadow	shading;
   t_3d		light;
   t_3d		r_light;
   void		*ld;

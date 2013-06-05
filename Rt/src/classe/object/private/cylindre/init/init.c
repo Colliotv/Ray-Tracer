@@ -5,7 +5,7 @@
 ** Login   <collio_v@epitech.net>
 **
 ** Started on  Fri May 31 13:27:54 2013 vincent colliot
-** Last update Tue Jun  4 23:59:53 2013 vincent colliot
+** Last update Wed Jun  5 12:43:42 2013 vincent colliot
 */
 
 #include <strings.h>
@@ -16,7 +16,7 @@ static t_token_scan	*ini_scan(void)
 {
   t_token_scan	*tab;
 
-  tab = xmalloc(sizeof(*tab) * (5 + 1));
+  tab = xmalloc(sizeof(*tab) * (7 + 1));
   (tab[0]).call = cylindre_pos;
   (tab[0]).name = POSITION;
   (tab[1]).call = cylindre_color;
@@ -27,8 +27,14 @@ static t_token_scan	*ini_scan(void)
   (tab[3]).name = "rayon";
   (tab[4]).name = SHINING;
   (tab[4]).call = object_shining;
-  (tab[5]).call = NULL;
-  (tab[5]).name = NULL;
+  (tab[4]).name = SHINING;
+  (tab[4]).call = object_shining;
+  (tab[5]).call = object_alpha;
+  (tab[5]).name = ALPHA;
+  (tab[6]).call = object_gamma;
+  (tab[6]).name = GAMMA;
+  (tab[7]).call = NULL;
+  (tab[7]).name = NULL;
   return (tab);
 }
 

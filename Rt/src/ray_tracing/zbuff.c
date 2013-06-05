@@ -5,7 +5,7 @@
 ** Login   <collio_v@epitech.net>
 **
 ** Started on  Mon Jun  3 00:47:07 2013 vincent colliot
-** Last update Wed Jun  5 04:58:01 2013 vincent colliot
+** Last update Wed Jun  5 15:05:16 2013 vincent colliot
 */
 
 #include <strings.h>
@@ -64,6 +64,7 @@ t_color	zbuffering(CLASS_DISPLAY *d, CLASS_OBJECT *object, t_3d view[2], double 
 	{
 	  if (object->gamma)
 	    bidon();
+	  collide.shading = d->eye->render;
 	  collide.alpha = reverb - (1 - object->alpha);
 	  collide.gamma = reverb - (1 - object->gamma);
 	  collide.ld = d;

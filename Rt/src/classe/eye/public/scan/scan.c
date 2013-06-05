@@ -5,7 +5,7 @@
 ** Login   <collio_v@epitech.net>
 **
 ** Started on  Fri May 31 02:20:08 2013 vincent colliot
-** Last update Fri May 31 21:01:17 2013 vincent colliot
+** Last update Wed Jun  5 15:30:30 2013 vincent colliot
 */
 
 #include <stdio.h>
@@ -38,17 +38,20 @@ static void	scan_line(CLASS_EYE *eye, FD xml, char *s)
   char		*name;
   size_t	i;
 
-  name = xml_token(&token, s, INIT, xml);
-  i = 0;
-  while ((eye->scan)[i].name)
-    if (NMATCH(((eye->scan)[i]).name, name))
-      {
-	(((eye->scan)[i]).call)(eye, token);
-	return ;
-      }
-    else
-      i++;
+  if ((name = xml_token(&token, s, INIT, xml)))
+    {
+      i = 0;
+      while ((eye->scan)[i].name)
+	if (NMATCH(((eye->scan)[i]).name, name))
+	  {
+	    (((eye->scan)[i]).call)(eye, token);
+	    return ;
+	  }
+	else
+	  i++;
+    }
   (void)printf("error :%s not recognized", name);
+  exit(-42);
 }
 
 void	add_eye(void *d, FD xml, char *s)

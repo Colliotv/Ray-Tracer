@@ -2,6 +2,8 @@
   <eye>
     <position x="0.0" y= "10.0" z= "-15.0" />
     <direction x="0" y="0" z="0"/>
+    <shading scale="2" n="50"/>
+    <scale scale="2"/>
   </eye>
   <light>
     <position x="10" y="20" z="0" />
