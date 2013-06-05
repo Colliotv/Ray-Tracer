@@ -6,7 +6,7 @@
 **
 ** Started on  Mon Jun  3 14:30:25 2013 vincent colliot
 <<<<<<< HEAD
-** Last update Wed Jun  5 16:24:24 2013 vincent colliot
+** Last update Wed Jun  5 18:07:43 2013 vincent colliot
 =======
 ** Last update Tue Jun  4 14:05:18 2013 pierre-louis rebours
 >>>>>>> 786e49a2cc6941b4bc6ef4031ec3a1fd25a2152e

@@ -5,7 +5,7 @@
 ** Login   <collio_v@epitech.net>
 **
 ** Started on  Mon Jun  3 13:28:19 2013 vincent colliot
-** Last update Wed Jun  5 17:20:05 2013 vincent colliot
+** Last update Wed Jun  5 18:28:04 2013 vincent colliot
 */
 
 #define IN_
@@ -47,7 +47,7 @@ static t_3d	gamma_ray(t_collide collide, t_3d ray)
   return (r_alpha);
 }
 
-t_color	get_color(CLASS_DISPLAY *d, void *object, t_collide collide, t_3d view[2])
+t_color	mod_color(CLASS_DISPLAY *d, void *object, t_collide collide, t_3d view[2])
 {
   t_3d		ray;
   t_3d		posit;
@@ -57,7 +57,8 @@ t_color	get_color(CLASS_DISPLAY *d, void *object, t_collide collide, t_3d view[2
 
   bzero(&calpha, sizeof(calpha));
   bzero(&cgamma, sizeof(cgamma));
-  color = ((CLASS_OBJECT*)object)->color;
+  (void)object;
+  color = collide.color;
   ray = view[V_RAY];
   posit = view[V_POSIT];
   view[V_POSIT] = collide.collide;
@@ -65,6 +66,7 @@ t_color	get_color(CLASS_DISPLAY *d, void *object, t_collide collide, t_3d view[2
   if (collide.alpha > 0)
     calpha = zbuffering(d, d->objects, view, collide.alpha);
   view[V_RAY] = gamma_ray(collide, ray);
+  view[V_POSIT] = dist_convert(posit, ray, (collide.k)[collide.defined]);
   if (collide.gamma > 0)
     cgamma = zbuffering(d, d->objects, view, collide.gamma);
   if (collide.alpha > 0)
@@ -73,6 +75,18 @@ t_color	get_color(CLASS_DISPLAY *d, void *object, t_collide collide, t_3d view[2
     add_color(color, cgamma, collide.gamma, &color);
   view[V_RAY] = ray;
   view[V_POSIT] = posit;
+  return (color);
+}
+
+t_color	get_color(CLASS_DISPLAY *d, void *object, t_collide collide, t_3d view[2])
+{
+  t_color	color;
+
+  (void)d;
+  (void)view;
+  color = ((CLASS_OBJECT*)object)->color;
+  if ((int)collide.collide.x % 2 && (int)collide.collide.z % 2 && collide.n_spec)
+    bzero(&color, sizeof(color));
   return (color);
 }
 

@@ -5,7 +5,7 @@
 ** Login   <collio_v@epitech.net>
 **
 ** Started on  Mon May 27 16:29:41 2013 vincent colliot
-** Last update Wed Jun  5 17:22:11 2013 vincent colliot
+** Last update Wed Jun  5 17:42:25 2013 vincent colliot
 */
 
 #include <time.h>
@@ -43,7 +43,8 @@ int		move(int key, void *select)
     d->eye->position.x += 1;
   else if (key == RIGHT)
     d->eye->position.x -= 1;
-  return (-1);
+  else
+    return (-1);
   bzero(((t_image*)(screen->screensave))->stack, sizeof(char)
 	* (SCREEN_SIZE_X * (((t_image*)(screen->screensave))->bpp / 8)
 	   + SCREEN_SIZE_Y * (((t_image*)(screen->screensave))->size_line)));
