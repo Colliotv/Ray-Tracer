@@ -5,7 +5,7 @@
 ** Login   <collio_v@epitech.net>
 **
 ** Started on  Mon Jun  3 13:28:19 2013 vincent colliot
-** Last update Wed Jun  5 18:28:04 2013 vincent colliot
+** Last update Wed Jun  5 19:34:49 2013 thomas lecorre
 */
 
 #define IN_
@@ -85,8 +85,8 @@ t_color	get_color(CLASS_DISPLAY *d, void *object, t_collide collide, t_3d view[2
   (void)d;
   (void)view;
   color = ((CLASS_OBJECT*)object)->color;
-  if ((int)collide.collide.x % 2 && (int)collide.collide.z % 2 && collide.n_spec)
-    bzero(&color, sizeof(color));
+  /* if ((int)collide.collide.x % 2 && (int)collide.collide.z % 2 && collide.n_spec) */
+  /*   bzero(&color, sizeof(color)); */
   return (color);
 }
 
