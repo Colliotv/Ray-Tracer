@@ -22,10 +22,10 @@
     <rotation x="0" y="0" z="0" />
     <high D="0" />
     <color r="255" g="255" b="255"/>
+    <shining shine="0.9"/>
   </object>
   <object type = "sphere">
     <position x="0.0" y="10" z="0" />
     <rayon R="5.0"/>
-    <shining shine="0.9"/>
   </object>
 </scene>

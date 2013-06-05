@@ -5,7 +5,7 @@
 ** Login   <collio_v@epitech.net>
 **
 ** Started on  Sun Jun  2 23:40:44 2013 vincent colliot
-** Last update Wed Jun  5 04:10:18 2013 vincent colliot
+** Last update Wed Jun  5 04:51:42 2013 vincent colliot
 */
 
 #include <strings.h>
@@ -94,6 +94,8 @@ void	load_img(t_screen *screen, CLASS_DISPLAY *d)
   (load_thread[i]).end = SCREEN_SIZE_Y;
   if (NTHREAD == 1)
     load_img_then(&(load_thread[i]));
+  if (NTHREAD == 1)
+    return ;
   while (i < NTHREAD)
     {
       (load_thread[i]).screen = screen;

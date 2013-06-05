@@ -4,7 +4,7 @@
 ## Login   <collio_v@epitech.net>
 ##
 ## Started on Thu Oct 25 22:06:03 2012 vincent colliot
-## Last update Wed Jun  5 04:15:40 2013 vincent colliot
+## Last update Wed Jun  5 04:20:06 2013 vincent colliot
 ## Last update Tue Jun  4 16:00:10 2013 thomas lecorre
 ##
 
@@ -214,9 +214,9 @@ SRC     =$(MAIN)\
 
 INC	=-I $(FO)include/ -I include/classe -I include/classe/methode/ -lm -lpthread 	\
 	-L/usr/lib64 -lmlx_${HOSTTYPE} -L/usr/lib64/X11 -lXext -lX11 -I/usr/X11R6/include \
-	-O2 -O3
 
-CFLAGS	= -Wall -Wextra $(INC)
+
+CFLAGS	= -Wall -Wextra $(INC) -O2 -O3
 
 DOTO    = $(SRC:.c=.o)
 

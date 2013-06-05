@@ -6,7 +6,7 @@
 **
 ** Started on  Mon Jun  3 14:30:25 2013 vincent colliot
 <<<<<<< HEAD
-** Last update Wed Jun  5 00:13:38 2013 vincent colliot
+** Last update Wed Jun  5 05:07:27 2013 vincent colliot
 =======
 ** Last update Tue Jun  4 14:05:18 2013 pierre-louis rebours
 >>>>>>> 786e49a2cc6941b4bc6ef4031ec3a1fd25a2152e
@@ -43,13 +43,13 @@ static t_color	spot_modify(t_collide collide, t_color final, double angle)
     angle = -angle;
   else if (!collide.n_spec && angle <= 0)
     return (r);
-  (r.rgb)[R] = N_C(angle * (final.rgb)[R] * (((collide.color).rgb)[R] / 255
+  (r.rgb)[R] = N_C(angle * (final.rgb)[R] * (((collide.color).rgb)[R] / 255.0
 					     + collide.shining))
     / add_dist(collide);
-  (r.rgb)[G] = N_C(angle * (final.rgb)[G] * (((collide.color).rgb)[G] / 255
+  (r.rgb)[G] = N_C(angle * (final.rgb)[G] * (((collide.color).rgb)[G] / 255.0
 					     + collide.shining))
     / add_dist(collide);
-  (r.rgb)[B] = N_C(angle * (final.rgb)[B] * (((collide.color).rgb)[B] / 255
+  (r.rgb)[B] = N_C(angle * (final.rgb)[B] * (((collide.color).rgb)[B] / 255.0
 					     + collide.shining))
     / add_dist(collide);
   return (r);
@@ -91,6 +91,8 @@ t_color	add_spot_color(t_collide collide, CLASS_LIGHT *light,
     {
       collide.light = light->position;
       collide.r_light = convert_ray(light->position, collide.collide);
+      if (object->gamma)
+	bidon();
       cont = spot_add(collide, light->color, reverb, object);
       cont = spot_modify(collide, cont,
 			  convert_cos(convert_ray(light->position,

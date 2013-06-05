@@ -5,7 +5,7 @@
 ** Login   <collio_v@epitech.net>
 **
 ** Started on  Mon Jun  3 00:47:07 2013 vincent colliot
-** Last update Wed Jun  5 03:23:42 2013 vincent colliot
+** Last update Wed Jun  5 04:58:01 2013 vincent colliot
 */
 
 #include <strings.h>
@@ -16,6 +16,16 @@
 #include "get_color.h"
 #include "bool.h"
 #include "view.h"
+
+
+void	bidon()
+{
+
+
+}
+
+
+
 
 static BOOL	fill_collide(CLASS_OBJECT *object, t_3d ray, t_3d pos,
 			     t_collide *collide)
@@ -52,6 +62,8 @@ t_color	zbuffering(CLASS_DISPLAY *d, CLASS_OBJECT *object, t_3d view[2], double 
     {
       if (fill_collide(object, view[V_RAY], view[V_POSIT], &collide))
 	{
+	  if (object->gamma)
+	    bidon();
 	  collide.alpha = reverb - (1 - object->alpha);
 	  collide.gamma = reverb - (1 - object->gamma);
 	  collide.ld = d;
