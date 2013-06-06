@@ -5,7 +5,7 @@
 ** Login   <collio_v@epitech.net>
 **
 ** Started on  Mon Jun  3 01:10:41 2013 vincent colliot
-** Last update Tue Jun  4 14:04:16 2013 vincent colliot
+** Last update Thu Jun  6 02:35:25 2013 vincent colliot
 */
 
 #include "object.h"
@@ -13,7 +13,10 @@
 
 t_3d	normal_plan(void *plan, t_3d collide, t_collide *v)
 {
+  t_3d	narmol;
+
   (void)collide;
   v->n_spec = 1;
-  return (((t_plan*)plan)->focus);
+  narmol = ((t_plan*)plan)->focus;
+  return (narmol);
 }

@@ -2,8 +2,7 @@
   <eye>
     <position x="19" y= "1" z= "41" />
     <direction x="-15" y="220" z="0"/>
-    <scale scale="1" />
-    <shading scale="0.4" n="15" />
+    <scale scale="3"/>
   </eye>
   <light>
     <position x="0" y="0" z="30" />
@@ -81,25 +80,30 @@
     <rotation x="0" y="0" z="180" />
     <high D="0" />
     <color r="255" g="255" b="255"/>
+    <reflection alpha="0.9" />
   </object>
   <object type = "plan">
     <rotation x="0" y="0" z="-90" />
     <high D="-20" />
     <color r="255" g="255" b="255"/>
+    <reflection alpha="0.9" />
   </object>
   <object type = "plan">
     <rotation x="0" y="0" z="90" />
     <high D="-20" />
     <color r="255" g="255" b="255"/>
+    <reflection alpha="0.9" />
   </object>
   <object type = "plan">
+    <reflection alpha="0.9" />
     <rotation x="-90" y="0" z="90" />
     <high D="42" />
     <color r="255" g="255" b="255"/>
   </object>
   <object type = "plan">
-    <rotation x="0" y="0" z="180" />
-    <high D="21" />
+    <reflection alpha="0.9" />
+    <rotation x="0" y="0" z="-180" />
+    <high D="-21" />
     <color r="255" g="255" b="255"/>
   </object>
   <object type = "plan">

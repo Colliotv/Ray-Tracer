@@ -5,7 +5,7 @@
 ** Login   <collio_v@epitech.net>
 **
 ** Started on  Fri May 31 02:39:32 2013 vincent colliot
-** Last update Wed Jun  5 15:09:43 2013 vincent colliot
+** Last update Thu Jun  6 02:22:41 2013 vincent colliot
 */
 
 #include <math.h>
@@ -79,6 +79,8 @@ void	eye_scale(void *l, t_token *token)
     def_error("scale");
   if (!((((t_eye*)l)->scale) = atof(s)))
     (((t_eye*)l)->scale) = 1;
+  if (((t_eye*)l)->scale < 0)
+    ((t_eye*)l)->scale = -((t_eye*)l)->scale;
 }
 
 void	eye_shading(void *l, t_token *token)

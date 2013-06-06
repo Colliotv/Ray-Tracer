@@ -5,7 +5,7 @@
 ** Login   <collio_v@epitech.net>
 **
 ** Started on  Mon Jun  3 13:28:19 2013 vincent colliot
-** Last update Wed Jun  5 20:25:10 2013 vincent colliot
+** Last update Thu Jun  6 02:03:56 2013 vincent colliot
 */
 
 #define IN_
@@ -23,21 +23,24 @@ static t_3d	alpha_ray(t_collide collide, t_3d ray)
 
   ray = convert_norm(ray);
   scal = convert_scal(collide.normal = convert_norm(collide.normal), ray);
+  if (collide.n_spec && convert_cos(collide.normal, ray) < 0)
+    scal = -scal;
   r_alpha.x = -2 * scal * (collide.normal).x + ray.x;
   r_alpha.y = -2 * scal * (collide.normal).y + ray.y;
   r_alpha.z = -2 * scal * (collide.normal).z + ray.z;
   return (r_alpha);
 }
 
-static t_3d	gamma_ray(t_collide collide, t_3d ray)
+static t_3d	gamma_ray(t_collide collide, t_3d ray, t_object *o)
 {
   t_3d		r_alpha;
   double	scal;
   double	n;
 
+  bzero(&r_alpha, sizeof(r_alpha));
   ray = convert_norm(ray);
   scal = convert_scal(collide.normal = convert_norm(collide.normal), ray);
-  n = INDICE_2 / INDICE_1;
+  n = o->diffract;
   r_alpha.x = n * ray.x + (n * scal - sqrt(1 + C(n) * (C(scal) - 1)))
     * (collide.normal).x;
   r_alpha.y = n * ray.y + (n * scal - sqrt(1 + C(n) * (C(scal) - 1)))
@@ -57,7 +60,6 @@ t_color	mod_color(CLASS_DISPLAY *d, void *object, t_collide collide, t_3d view[2
 
   bzero(&calpha, sizeof(calpha));
   bzero(&cgamma, sizeof(cgamma));
-  (void)object;
   color = collide.color;
   ray = view[V_RAY];
   posit = view[V_POSIT];
@@ -65,10 +67,8 @@ t_color	mod_color(CLASS_DISPLAY *d, void *object, t_collide collide, t_3d view[2
   view[V_RAY] = alpha_ray(collide, ray);
   if (collide.alpha > 0)
     calpha = zbuffering(d, d->objects, view, collide.alpha);
-  if (collide.alpha > 0 && (calpha.rgb)[R] > 100)
-    bidon();
-  view[V_RAY] = gamma_ray(collide, ray);
-  view[V_POSIT] = dist_convert(posit, ray, (collide.k)[collide.defined]);
+  view[V_RAY] = gamma_ray(collide, ray, object);
+  view[V_POSIT] = dist_convert(posit, ray, (collide.k)[collide.defined - 1] * 1.0001);
   if (collide.gamma > 0)
     cgamma = zbuffering(d, d->objects, view, collide.gamma);
   if (collide.alpha > 0)
@@ -86,6 +86,7 @@ t_color	get_color(CLASS_DISPLAY *d, void *object, t_collide collide, t_3d view[2
 
   (void)d;
   (void)view;
+  (void)collide;
   color = ((CLASS_OBJECT*)object)->color;
   return (color);
 }

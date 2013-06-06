@@ -6,7 +6,7 @@
 **
 ** Started on  Mon Jun  3 14:30:25 2013 vincent colliot
 <<<<<<< HEAD
-** Last update Wed Jun  5 20:06:19 2013 vincent colliot
+** Last update Thu Jun  6 02:40:46 2013 vincent colliot
 =======
 ** Last update Tue Jun  4 14:05:18 2013 pierre-louis rebours
 >>>>>>> 786e49a2cc6941b4bc6ef4031ec3a1fd25a2152e
@@ -113,7 +113,7 @@ t_color	add_spot_color(t_collide collide, CLASS_LIGHT *light,
     {
       n = 0;
       cosy = convert_cos(convert_ray(light->position, collide.collide),
-			collide.normal);
+			 collide.normal);
       while (shadow_rendering(&collide, light, n))
 	{
 	  collide.r_light = convert_ray(collide.light, collide.collide);

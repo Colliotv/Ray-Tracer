@@ -5,7 +5,7 @@
 ** Login   <collio_v@epitech.net>
 **
 ** Started on  Thu May 16 22:11:47 2013 vincent colliot
-** Last update Wed Jun  5 03:24:41 2013 vincent colliot
+** Last update Thu Jun  6 02:01:14 2013 vincent colliot
 */
 
 #ifndef OBJECT_H_
@@ -30,6 +30,7 @@ typedef struct s_cylindre{
   FLAG perturb;
   double alpha;
   double gamma;
+  double diffract;
   double shine;
   /* private */
   t_token_scan *obj_scan;
@@ -52,6 +53,7 @@ typedef struct s_cone{
   FLAG perturb;
   double alpha;
   double gamma;
+  double diffract;
   double shine;
   /* private */
   t_token_scan *obj_scan;
@@ -74,6 +76,7 @@ typedef struct s_sphere{
   FLAG perturb;
   double alpha;
   double gamma;
+  double diffract;
   double shine;
   /* private */
   t_token_scan *obj_scan;
@@ -95,6 +98,7 @@ typedef struct s_plan{
   FLAG perturb;
   double alpha;
   double gamma;
+  double diffract;
   double shine;
   /* private */
   t_token_scan *obj_scan;
@@ -115,6 +119,7 @@ typedef struct s_object{
   FLAG perturb;
   double alpha;
   double gamma;
+  double diffract;
   double shine;
   /* private */
   t_token_scan *obj_scan;

@@ -3,13 +3,10 @@
     <position x="0.0" y= "20.0" z= "-40.0" /><!-- espace possible entre = et "", mais pas " 4.0 "
     peut être sur plusieurs ligne-->
     <direction x="15" y="0" z="0"/>
-    <shading scale="0.4" n="15"/>
-    <scale scale="1"/>
   </eye>
   <object type = "cylindre">
     <position x="0.0" y="5" z="6" />
     <rayon R="2"/>
-    <color r="255" g="0" b="0"/>
     <rotation x="0" y="0" z="0" />
     <shining shine="0.55"/>
   </object>
@@ -18,6 +15,13 @@
     <rotation x="0" y="0" z="0" />
     <high D="0" />
     <color r="255" g="255" b="255"/>
+    <reflection alpha="0.9"/>
+  </object>
+  <object type = "sphere">
+    <position x="2.0" y="10" z="-3" />
+    <rayon R="5.0"/>
+    <color r="0" g="0" b="255"/>
+    <transparency gamma="0.555555" diffraction="0.95555"/>
   </object>
   <light>
     <position x="-15" y="15" z="0" />

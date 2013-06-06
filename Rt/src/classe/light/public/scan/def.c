@@ -5,7 +5,7 @@
 ** Login   <collio_v@epitech.net>
 **
 ** Started on  Mon May 27 17:28:16 2013 vincent colliot
-** Last update Fri May 31 20:36:03 2013 vincent colliot
+** Last update Wed Jun  5 21:35:56 2013 vincent colliot
 */
 
 #include <stdio.h>
@@ -66,4 +66,22 @@ void	light_color(void *l, t_token *token)
     def_error("g");
   (((CLASS_LIGHT*)l)->color.rgb)[G] = atof(s);
   free(s);
+}
+
+void	light_shading(void *l, t_token *token)
+{
+  char	*s;
+
+  if ((s = xml_token(&token, "scale", RESOLVE, 0)) == NULL)
+    def_error("scale");
+  if (!O_IN(s + strspn(s, "-+"), "0123456789."))
+    def_error("scale");
+  if (!((((t_light*)l)->render.scale) = atof(s)))
+    (((t_light*)l)->render.scale) = -1;
+  if ((s = xml_token(&token, "n", RESOLVE, 0)) == NULL)
+    def_error("n");
+  if (!O_IN(s + strspn(s, "-+"), "0123456789."))
+    def_error("n");
+  if (!((((t_light*)l)->render.n) = atof(s)))
+    (((t_light*)l)->render.n) = -1;
 }

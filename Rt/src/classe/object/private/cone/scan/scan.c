@@ -5,7 +5,7 @@
 ** Login   <collio_v@epitech.net>
 **
 ** Started on  Fri May 31 15:12:00 2013 vincent colliot
-** Last update Sun Jun  2 02:41:41 2013 vincent colliot
+** Last update Wed Jun  5 22:46:29 2013 vincent colliot
 */
 
 #include <stdio.h>
@@ -13,6 +13,8 @@
 #include "strings.h"
 #include "object.h"
 #include "string.h"
+
+# define NM(n) (((n) < 0) ? (-n) : (n))
 
 static void	def_error(char *s)
 {
@@ -42,6 +44,10 @@ void    cone_pos(void *l, t_token *token)
     def_error("y");
   ((t_cone*)l)->position.y = atof(s);
   free(s);
+  ((t_cone*)l)->focus = convert_norm(convert_focus(((t_cone*)l)->focus));
+  ((t_cone*)l)->focus.y = NM(((t_cone*)l)->focus.y);
+  ((t_cone*)l)->focus.x = NM(((t_cone*)l)->focus.x);
+  ((t_cone*)l)->focus.z = NM(((t_cone*)l)->focus.z);
 }
 
 void    cone_focus(void *l, t_token *token)

@@ -5,7 +5,7 @@
 ** Login   <collio_v@epitech.net>
 **
 ** Started on  Mon May 27 17:17:33 2013 vincent colliot
-** Last update Mon Jun  3 19:32:07 2013 vincent colliot
+** Last update Wed Jun  5 22:05:23 2013 vincent colliot
 */
 
 #include "strings.h"
@@ -18,13 +18,15 @@ static t_token_scan	*ini_scan(void)
 {
   t_token_scan	*tab;
 
-  tab = xmalloc(sizeof(*tab) * (2 + 1));
+  tab = xmalloc(sizeof(*tab) * (3 + 1));
   (tab[0]).call = light_pos;
   (tab[0]).name = "position";
   (tab[1]).call = light_color;
   (tab[1]).name = "color";
-  (tab[2]).call = NULL;
-  (tab[2]).name = NULL;
+  (tab[2]).name = "shading";
+  (tab[2]).call = light_shading;
+  (tab[3]).call = NULL;
+  (tab[3]).name = NULL;
   return (tab);
 }
 

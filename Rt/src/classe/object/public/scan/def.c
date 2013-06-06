@@ -5,7 +5,7 @@
 ** Login   <collio_v@epitech.net>
 **
 ** Started on  Tue Jun  4 23:57:08 2013 vincent colliot
-** Last update Wed Jun  5 13:25:13 2013 vincent colliot
+** Last update Thu Jun  6 02:00:02 2013 vincent colliot
 */
 
 #include <stdio.h>
@@ -43,6 +43,12 @@ void	object_gamma(void *o, t_token *token)
   if (!O_IN(s + strspn(s, "-+"), "0123456789."))
     def_error(GAMMA);
   (((CLASS_OBJECT*)o)->gamma) = atof(s) - (int)atof(s);
+  if ((s = xml_token(&token, "diffraction", RESOLVE, 0)) == NULL)
+    def_error(GAMMA);
+  if (!O_IN(s + strspn(s, "-+"), "0123456789."))
+    def_error(GAMMA);
+  if (((((CLASS_OBJECT*)o)->diffract) = atof(s) - (int)atof(s)) < 0)
+    ((CLASS_OBJECT*)o)->diffract = -((CLASS_OBJECT*)o)->diffract;
 }
 
 /*
