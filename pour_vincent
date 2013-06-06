@@ -12,7 +12,7 @@ en gros pour la deformation de la normale sur le plan:
 
 Il suffit de changer les x par des y ou des z pour avoir l effet sur les autres axes.
 
-EN GROS : 
+EN GROS :
 
 
 avec norm_n = sqrt(Nx * Nx + Ny * Ny + Nz * Nz);

@@ -5,7 +5,7 @@
 ** Login   <collio_v@epitech.net>
 **
 ** Started on  Mon Jun  3 01:41:25 2013 vincent colliot
-** Last update Tue Jun  4 17:22:32 2013 vincent colliot
+** Last update Thu Jun  6 22:07:24 2013 vincent colliot
 */
 
 #include <strings.h>
@@ -28,5 +28,14 @@ t_3d	normal_cone(void *cone, t_3d collide, t_collide *v)
     - narmol.y * ((t_cone*)cone)->focus.y * C(tan(((t_cone*)cone)->angle));
   normal.z -= narmol.z - narmol.z * ((t_cone*)cone)->focus.z
     - narmol.z * ((t_cone*)cone)->focus.z * C(tan(((t_cone*)cone)->angle));
+  if (((t_object*)cone)->to_deform & dsX)
+    normal.x += (cos(collide.x * ((((t_object*)cone)->deform)[dX]).space)
+		 * ((((t_object*)cone)->deform)[dX]).scale);
+  if (((t_object*)cone)->to_deform & dsY)
+    normal.y += (cos(collide.y * ((((t_object*)cone)->deform)[dY]).space)
+		 * ((((t_object*)cone)->deform)[dY]).scale);
+  if (((t_object*)cone)->to_deform & dsZ)
+    normal.z += (cos(collide.z * ((((t_object*)cone)->deform)[dZ]).space)
+		 * ((((t_object*)cone)->deform)[dZ]).scale);
   return (normal);
 }

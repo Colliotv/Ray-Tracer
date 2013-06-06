@@ -2,7 +2,7 @@
   <eye>
     <position x="19" y= "1" z= "41" />
     <direction x="-15" y="220" z="0"/>
-    <scale scale="3"/>
+    <scale scale="2"/>
   </eye>
   <light>
     <position x="0" y="0" z="30" />

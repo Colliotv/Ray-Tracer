@@ -4,7 +4,7 @@
 ## Login   <collio_v@epitech.net>
 ##
 ## Started on Thu Oct 25 22:06:03 2012 vincent colliot
-## Last update Wed Jun  5 04:20:06 2013 vincent colliot
+## Last update Thu Jun  6 18:33:15 2013 vincent colliot
 ## Last update Tue Jun  4 16:00:10 2013 thomas lecorre
 ##
 
@@ -180,6 +180,7 @@ F_OPUB	=$(FCLASSE)object/public/
 
 OP_SCAN=$(F_OPUB)scan/scan.c\
 	$(F_OPUB)scan/def.c\
+	$(F_OPUB)scan/def2.c\
 
 OP_INIT=$(F_OPUB)init/init.c\
 

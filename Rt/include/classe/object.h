@@ -5,7 +5,7 @@
 ** Login   <collio_v@epitech.net>
 **
 ** Started on  Thu May 16 22:11:47 2013 vincent colliot
-** Last update Thu Jun  6 02:01:14 2013 vincent colliot
+** Last update Thu Jun  6 18:03:07 2013 vincent colliot
 */
 
 #ifndef OBJECT_H_
@@ -17,6 +17,7 @@
 # include "methode_name.h"
 # include "methode_object.h"
 # include "collide.h"
+# include "deform.h"
 
 struct s_object;
 struct s_display;
@@ -33,6 +34,8 @@ typedef struct s_cylindre{
   double diffract;
   double shine;
   /* private */
+  FLAG		to_deform;
+  t_deform	deform[3];
   t_token_scan *obj_scan;
   t_token_scan *scan;
   struct s_object	*nega;
@@ -56,6 +59,8 @@ typedef struct s_cone{
   double diffract;
   double shine;
   /* private */
+  FLAG		to_deform;
+  t_deform	deform[3];
   t_token_scan *obj_scan;
   t_token_scan *scan;
   struct s_object	*nega;
@@ -79,6 +84,8 @@ typedef struct s_sphere{
   double diffract;
   double shine;
   /* private */
+  FLAG		to_deform;
+  t_deform	deform[3];
   t_token_scan *obj_scan;
   t_token_scan *scan;
   struct s_object	*nega;
@@ -101,6 +108,8 @@ typedef struct s_plan{
   double diffract;
   double shine;
   /* private */
+  FLAG		to_deform;
+  t_deform	deform[3];
   t_token_scan *obj_scan;
   t_token_scan *scan;
   struct s_object	*nega;
@@ -122,6 +131,8 @@ typedef struct s_object{
   double diffract;
   double shine;
   /* private */
+  FLAG		to_deform;
+  t_deform	deform[3];
   t_token_scan *obj_scan;
   t_token_scan *scan;
   struct s_object	*nega;

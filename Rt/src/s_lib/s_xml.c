@@ -5,7 +5,7 @@
 ** Login   <collio_v@epitech.net>
 **
 ** Started on  Tue May 28 00:28:06 2013 vincent colliot
-** Last update Fri May 31 21:53:13 2013 vincent colliot
+** Last update Thu Jun  6 22:17:09 2013 vincent colliot
 */
 
 #include "token.h"
