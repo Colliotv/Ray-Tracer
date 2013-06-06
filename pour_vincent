@@ -1,0 +1,22 @@
+en gros pour la deformation de la normale sur le plan:
+
+   au moment de calculer la lumiere:
+
+-on a le vecteur N avec Nx = 0, Ny = 0, Nz = 1 (ou autre on s en fou);
+
+-au lieu de normaliser le vecteur en faisant Nx = Nx / norm_n(= sqrt(Nx * Nx + Ny * Ny + Nz * Nz))
+
+    	--> je fais pour x, y, ou z ou les 3 en meme temps :
+
+	       ->Nx = Nx + cos(XP / 10) * (norm_n / 10);
+
+Il suffit de changer les x par des y ou des z pour avoir l effet sur les autres axes.
+
+EN GROS : 
+
+
+avec norm_n = sqrt(Nx * Nx + Ny * Ny + Nz * Nz);
+avec Nx = Ny = 0;
+avec Nz = 1;
+
+Nx = Nx / norm_n DEVIENT Ny = Ny + cos(YP / 10) * (norm_n / 10);
