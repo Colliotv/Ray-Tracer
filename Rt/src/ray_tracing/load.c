@@ -5,7 +5,7 @@
 ** Login   <collio_v@epitech.net>
 **
 ** Started on  Sun Jun  2 23:40:44 2013 vincent colliot
-** Last update Wed Jun  5 17:35:31 2013 vincent colliot
+** Last update Fri Jun  7 18:51:25 2013 vincent colliot
 */
 
 #include <strings.h>
@@ -14,7 +14,7 @@
 #include "zbuffer.h"
 #include "thread.h"
 
-static t_3d	ray_adapt(t_3d f, t_2d pix)
+t_3d	ray_adapt(t_3d f, t_2d pix)
 {
   t_3d ray;
   t_2d i;
@@ -108,4 +108,13 @@ void	load_img(t_screen *screen, CLASS_DISPLAY *d)
   i = 0;
   while (i < NTHREAD)
     pthread_join(thread[i++], NULL);
+}
+
+void	preload_img(t_screen *screen, CLASS_DISPLAY *d)
+{
+  bzero(((t_image*)(screen->screensave))->stack, sizeof(char)
+	* (SCREEN_SIZE_X * (((t_image*)(screen->screensave))->bpp / 8)
+	   + SCREEN_SIZE_Y * (((t_image*)(screen->screensave))->size_line)));
+  load_img(screen ,d);
+
 }

@@ -5,12 +5,13 @@
 ** Login   <collio_v@epitech.net>
 **
 ** Started on  Fri May 31 13:19:02 2013 vincent colliot
-** Last update Thu Jun  6 18:28:59 2013 vincent colliot
+** Last update Fri Jun  7 17:41:12 2013 vincent colliot
 */
 
 #include <strings.h>
 #include "object.h"
 #include "xmalloc.h"
+#include "move.h"
 
 static t_token_scan	*ini_scan(void)
 {
@@ -46,5 +47,7 @@ void	plan_init(void *o, t_token *token)
   s->scan = ini_scan();
   s->collide = collide_plan;
   s->normal = normal_plan;
+  s->translation = translation_plan;
+  s->rotation = rotation_plan;
   *((t_plan**)o) = s;
 }

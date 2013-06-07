@@ -5,12 +5,13 @@
 ** Login   <collio_v@epitech.net>
 **
 ** Started on  Fri May 31 13:30:13 2013 vincent colliot
-** Last update Thu Jun  6 18:28:15 2013 vincent colliot
+** Last update Fri Jun  7 17:38:01 2013 vincent colliot
 */
 
 #include <strings.h>
 #include "object.h"
 #include "xmalloc.h"
+#include "move.h"
 
 static t_token_scan	*ini_scan(void)
 {
@@ -48,5 +49,7 @@ void	cone_init(void *o, t_token *token)
   s->scan = ini_scan();
   s->collide = collide_cone;
   s->normal = normal_cone;
+  s->translation = translation_cone;
+  s->rotation = rotation_cone;
   *((t_cone**)o) = s;
 }

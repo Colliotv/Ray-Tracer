@@ -5,7 +5,7 @@
 ** Login   <collio_v@epitech.net>
 **
 ** Started on  Thu May 16 22:11:47 2013 vincent colliot
-** Last update Thu Jun  6 18:03:07 2013 vincent colliot
+** Last update Fri Jun  7 06:25:36 2013 vincent colliot
 */
 
 #ifndef OBJECT_H_
@@ -18,6 +18,7 @@
 # include "methode_object.h"
 # include "collide.h"
 # include "deform.h"
+# include "bool.h"
 
 struct s_object;
 struct s_display;
@@ -28,6 +29,8 @@ typedef struct s_cylindre{
   t_3d	(*collide)(void *, t_3d, t_3d, t_collide *);
   t_3d	(*normal)(void *, t_3d, t_collide*);
   t_color (*get_color)(struct s_display *, void *, t_collide, t_3d[2]);
+  void	(*rotation)(void *, FLAG);
+  void	(*translation)(void *, FLAG);
   FLAG perturb;
   double alpha;
   double gamma;
@@ -38,8 +41,8 @@ typedef struct s_cylindre{
   t_deform	deform[3];
   t_token_scan *obj_scan;
   t_token_scan *scan;
-  struct s_object	*nega;
   t_color	color;
+  BOOL		selected;
   /*int	*permtab_perlin*/
   t_3d	position;
   t_3d	focus;
@@ -53,6 +56,8 @@ typedef struct s_cone{
   t_3d	(*collide)(void *, t_3d, t_3d, t_collide *);
   t_3d	(*normal)(void *, t_3d, t_collide*);
   t_color (*get_color)(struct s_display *, void *, t_collide, t_3d[2]);
+  void	(*rotation)(void *, FLAG);
+  void	(*translation)(void *, FLAG);
   FLAG perturb;
   double alpha;
   double gamma;
@@ -63,8 +68,8 @@ typedef struct s_cone{
   t_deform	deform[3];
   t_token_scan *obj_scan;
   t_token_scan *scan;
-  struct s_object	*nega;
   t_color	color;
+  BOOL		selected;
   /*int	*permtab_perlin*/
   t_3d	position;
   t_3d	focus;
@@ -78,6 +83,8 @@ typedef struct s_sphere{
   t_3d	(*collide)(void *, t_3d, t_3d, t_collide *);
   t_3d	(*normal)(void *, t_3d, t_collide*);
   t_color (*get_color)(struct s_display *, void *, t_collide, t_3d[2]);
+  void	(*rotation)(void *, FLAG);
+  void	(*translation)(void *, FLAG);
   FLAG perturb;
   double alpha;
   double gamma;
@@ -88,8 +95,8 @@ typedef struct s_sphere{
   t_deform	deform[3];
   t_token_scan *obj_scan;
   t_token_scan *scan;
-  struct s_object	*nega;
   t_color	color;
+  BOOL		selected;
   /*int	*permtab_perlin*/
   t_3d	position;
   double rayon;
@@ -102,6 +109,8 @@ typedef struct s_plan{
   t_3d	(*collide)(void *, t_3d, t_3d, t_collide *);
   t_3d	(*normal)(void *, t_3d, t_collide*);
   t_color (*get_color)(struct s_display *, void *, t_collide, t_3d[2]);
+  void	(*rotation)(void *, FLAG);
+  void	(*translation)(void *, FLAG);
   FLAG perturb;
   double alpha;
   double gamma;
@@ -112,8 +121,8 @@ typedef struct s_plan{
   t_deform	deform[3];
   t_token_scan *obj_scan;
   t_token_scan *scan;
-  struct s_object	*nega;
   t_color	color;
+  BOOL		selected;
   /*int	*permtab_perlin*/
   t_3d	focus;
   float d;
@@ -125,6 +134,8 @@ typedef struct s_object{
   t_3d	(*collide)(void *, t_3d, t_3d, t_collide *);
   t_3d	(*normal)(void *, t_3d, t_collide*);
   t_color (*get_color)(struct s_display *, void *, t_collide, t_3d[2]);
+  void	(*rotation)(void *, FLAG);
+  void	(*translation)(void *, FLAG);
   FLAG perturb;
   double alpha;
   double gamma;
@@ -135,8 +146,8 @@ typedef struct s_object{
   t_deform	deform[3];
   t_token_scan *obj_scan;
   t_token_scan *scan;
-  struct s_object	*nega;
   t_color	color;
+  BOOL		selected;
   /*int	*permtab_perlin*/
 }		t_object;
 

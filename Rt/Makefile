@@ -4,7 +4,7 @@
 ## Login   <collio_v@epitech.net>
 ##
 ## Started on Thu Oct 25 22:06:03 2012 vincent colliot
-## Last update Thu Jun  6 18:33:15 2013 vincent colliot
+## Last update Fri Jun  7 22:21:43 2013 vincent colliot
 ## Last update Tue Jun  4 16:00:10 2013 thomas lecorre
 ##
 
@@ -57,6 +57,10 @@ COLOR	=$(F_COLOR)color.c
 
 F_SPOT	=$(SRCF)spot/
 SPOT	=$(F_SPOT)spot.c\
+
+F_MOVE	=$(SRCF)move/
+MOVE	=$(F_MOVE)move.c\
+	$(F_MOVE)move_call.c\
 
 ##     CLASSE       ##
 #		     #
@@ -112,10 +116,11 @@ LIGHT	=$(LPUB)\
 
 ######  LIGHT  #######
 
-F_EPRIV	=$(FCLASSE)light/private/
+F_EPRIV	=$(FCLASSE)eye/private/
 
-EPRIV	=$(LU_INIT)\
-	$(LU_SCAN)\
+TRANSLATE=$(F_EPRIV)calc/clic.c
+
+EPRIV	=$(TRANSLATE)\
 
 ##
 
@@ -134,6 +139,7 @@ EPUB	=$(EP_INIT)\
 ##
 
 EYE	=$(EPUB)\
+	$(EPRIV)\
 
 ###### OBJECTS #######
 
@@ -145,6 +151,7 @@ CONE	=$(F_CONE)init/init.c\
 	$(F_CONE)scan/scan.c\
 	$(F_CONE)calc/collide.c\
 	$(F_CONE)calc/normal.c\
+	$(F_CONE)calc/clic.c\
 
 F_SPHERE=$(F_OPRIV)sphere/
 
@@ -152,6 +159,7 @@ SPHERE	=$(F_SPHERE)init/init.c\
 	$(F_SPHERE)scan/scan.c\
 	$(F_SPHERE)calc/collide.c\
 	$(F_SPHERE)calc/normal.c\
+	$(F_SPHERE)calc/clic.c\
 
 F_PLAN	=$(F_OPRIV)plan/
 
@@ -159,6 +167,7 @@ PLAN	=$(F_PLAN)init/init.c\
 	$(F_PLAN)scan/scan.c\
 	$(F_PLAN)calc/collide.c\
 	$(F_PLAN)calc/normal.c\
+	$(F_PLAN)calc/clic.c\
 
 F_CYLIND=$(F_OPRIV)cylindre/
 
@@ -166,6 +175,7 @@ CYLINDER=$(F_CYLIND)init/init.c\
 	$(F_CYLIND)scan/scan.c\
 	$(F_CYLIND)calc/collide.c\
 	$(F_CYLIND)calc/normal.c\
+	$(F_CYLIND)calc/clic.c\
 
 SUBF	=$(CONE)\
 	$(CYLINDER)\
@@ -210,6 +220,7 @@ SRC     =$(MAIN)\
 	$(RAY)\
 	$(COLOR)\
 	$(SPOT)\
+	$(MOVE)\
 
 ######################
 

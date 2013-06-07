@@ -5,7 +5,7 @@
 ** Login   <collio_v@epitech.net>
 **
 ** Started on  Mon May 27 21:46:39 2013 vincent colliot
-** Last update Wed Jun  5 21:38:56 2013 vincent colliot
+** Last update Fri Jun  7 06:40:38 2013 vincent colliot
 */
 
 #ifndef LIGHT_H_
@@ -19,6 +19,7 @@
 typedef struct	s_light{
   /* public */
   struct s_light	*next;
+  struct s_light	*prev;
   /*private */
   t_shadow	render;
   t_token_scan	*scan;

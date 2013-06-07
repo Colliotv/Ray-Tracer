@@ -5,9 +5,12 @@
 ** Login   <collio_v@epitech.net>
 **
 ** Started on  Mon May 27 16:29:41 2013 vincent colliot
-** Last update Wed Jun  5 17:42:25 2013 vincent colliot
+** Last update Fri Jun  7 19:36:23 2013 vincent colliot
 */
 
+#include <pthread.h>
+#include <X11/X.h>
+#include <stdio.h>
 #include <time.h>
 #include <sys/types.h>
 #include <unistd.h>
@@ -26,41 +29,38 @@ int		nfn(t_screen *screen)
   return (0);
 }
 
-int		move(int key, void *select)
-{
-  t_screen	*screen;
-  CLASS_DISPLAY	*d;
-
-  d = ((t_select*)select)->d;
-  screen = ((t_select*)select)->screen;
-  if (key == EXIT)
-    exit(-1);
-  else if (key == UP)
-    d->eye->position.y += 1;
-  else if (key == DOWN)
-    d->eye->position.y -= 1;
-  else if (key == LEFT)
-    d->eye->position.x += 1;
-  else if (key == RIGHT)
-    d->eye->position.x -= 1;
-  else
-    return (-1);
-  bzero(((t_image*)(screen->screensave))->stack, sizeof(char)
-	* (SCREEN_SIZE_X * (((t_image*)(screen->screensave))->bpp / 8)
-	   + SCREEN_SIZE_Y * (((t_image*)(screen->screensave))->size_line)));
-  load_img(screen, d);
-  IMG_PUT(screen->mlx_ptr, screen->win_ptr,
-  	  ((t_image*)(screen->screensave))->img_ptr, 0, 0);
-  return (0);
-}
-
 void		mlx_hook_init(t_screen *screen, CLASS_DISPLAY *d,
 			      t_select *select)
 {
+  bzero(select, sizeof(*select));
   select->d = d;
   select->screen = screen;
-  mlx_key_hook(screen->win_ptr, move, select);
+  mlx_do_key_autorepeatoff(screen->mlx_ptr);
   mlx_expose_hook(screen->win_ptr, nfn, screen);
+  mlx_mouse_hook(screen->win_ptr, get, select);
+  mlx_hook(screen->win_ptr, KeyPress, KeyPressMask, &keypress, select);
+  mlx_key_hook(screen->win_ptr, keyrelease, select);
+  mlx_loop_hook(screen->mlx_ptr, &__stay_alert, select);
+}
+
+void	*loop_call(void *screen)
+{
+  mlx_loop(((t_screen*)screen)->mlx_ptr);
+  return (NULL);
+}
+
+static void	ini_loop(t_screen *screen, CLASS_DISPLAY *d, t_select *select)
+{
+  pthread_t     thread;
+
+  mlx_hook_init(screen, d, select);
+  select->fixed = TRUE;
+  select->type = VSELECT;
+  pthread_create(&thread, NULL, loop_call, screen);
+  pthread_join(thread, NULL);
+  mlx_do_key_autorepeaton(screen->mlx_ptr);
+  select->exit = TRUE;
+  mlx_flush_event(screen->mlx_ptr);
 }
 
 int	main(int ac, char **av)
@@ -78,11 +78,9 @@ int	main(int ac, char **av)
             SCREEN_SIZE_X, SCREEN_SIZE_Y);
   img_init(screen.screensave, &screen);
   srandom(time(0) * getpid());
-  load_img(&screen, &d);
-  mlx_hook_init(&screen, &d, &select);
-  printf("finished\n");
+  preload_img(&screen, &d);
   IMG_PUT(screen.mlx_ptr, screen.win_ptr,
 	  ((t_image*)(screen.screensave))->img_ptr, 0, 0);
-  mlx_loop(screen.mlx_ptr);
+  ini_loop(&screen, &d, &select);
   return (0);
 }

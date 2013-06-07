@@ -5,7 +5,7 @@
 ** Login   <collio_v@epitech.net>
 **
 ** Started on  Mon May 27 17:17:33 2013 vincent colliot
-** Last update Wed Jun  5 22:05:23 2013 vincent colliot
+** Last update Fri Jun  7 07:04:26 2013 vincent colliot
 */
 
 #include "strings.h"
@@ -35,5 +35,7 @@ void	light_init(void *light, void *d)
   bzero(light, sizeof(CLASS_LIGHT));
   ((CLASS_LIGHT*)light)->scan = ini_scan();
   ((CLASS_LIGHT*)light)->next = ((CLASS_DISPLAY*)d)->lights;
+  if (((CLASS_DISPLAY*)d)->lights)
+    ((CLASS_DISPLAY*)d)->lights->prev = ((CLASS_LIGHT*)light);
   ((CLASS_DISPLAY*)d)->lights = light;
 }

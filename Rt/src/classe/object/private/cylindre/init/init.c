@@ -5,12 +5,13 @@
 ** Login   <collio_v@epitech.net>
 **
 ** Started on  Fri May 31 13:27:54 2013 vincent colliot
-** Last update Thu Jun  6 22:10:10 2013 vincent colliot
+** Last update Fri Jun  7 17:38:58 2013 vincent colliot
 */
 
 #include <strings.h>
 #include "object.h"
 #include "xmalloc.h"
+#include "move.h"
 
 static t_token_scan	*ini_scan(void)
 {
@@ -51,5 +52,7 @@ void	cylindre_init(void *o, t_token *token)
   s->collide = collide_cylindre;
   s->normal = normal_cylindre;
   s->focus = convert_focus(s->focus);
+  s->translation = translation_cylindre;
+  s->rotation = rotation_cylindre;
   *((t_cylindre**)o) = s;
 }
