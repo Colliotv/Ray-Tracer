@@ -5,34 +5,11 @@
 ** Login   <lecorr_b@epitech.net>
 **
 ** Started on  Tue Jun  4 15:35:59 2013 thomas lecorre
-** Last update Sun Jun  9 16:01:11 2013 quentin cloarec
+** Last update Sun Jun  9 22:19:30 2013 quentin cloarec
 */
 
+#include "filtre.h"
 #include "u_color.h"
-
-void	grey(t_color *pix)
-{
-  float	stock;
-
-  stock = 0.0;
-  stock += (pix->rgb)[R];
-  stock += (pix->rgb)[G];
-  stock += (pix->rgb)[B];
-  (pix->rgb)[R] = stock / 3;
-  (pix->rgb)[G] = stock / 3;
-  (pix->rgb)[B] = stock / 3;
-}
-
-void	sepia(t_color *pix)
-{
-  (pix->rgb)[R] += 80;
-  (pix->rgb)[G] += 80;
-}
-
-void	red(t_color *pix)
-{
-  (pix->rgb)[R] += 80;
-}
 
 void	blue(t_color *pix)
 {
