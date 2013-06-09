@@ -32,6 +32,11 @@
     <color r="255" g="0" b="255"/>
     <rayon R="2"/>
  </object>
+ <object type = "sphere">
+    <position x="-7" y="15" z="10" />
+    <color r="255" g="0" b="255"/>
+    <rayon R="2"/>
+ </object>
   <object type = "cylindre">
     <position x="-30.0" y="0" z="50" />
     <rayon R="5.0"/>
