@@ -5,7 +5,7 @@
 ** Login   <collio_v@epitech.net>
 **
 ** Started on  Sun Jun  9 05:41:37 2013 vincent colliot
-** Last update Sun Jun  9 05:53:32 2013 vincent colliot
+** Last update Sun Jun  9 16:00:44 2013 quentin cloarec
 */
 
 #include <math.h>
@@ -34,6 +34,12 @@ void	eye_filter(void *l, t_token *token)
     ((CLASS_EYE*)l)->filter = 3;
   else if (MATCH(s, "black and white"))
     ((CLASS_EYE*)l)->filter = 4;
+  else if (MATCH(s, "red"))
+    ((CLASS_EYE*)l)->filter = 5;
+  else if (MATCH(s, "blue"))
+    ((CLASS_EYE*)l)->filter = 6;
+  else if (MATCH(s, "green"))
+    ((CLASS_EYE*)l)->filter = 7;
   else
     def_error("filter's type");
 }

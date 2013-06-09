@@ -5,7 +5,7 @@
 ** Login   <lecorr_b@epitech.net>
 **
 ** Started on  Tue Jun  4 15:35:59 2013 thomas lecorre
-** Last update Sat Jun  8 11:39:34 2013 thomas lecorre
+** Last update Sun Jun  9 16:01:11 2013 quentin cloarec
 */
 
 #include "u_color.h"
@@ -28,6 +28,22 @@ void	sepia(t_color *pix)
   (pix->rgb)[R] += 80;
   (pix->rgb)[G] += 80;
 }
+
+void	red(t_color *pix)
+{
+  (pix->rgb)[R] += 80;
+}
+
+void	blue(t_color *pix)
+{
+  (pix->rgb)[B] += 80;
+}
+
+void	green(t_color *pix)
+{
+  (pix->rgb)[G] += 80;
+}
+
 
 void	negatif(t_color *pix)
 {
@@ -68,5 +84,11 @@ t_color		filtre(t_color pix, int f)
     negatif(&pix);
   if (f == 4)
     black_white(&pix);
+  if (f == 5)
+    red(&pix);
+  if (f == 6)
+    blue(&pix);
+  if (f == 7)
+    green(&pix);
   return (pix);
 }
