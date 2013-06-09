@@ -1,5 +1,6 @@
 <scene>
   <eye>
+    <filter type="yellow" />
     <position x="0.0" y= "60.0" z= "-30.0" />
     <direction x="45" y="0" z="0"/>
     <scale scale="0.5"/>
@@ -19,6 +20,12 @@
   </object>
   <object type = "sphere">
     <position x="-30.0" y="9" z="30" />
+    <rayon R="5.5"/>
+    <color r="0" g="255" b="0"/>
+    <reflection alpha="0.7"/>
+  </object>
+  <object type = "sphere">
+    <position x="-30.0" y="18" z="30" />
     <rayon R="5.5"/>
     <color r="0" g="255" b="0"/>
     <reflection alpha="0.7"/>
