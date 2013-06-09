@@ -5,7 +5,7 @@
 ** Login   <collio_v@epitech.net>
 **
 ** Started on  Mon May 27 16:29:41 2013 vincent colliot
-** Last update Fri Jun  7 19:36:23 2013 vincent colliot
+** Last update Sun Jun  9 22:41:44 2013 quentin cloarec
 */
 
 #include <pthread.h>
@@ -74,7 +74,7 @@ int	main(int ac, char **av)
   xml_scan(&d, ac, av);
   if (!d.eye)
     lerror(USAGE);
-  screen_it(&screen, "-----> Rt...WHAT DA F****? <-----",
+  screen_it(&screen, "-----> Raytracer <-----",
             SCREEN_SIZE_X, SCREEN_SIZE_Y);
   img_init(screen.screensave, &screen);
   srandom(time(0) * getpid());
