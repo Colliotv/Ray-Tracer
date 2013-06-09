@@ -5,7 +5,7 @@
 ** Login   <collio_v@epitech.net>
 **
 ** Started on  Fri May 31 15:17:18 2013 vincent colliot
-** Last update Wed Jun  5 22:46:24 2013 vincent colliot
+** Last update Sun Jun  9 17:17:24 2013 vincent colliot
 */
 
 #include <stdio.h>
@@ -13,10 +13,6 @@
 #include "strings.h"
 #include "object.h"
 #include "string.h"
-
-# define NM(n) (((n) < 0) ? (-n) : (n))
-# define N_Y(n) (n)//(((int)((n) + 90)) % 180 - 90 + (n) - (int)(n))
-# define N_X(n) (n)//((int)(n) % 180 + (n) - (int)(n))
 
 static void	def_error(char *s)
 {

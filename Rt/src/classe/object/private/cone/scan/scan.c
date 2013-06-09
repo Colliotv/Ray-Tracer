@@ -5,7 +5,7 @@
 ** Login   <collio_v@epitech.net>
 **
 ** Started on  Fri May 31 15:12:00 2013 vincent colliot
-** Last update Wed Jun  5 22:46:29 2013 vincent colliot
+** Last update Sun Jun  9 17:22:29 2013 vincent colliot
 */
 
 #include <stdio.h>
@@ -45,9 +45,6 @@ void    cone_pos(void *l, t_token *token)
   ((t_cone*)l)->position.y = atof(s);
   free(s);
   ((t_cone*)l)->focus = convert_norm(convert_focus(((t_cone*)l)->focus));
-  ((t_cone*)l)->focus.y = NM(((t_cone*)l)->focus.y);
-  ((t_cone*)l)->focus.x = NM(((t_cone*)l)->focus.x);
-  ((t_cone*)l)->focus.z = NM(((t_cone*)l)->focus.z);
 }
 
 void    cone_focus(void *l, t_token *token)
@@ -58,21 +55,24 @@ void    cone_focus(void *l, t_token *token)
     def_error("x");
   if (!O_IN(s + strspn(s, "-+"), "0123456789."))
     def_error("x");
-  ((t_cone*)l)->focus.x = (atof(s) * M_PI) / 180;
+  ((t_cone*)l)->focus.x = (N_X(atof(s + strspn(s, "-+"))) * M_PI) / 180;
   free(s);
   if ((s = xml_token(&token, "z", RESOLVE, 0)) == NULL)
     def_error("z");
   if (!O_IN(s + strspn(s, "-+"), "0123456789."))
     def_error("z");
-  ((t_cone*)l)->focus.z = (atof(s) * M_PI) / 180;
+  ((t_cone*)l)->focus.z = (N_Y(atof(s + strspn(s, "-+"))) * M_PI) / 180;
   free(s);
   if ((s = xml_token(&token, "y", RESOLVE, 0)) == NULL)
     def_error("y");
   if (!O_IN(s + strspn(s, "-+"), "0123456789."))
     def_error("y");
-  ((t_cone*)l)->focus.y = (atof(s) * M_PI) / 180;
+  ((t_cone*)l)->focus.y = (N_Y(atof(s + strspn(s, "-+"))) * M_PI) / 180;
   free(s);
-  ((t_cone*)l)->focus = convert_focus(((t_cone*)l)->focus);
+  ((t_cone*)l)->focus = convert_norm(convert_focus(((t_cone*)l)->focus));
+  ((t_cone*)l)->focus.y = NM(((t_cone*)l)->focus.y);
+  ((t_cone*)l)->focus.x = NM(((t_cone*)l)->focus.x);
+  ((t_cone*)l)->focus.z = NM(((t_cone*)l)->focus.z);
 }
 
 void	cone_angle(void *l, t_token *token)

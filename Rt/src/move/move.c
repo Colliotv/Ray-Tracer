@@ -5,7 +5,7 @@
 ** Login   <collio_v@epitech.net>
 **
 ** Started on  Thu Jun  6 23:28:12 2013 vincent colliot
-** Last update Sun Jun  9 16:33:09 2013 vincent colliot
+** Last update Sun Jun  9 17:46:09 2013 vincent colliot
 */
 
 #include <unistd.h>
@@ -18,6 +18,7 @@
 
 static t_object	*get_object(t_3d pos, t_3d ray, t_object *current, double k)
 {
+  t_object	*yep;
   t_collide	collide;
 
   bzero(&collide, sizeof(collide));
@@ -28,7 +29,8 @@ static t_object	*get_object(t_3d pos, t_3d ray, t_object *current, double k)
 			       ((collide.k)[collide.up_to] > k)))
     return (get_object(pos, ray, current->next, k));
   k = (collide.k)[collide.up_to];
-  (void)get_object(pos, ray, current->next, k);
+  if ((yep = get_object(pos, ray, current->next, k)) != NULL)
+    return (yep);
   return (current);
 }
 

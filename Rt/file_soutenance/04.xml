@@ -18,7 +18,7 @@
     <color r="255" g="255" b="255"/>
   </light>
  <object type = "cone">
-    <rotation x="20" y="0" z="0" />
+    <rotation x="-50" y="0" z="0" />
     <position x="0" y="10" z="40" />
     <angle angle="35"/>
     <color r="255" g="102" b="54"/>

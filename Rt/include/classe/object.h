@@ -5,7 +5,7 @@
 ** Login   <collio_v@epitech.net>
 **
 ** Started on  Thu May 16 22:11:47 2013 vincent colliot
-** Last update Sun Jun  9 16:23:59 2013 vincent colliot
+** Last update Sun Jun  9 17:17:45 2013 vincent colliot
 */
 
 #ifndef OBJECT_H_
@@ -20,6 +20,11 @@
 # include "deform.h"
 # include "bool.h"
 # include "limit.h"
+
+# define NM(n) (((n) < 0) ? (-n) : (n))
+# define N_Y(n) (n)
+# define N_X(n) (n)
+
 
 struct s_object;
 struct s_display;
