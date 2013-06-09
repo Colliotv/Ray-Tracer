@@ -481,14 +481,6 @@
     <shining shine="10" />
     <reflection alpha="0.9" />
   </object>
-  <light>
-    <position x="30" y="33" z="37" />
-    <color r="255" g="255" b="255"/>
-  </light>
-  <light>
-    <position x="30" y="33" z="37" />
-    <color r="255" g="255" b="255"/>
-  </light>
   <object type = "sphere">
     <position x="0" y="25" z="8" />
     <rayon R="12"/>
