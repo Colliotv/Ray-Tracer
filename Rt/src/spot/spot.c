@@ -6,7 +6,7 @@
 **
 ** Started on  Mon Jun  3 14:30:25 2013 vincent colliot
 <<<<<<< HEAD
-** Last update Thu Jun  6 02:40:46 2013 vincent colliot
+** Last update Sun Jun  9 19:53:43 2013 vincent colliot
 =======
 ** Last update Tue Jun  4 14:05:18 2013 pierre-louis rebours
 >>>>>>> 786e49a2cc6941b4bc6ef4031ec3a1fd25a2152e
@@ -44,13 +44,13 @@ static t_color	spot_modify(t_collide collide, t_color final, double angle)
   else if (!collide.n_spec && angle <= 0)
     return (r);
   (r.rgb)[R] = N_C(angle * (final.rgb)[R] * (((collide.color).rgb)[R] / 255.0
-					     + collide.shining))
+					     + 0))
     / add_dist(collide);
   (r.rgb)[G] = N_C(angle * (final.rgb)[G] * (((collide.color).rgb)[G] / 255.0
-					     + collide.shining))
+					     + 0))
     / add_dist(collide);
   (r.rgb)[B] = N_C(angle * (final.rgb)[B] * (((collide.color).rgb)[B] / 255.0
-					     + collide.shining))
+					     + 0))
     / add_dist(collide);
   return (r);
 }

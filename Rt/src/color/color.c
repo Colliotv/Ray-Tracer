@@ -5,7 +5,7 @@
 ** Login   <collio_v@epitech.net>
 **
 ** Started on  Mon Jun  3 13:28:19 2013 vincent colliot
-** Last update Sun Jun  9 06:25:56 2013 vincent colliot
+** Last update Sun Jun  9 20:33:58 2013 vincent colliot
 */
 
 #define IN_
@@ -41,6 +41,7 @@ static t_3d	gamma_ray(t_collide collide, t_3d ray, t_object *o)
   ray = convert_norm(ray);
   scal = convert_scal(collide.normal = convert_norm(collide.normal), ray);
   n = o->diffract;
+
   r_alpha.x = n * ray.x + (n * scal - sqrt(1 + C(n) * (C(scal) - 1)))
     * (collide.normal).x;
   r_alpha.y = n * ray.y + (n * scal - sqrt(1 + C(n) * (C(scal) - 1)))
@@ -48,6 +49,36 @@ static t_3d	gamma_ray(t_collide collide, t_3d ray, t_object *o)
   r_alpha.z = n * ray.z + (n * scal - sqrt(1 + C(n) * (C(scal) - 1)))
     * (collide.normal).z;
   return (r_alpha);
+}
+
+static t_color	direct_light(t_3d reflect, CLASS_LIGHT *light, t_color color,
+			     t_collide collide)
+{
+  t_color	add;
+  double	cosy;
+
+  if (!light || !collide.shining)
+    return (color);
+  cosy = convert_cos(reflect,
+		     convert_norm(convert_ray(collide.collide, light->position)));
+  cosy *= cosy * cosy;
+  if (cosy < 0)
+    return (direct_light(reflect, light->next, color, collide));
+  add = spot_add(collide, light->color, 0.1,
+		 ((CLASS_DISPLAY*)collide.ld)->objects);
+  if (((color.rgb)[R] + (add.rgb)[R] * cosy * collide.shining) <= 255)
+    (color.rgb)[R] += (add.rgb)[R] * cosy * collide.shining;
+  else
+    (color.rgb)[R] = 255;
+  if (((color.rgb)[G] + (add.rgb)[G] * cosy * collide.shining) <= 255)
+    (color.rgb)[G] += (add.rgb)[G] * cosy * collide.shining;
+  else
+    (color.rgb)[G] = 255;
+  if (((color.rgb)[B] + (add.rgb)[B] * cosy * collide.shining) <= 255)
+    (color.rgb)[B] += (add.rgb)[B] * cosy * collide.shining;
+  else
+    (color.rgb)[B] = 255;
+  return (direct_light(reflect, light->next, color, collide));
 }
 
 t_color	mod_color(CLASS_DISPLAY *d, void *object, t_collide collide, t_3d view[2])
@@ -77,7 +108,8 @@ t_color	mod_color(CLASS_DISPLAY *d, void *object, t_collide collide, t_3d view[2
     add_color(color, cgamma, collide.gamma, &color);
   view[V_RAY] = ray;
   view[V_POSIT] = posit;
-  return (color);
+  return (direct_light(alpha_ray(collide, ray), d->lights,
+		       color, collide));
 }
 
 t_color	get_color(CLASS_DISPLAY *d, void *object, t_collide collide, t_3d view[2])
