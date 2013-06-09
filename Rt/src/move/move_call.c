@@ -5,7 +5,7 @@
 ** Login   <collio_v@epitech.net>
 **
 ** Started on  Fri Jun  7 00:53:32 2013 vincent colliot
-** Last update Fri Jun  7 22:34:42 2013 vincent colliot
+** Last update Sun Jun  9 06:19:23 2013 vincent colliot
 */
 
 #include "screen.h"
@@ -19,7 +19,7 @@ void	rgb_move(t_select *select, FLAG rgb)
 
   color = NULL;
   if (select->type == VSELECT || (select->type == OSELECT && !select->oselect) ||
-      (select->type == LSELECT && !select->oselect))
+      (select->type == LSELECT && !select->lselect))
     return ;
   if (select->type == OSELECT)
     color = &(select->oselect->color);
@@ -41,13 +41,13 @@ void	translation_move(t_select *select, FLAG move)
 
   position = NULL;
   if ((select->type == OSELECT && !select->oselect) ||
-      (select->type == LSELECT && !select->oselect))
+      (select->type == LSELECT && !select->lselect))
     return ;
   if (select->type == VSELECT)
     position = &(select->d->eye->position);
   if (select->type == OSELECT)
     (select->oselect->translation(select->oselect, move));
-  if (select->type == LSELECT)
+  if (select->type == LSELECT && select->lselect)
     position = &(select->lselect->position);
   if (!position)
     return ;
@@ -65,7 +65,7 @@ void	rotation_move(t_select *select, FLAG move)
 
   focus = NULL;
   if ((select->type == OSELECT && !select->oselect) ||
-      (select->type == LSELECT && !select->oselect))
+      (select->type == LSELECT && !select->lselect))
     return ;
   if (select->type == VSELECT)
     focus = &(select->d->eye->focus);

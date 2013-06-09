@@ -5,7 +5,7 @@
 ** Login   <collio_v@epitech.net>
 **
 ** Started on  Thu Jun  6 18:31:32 2013 vincent colliot
-** Last update Thu Jun  6 18:53:37 2013 vincent colliot
+** Last update Sun Jun  9 06:33:27 2013 vincent colliot
 */
 
 #include <stdio.h>
@@ -54,4 +54,32 @@ void	object_deform(void *o, t_token *token)
     def_error("deformation");
   (((CLASS_OBJECT*)o)->deform[d - 1]).scale
     = atof(s);
+}
+
+static size_t	get_type(char *s)
+{
+  return ((MATCH(s, "x+")) ? (XPLUS) :
+	  (MATCH(s, "x-")) ? (XLESS) :
+	  (MATCH(s, "y+")) ? (YPLUS) :
+	  (MATCH(s, "y-")) ? (YLESS) :
+	  (MATCH(s, "z+")) ? (ZPLUS) :
+	  (MATCH(s, "z-")) ? (ZLESS) :
+	  (6));
+}
+
+void	object_limit(void *o, t_token *token)
+{
+  size_t	type;
+  char	*s;
+
+  type = get_type(xml_token(&token, "type", RESOLVE, 0));
+  if (type == 6)
+    def_error("limit's type");
+  (((CLASS_OBJECT*)o)->limit)[type].valid = TRUE;
+  if ((s = xml_token(&token, "value", RESOLVE, 0)) == NULL)
+    def_error("limit's value");
+  if (!O_IN(s + strspn(s, "-+"), "0123456789."))
+    def_error("limit's value");
+  (((CLASS_OBJECT*)o)->limit)[type].on =
+    atof(s);
 }

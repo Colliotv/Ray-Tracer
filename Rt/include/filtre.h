@@ -5,7 +5,7 @@
 ** Login   <lecorr_b@epitech.net>
 **
 ** Started on  Tue Jun  4 15:54:22 2013 thomas lecorre
-** Last update Tue Jun  4 15:55:25 2013 thomas lecorre
+** Last update Sun Jun  9 05:47:34 2013 vincent colliot
 */
 
 #ifndef	FILTRE_H__
@@ -13,6 +13,6 @@
 
 #include "u_color.h"
 
-t_color	filtre(t_color);
+t_color	filtre(t_color, int);
 
 #endif

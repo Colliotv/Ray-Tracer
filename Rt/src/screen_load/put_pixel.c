@@ -5,7 +5,7 @@
 ** Login   <collio_v@epitech.net>
 **
 ** Started on  Sun Jun  2 23:49:00 2013 vincent colliot
-** Last update Wed Jun  5 12:18:38 2013 thomas lecorre
+** Last update Sun Jun  9 05:47:04 2013 vincent colliot
 ** Last update Tue Jun  4 21:08:44 2013 thomas lecorre
 */
 
@@ -44,20 +44,12 @@ static inline void            save(t_image *screen, int x, int y, unsigned int r
  * ¤¤¤¤
 */
 
-void            pix_it(t_screen *screen, t_2d pix, t_color color)
+void            pix_it(t_screen *screen, t_2d pix, t_color color, int f)
 {
-  color = filtre(color);
+  color = filtre(color, f);
   save(screen->screensave, (int)pix.x, (int)pix.y,
        mlx_get_color_value(screen->mlx_ptr, color.i));
 }
-
-/*
- * ¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤
- * soit get_pix(screen (or &screen, (coord.x.y), NULL (ou ptr sur un t_color))
- * si color!=NULL préférez cette syntax pour l'opti du bordel-->(void)get_pix(lalalala....)
- * ¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤
- */
-
 
 static t_color	get_save(t_image *screen, int x, int y)
 {

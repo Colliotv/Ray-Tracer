@@ -5,7 +5,7 @@
 ** Login   <collio_v@epitech.net>
 **
 ** Started on  Sun Jun  2 23:13:19 2013 vincent colliot
-** Last update Wed Jun  5 03:53:27 2013 vincent colliot
+** Last update Sun Jun  9 05:45:52 2013 vincent colliot
 */
 
 #ifndef SCREEN_H_
@@ -44,7 +44,7 @@ typedef struct          s_image
 void	screen_it(t_screen *, char *, int, int);
 void    img_init(t_image*, t_screen*);
 	/* put a pixel */
-void    pix_it(t_screen *, t_2d, t_color);
+void    pix_it(t_screen *, t_2d, t_color, int);
 	/* ray-tracing calc */
 # include "ray-tracing.h"
 

@@ -5,7 +5,7 @@
 ** Login   <collio_v@epitech.net>
 **
 ** Started on  Mon Jun  3 00:47:07 2013 vincent colliot
-** Last update Thu Jun  6 23:31:31 2013 vincent colliot
+** Last update Sun Jun  9 07:34:42 2013 vincent colliot
 */
 
 #include <strings.h>
@@ -17,19 +17,10 @@
 #include "bool.h"
 #include "view.h"
 
-
-void	bidon()
-{
-
-
-}
-
-
-
-
 static BOOL	fill_collide(CLASS_OBJECT *object, t_3d ray, t_3d pos,
 			     t_collide *collide)
 {
+  size_t	prev;
   t_collide	fill;
 
   bzero(&fill, sizeof(fill));
@@ -37,6 +28,10 @@ static BOOL	fill_collide(CLASS_OBJECT *object, t_3d ray, t_3d pos,
     return (FALSE);
   fill.collide = (object->collide)((void*)object, pos, ray, &fill);
   if (fill.defined == 0)
+    return (FALSE);
+  prev = fill.up_to;
+  if (limitless(&fill, object->limit, pos, ray) == FALSE ||
+      (prev != fill.up_to && collide->up_to == 5))
     return (FALSE);
   if (collide->defined == MAX_DEGREE_LVL + 1 ||
       (fill.k)[fill.up_to] < (collide->k)[collide->up_to])
@@ -79,7 +74,7 @@ static BOOL	verif(t_collide new, t_collide collide, size_t i)
 {
   t_3d	n;
 
-  n.x = collide.collide.x - collide.light.x;
+ n.x = collide.collide.x - collide.light.x;
   n.y = collide.collide.y - collide.light.y;
   n.z = collide.collide.z - collide.light.z;
   if ((new.k)[new.up_to + i] < sqrt(C(n.x) + C(n.y) + C(n.z)) - 0.1)
@@ -101,6 +96,7 @@ t_color	spot_add(t_collide collide, t_color color, double ct,
     return (add_color(color, new_color, 1 - ct, &color));
   else if (!object || !color.i || ct <= 0)
     return (add_color(color, new_color, ct, &color));
+  new.up_to = 5;
   if (!fill_collide(object, collide.r_light, collide.light, &new))
     return (spot_add(collide, color, ct, object->next));
   while (new.up_to + i < new.defined && ct > 0 && verif(new, collide, i))

@@ -5,7 +5,7 @@
 ** Login   <collio_v@epitech.net>
 **
 ** Started on  Thu May 16 22:11:47 2013 vincent colliot
-** Last update Fri Jun  7 06:25:36 2013 vincent colliot
+** Last update Sun Jun  9 06:06:34 2013 vincent colliot
 */
 
 #ifndef OBJECT_H_
@@ -19,6 +19,7 @@
 # include "collide.h"
 # include "deform.h"
 # include "bool.h"
+# include "limit.h"
 
 struct s_object;
 struct s_display;
@@ -37,6 +38,7 @@ typedef struct s_cylindre{
   double diffract;
   double shine;
   /* private */
+  t_limit	limit[6];
   FLAG		to_deform;
   t_deform	deform[3];
   t_token_scan *obj_scan;
@@ -64,6 +66,7 @@ typedef struct s_cone{
   double diffract;
   double shine;
   /* private */
+  t_limit	limit[6];
   FLAG		to_deform;
   t_deform	deform[3];
   t_token_scan *obj_scan;
@@ -91,6 +94,7 @@ typedef struct s_sphere{
   double diffract;
   double shine;
   /* private */
+  t_limit	limit[6];
   FLAG		to_deform;
   t_deform	deform[3];
   t_token_scan *obj_scan;
@@ -117,6 +121,7 @@ typedef struct s_plan{
   double diffract;
   double shine;
   /* private */
+  t_limit	limit[6];
   FLAG		to_deform;
   t_deform	deform[3];
   t_token_scan *obj_scan;
@@ -142,6 +147,7 @@ typedef struct s_object{
   double diffract;
   double shine;
   /* private */
+  t_limit	limit[6];
   FLAG		to_deform;
   t_deform	deform[3];
   t_token_scan *obj_scan;

@@ -10,7 +10,6 @@
     <rayon R="2"/>
     <rotation x="0" y="0" z="0" />
     <shining shine="0.55"/>
-    <reflection alpha="0.999"/>
   </object>
   <object type = "plan"> <!-- structure de commentaire
 			      (possible sur multi-ligne -->
@@ -22,7 +21,7 @@
     <position x="2.0" y="10" z="-3" />
     <rayon R="5.0"/>
     <color r="0" g="0" b="255"/>
-    <transparency gamma="0.9" diffraction="0.8"/>
+    <limit type="x+" value="4.0"/>
   </object>
   <light>
     <position x="-15" y="15" z="0" />

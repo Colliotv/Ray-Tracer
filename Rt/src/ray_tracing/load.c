@@ -5,7 +5,7 @@
 ** Login   <collio_v@epitech.net>
 **
 ** Started on  Sun Jun  2 23:40:44 2013 vincent colliot
-** Last update Fri Jun  7 18:51:25 2013 vincent colliot
+** Last update Sun Jun  9 05:51:21 2013 vincent colliot
 */
 
 #include <strings.h>
@@ -33,21 +33,21 @@ t_3d	ray_adapt(t_3d f, t_2d pix)
   return (ray);
 }
 
-static void	success_pix_it(double scale, t_screen *screen,
+static void	success_pix_it(CLASS_EYE *eye, t_screen *screen,
 			       t_2d pix, t_color color)
 {
   t_2d	i;
   t_2d	p;
 
   bzero(&i, sizeof(i));
-  while (i.y < scale && i.y + pix.y < SCREEN_SIZE_Y)
+  while (i.y < eye->scale && i.y + pix.y < SCREEN_SIZE_Y)
     {
       i.x = 0;
-      while (i.x < scale && i.x + pix.x < SCREEN_SIZE_X)
+      while (i.x < eye->scale && i.x + pix.x < SCREEN_SIZE_X)
 	{
 	  p.x = i.x + pix.x;
 	  p.y = i.y + pix.y;
-	  pix_it(screen, p, color);
+	  pix_it(screen, p, color, eye->filter);
 	  i.x += 1;
 	}
       i.y += 1;
@@ -73,7 +73,7 @@ void	*load_img_then(void *tld)
 	  view[0] = convert_norm(ray_adapt(d->eye->focus, pix));
 	  view[1] = d->eye->position;
 	  color = zbuffering(d, d->objects, view, 1);
-	  success_pix_it(d->eye->scale, screen, pix, color);
+	  success_pix_it(d->eye, screen, pix, color);
 	  pix.x += d->eye->scale;
 	}
       pix.y += d->eye->scale;

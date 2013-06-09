@@ -5,7 +5,7 @@
 ** Login   <collio_v@epitech.net>
 **
 ** Started on  Fri May 31 13:33:06 2013 vincent colliot
-** Last update Fri Jun  7 17:42:05 2013 vincent colliot
+** Last update Sun Jun  9 06:35:38 2013 vincent colliot
 */
 
 #include <strings.h>
@@ -17,7 +17,7 @@ static t_token_scan	*ini_scan(void)
 {
   t_token_scan	*tab;
 
-  tab = xmalloc(sizeof(*tab) * (7 + 1));
+  tab = xmalloc(sizeof(*tab) * (8 + 1));
   (tab[0]).call = sphere_pos;
   (tab[0]).name = POSITION;
   (tab[1]).call = sphere_color;
@@ -32,8 +32,10 @@ static t_token_scan	*ini_scan(void)
   (tab[5]).name = GAMMA;
   (tab[6]).call = object_deform;
   (tab[6]).name = "wave";
-  (tab[7]).call = NULL;
-  (tab[7]).name = NULL;
+  (tab[7]).call = object_limit;
+  (tab[7]).name = "limit";
+  (tab[8]).call = NULL;
+  (tab[8]).name = NULL;
   return (tab);
 }
 

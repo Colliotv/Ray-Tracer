@@ -5,7 +5,7 @@
 ** Login   <collio_v@epitech.net>
 **
 ** Started on  Thu May 30 22:47:54 2013 vincent colliot
-** Last update Wed Jun  5 21:34:37 2013 vincent colliot
+** Last update Sun Jun  9 05:37:35 2013 vincent colliot
 */
 
 #ifndef EYE_H_
@@ -21,6 +21,7 @@ typedef struct s_eye{
   t_3d	 focus;
   double scale;
   t_shadow render;
+  FLAG	filter;
   /* methode d'init de vue a put ici +
    précision de l'oeil (oui j'ai oublié le nom réél)*/
   /* double angle ? */

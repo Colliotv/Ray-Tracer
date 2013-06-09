@@ -5,7 +5,7 @@
 ** Login   <collio_v@epitech.net>
 **
 ** Started on  Fri May 31 13:30:13 2013 vincent colliot
-** Last update Fri Jun  7 17:38:01 2013 vincent colliot
+** Last update Sun Jun  9 06:34:45 2013 vincent colliot
 */
 
 #include <strings.h>
@@ -17,7 +17,7 @@ static t_token_scan	*ini_scan(void)
 {
   t_token_scan	*tab;
 
-  tab = xmalloc(sizeof(*tab) * (8 + 1));
+  tab = xmalloc(sizeof(*tab) * (9 + 1));
   (tab[0]).call = cone_pos;
   (tab[0]).name = POSITION;
   (tab[1]).call = cone_focus;
@@ -34,8 +34,10 @@ static t_token_scan	*ini_scan(void)
   (tab[6]).name = GAMMA;
   (tab[7]).call = object_deform;
   (tab[7]).name = "wave";
-  (tab[8]).call = NULL;
-  (tab[8]).name = NULL;
+  (tab[8]).call = object_limit;
+  (tab[8]).name = "limit";
+  (tab[9]).call = NULL;
+  (tab[9]).name = NULL;
   return (tab);
 }
 

@@ -4,7 +4,7 @@
 ## Login   <collio_v@epitech.net>
 ##
 ## Started on Thu Oct 25 22:06:03 2012 vincent colliot
-## Last update Fri Jun  7 22:21:43 2013 vincent colliot
+## Last update Sun Jun  9 06:54:13 2013 vincent colliot
 ## Last update Tue Jun  4 16:00:10 2013 thomas lecorre
 ##
 
@@ -61,6 +61,9 @@ SPOT	=$(F_SPOT)spot.c\
 F_MOVE	=$(SRCF)move/
 MOVE	=$(F_MOVE)move.c\
 	$(F_MOVE)move_call.c\
+
+F_LIMIT	=$(SRCF)limit/
+LIMIT	=$(F_LIMIT)limit.c
 
 ##     CLASSE       ##
 #		     #
@@ -131,6 +134,7 @@ EP_INIT	=$(EP_FINIT)init.c
 
 EP_FSCAN=$(F_EPUB)scan/
 EP_SCAN	=$(EP_FSCAN)def.c\
+	$(EP_FSCAN)def2.c\
 	$(EP_FSCAN)scan.c\
 
 EPUB	=$(EP_INIT)\
@@ -221,6 +225,7 @@ SRC     =$(MAIN)\
 	$(COLOR)\
 	$(SPOT)\
 	$(MOVE)\
+	$(LIMIT)\
 
 ######################
 

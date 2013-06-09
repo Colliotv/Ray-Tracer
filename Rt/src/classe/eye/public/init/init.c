@@ -5,7 +5,7 @@
 ** Login   <collio_v@epitech.net>
 **
 ** Started on  Fri May 31 02:33:31 2013 vincent colliot
-** Last update Wed Jun  5 23:52:00 2013 vincent colliot
+** Last update Sun Jun  9 06:17:45 2013 vincent colliot
 */
 
 #include "eye.h"
@@ -17,7 +17,7 @@ static t_token_scan	*ini_scan(void)
 {
   t_token_scan	*tab;
 
-  tab = xmalloc(sizeof(*tab) * (4 + 1));
+  tab = xmalloc(sizeof(*tab) * (5 + 1));
   (tab[0]).call = eye_pos;
   (tab[0]).name = "position";
   (tab[1]).call = eye_focus;
@@ -26,13 +26,16 @@ static t_token_scan	*ini_scan(void)
   (tab[2]).name = "scale";
   (tab[3]).call = eye_shading;
   (tab[3]).name = "shading";
-  (tab[4]).call = NULL;
-  (tab[4]).name = NULL;
+  (tab[4]).call = eye_filter;
+  (tab[4]).name = "filter";
+  (tab[5]).call = NULL;
+  (tab[5]).name = NULL;
   return (tab);
 }
 
 void	eye_init(void *eye, void *d)
 {
+  bzero(eye, sizeof(eye));
   ((CLASS_EYE*)eye)->scan = ini_scan();
   ((CLASS_DISPLAY*)d)->eye = eye;
   ((CLASS_EYE*)eye)->scale = 1;
