@@ -1,6 +1,6 @@
 <scene>
   <eye>
-    <position x="0.0" y= "10.0" z= "-15.0" />
+    <position x="8.0" y= "12.0" z= "-15.0" />
     <direction x="0" y="0" z="0"/>
   </eye>
   <light>
