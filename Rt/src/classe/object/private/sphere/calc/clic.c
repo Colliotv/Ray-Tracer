@@ -5,12 +5,14 @@
 ** Login   <collio_v@epitech.net>
 **
 ** Started on  Fri Jun  7 05:59:49 2013 vincent colliot
-** Last update Fri Jun  7 19:49:20 2013 vincent colliot
+** Last update Sun Jun  9 16:31:15 2013 vincent colliot
 */
 
+# include <strings.h>
 # include "screen.h"
 # include "display.h"
 # include "select.h"
+# include "xmalloc.h"
 
 void	translation_sphere(void *sphere, FLAG move)
 {
@@ -30,4 +32,14 @@ void	rotation_sphere(void *sphere, FLAG move)
   (void)sphere;
   (void)move;
   return ;
+}
+
+void	*copy_sphere(void *sphere)
+{
+  t_sphere	*copy;
+
+  copy = xmalloc(sizeof(*copy));
+  memcpy(copy, sphere, sizeof(*copy));
+  ((t_sphere*)sphere)->next = copy;
+  return (copy);
 }

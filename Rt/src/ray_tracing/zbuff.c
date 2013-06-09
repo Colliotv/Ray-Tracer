@@ -5,7 +5,7 @@
 ** Login   <collio_v@epitech.net>
 **
 ** Started on  Mon Jun  3 00:47:07 2013 vincent colliot
-** Last update Sun Jun  9 07:34:42 2013 vincent colliot
+** Last update Sun Jun  9 15:41:39 2013 vincent colliot
 */
 
 #include <strings.h>
@@ -58,8 +58,8 @@ t_color	zbuffering(CLASS_DISPLAY *d, CLASS_OBJECT *object, t_3d view[2], double 
       if (fill_collide(object, view[V_RAY], view[V_POSIT], &collide))
 	{
 	  collide.shading = d->eye->render;
-	  collide.alpha = reverb - (1 - object->alpha);
-	  collide.gamma = reverb - (1 - object->gamma);
+	  collide.alpha = reverb - (1 - object->alpha) - 0.05;
+	  collide.gamma = reverb - (1 - object->gamma) - 0.05;
 	  collide.ld = d;
 	  collide.color = get_color(d, object, collide, view);
 	  collide.color = add_spot_color(collide, d->lights, d->objects, reverb);

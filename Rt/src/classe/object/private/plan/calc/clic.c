@@ -5,12 +5,14 @@
 ** Login   <collio_v@epitech.net>
 **
 ** Started on  Fri Jun  7 05:08:52 2013 vincent colliot
-** Last update Fri Jun  7 19:48:36 2013 vincent colliot
+** Last update Sun Jun  9 16:28:34 2013 vincent colliot
 */
 
+# include <strings.h>
 # include "screen.h"
 # include "display.h"
 # include "select.h"
+# include "xmalloc.h"
 
 void	translation_plan(void *plan, FLAG move)
 {
@@ -30,4 +32,14 @@ void	rotation_plan(void *plan, FLAG move)
     focus->x += RMOVE * (((move & MRright) != 0) - ((move & MRleft) != 0));
   if (move & (MRfront | MRback))
     focus->z += RMOVE * (((move & MBmore) != 0) - ((move & MBless) != 0));
+}
+
+void	*copy_plan(void *plan)
+{
+  t_plan	*copy;
+
+  copy = xmalloc(sizeof(*copy));
+  memcpy(copy, plan, sizeof(*copy));
+  ((t_plan*)plan)->next = copy;
+  return (copy);
 }

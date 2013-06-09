@@ -5,7 +5,7 @@
 ** Login   <collio_v@epitech.net>
 **
 ** Started on  Fri May 31 13:19:02 2013 vincent colliot
-** Last update Sun Jun  9 06:35:18 2013 vincent colliot
+** Last update Sun Jun  9 16:27:21 2013 vincent colliot
 */
 
 #include <strings.h>
@@ -51,5 +51,6 @@ void	plan_init(void *o, t_token *token)
   s->normal = normal_plan;
   s->translation = translation_plan;
   s->rotation = rotation_plan;
+  s->copy = copy_plan;
   *((t_plan**)o) = s;
 }

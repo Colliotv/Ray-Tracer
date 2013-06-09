@@ -5,7 +5,7 @@
 ** Login   <collio_v@epitech.net>
 **
 ** Started on  Wed Jun  5 14:05:50 2013 vincent colliot
-** Last update Fri Jun  7 22:37:21 2013 vincent colliot
+** Last update Sun Jun  9 16:35:23 2013 vincent colliot
 */
 
 #ifndef SELECT_H_
@@ -19,6 +19,7 @@
 # define FIXED	102
 # define MSCALE 65451
 # define LSCALE 65453
+# define KCOPY	99
 /*---*/
 # define Rmore	65430
 # define Gmore	65437

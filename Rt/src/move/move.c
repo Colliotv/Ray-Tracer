@@ -5,7 +5,7 @@
 ** Login   <collio_v@epitech.net>
 **
 ** Started on  Thu Jun  6 23:28:12 2013 vincent colliot
-** Last update Fri Jun  7 22:38:06 2013 vincent colliot
+** Last update Sun Jun  9 16:33:09 2013 vincent colliot
 */
 
 #include <unistd.h>
@@ -40,8 +40,8 @@ int	get(int button, int x, int y, t_select *select)
   pix.y = y;
   pix.x = x;
   select->oselect = get_object(select->d->eye->position,
-			      ray_adapt(select->d->eye->focus,
-					pix),
+			       convert_norm(ray_adapt(select->d->eye->focus,
+						      pix)),
 			      select->d->objects,
 			      -1);
   if (select->oselect)
@@ -74,6 +74,8 @@ static int	keypress2(int k, t_select *select)
 		    (k == Rback)  ? (MRback) :
 		    (k == Rfront) ? (MRfront):
 		    (0));
+  if (k == KCOPY && select->type == OSELECT && select->oselect)
+    select->oselect = (select->oselect->copy)(select->oselect);
   return (0);
 }
 

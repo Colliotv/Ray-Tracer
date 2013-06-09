@@ -5,7 +5,7 @@
 ** Login   <collio_v@epitech.net>
 **
 ** Started on  Fri May 31 13:33:06 2013 vincent colliot
-** Last update Sun Jun  9 06:35:38 2013 vincent colliot
+** Last update Sun Jun  9 16:25:57 2013 vincent colliot
 */
 
 #include <strings.h>
@@ -51,5 +51,6 @@ void	sphere_init(void *o, t_token *token)
   s->normal = normal_sphere;
   s->translation = translation_sphere;
   s->rotation = rotation_sphere;
+  s->copy = copy_sphere;
   *((t_sphere**)o) = s;
 }

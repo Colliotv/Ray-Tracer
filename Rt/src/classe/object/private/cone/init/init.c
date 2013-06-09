@@ -5,7 +5,7 @@
 ** Login   <collio_v@epitech.net>
 **
 ** Started on  Fri May 31 13:30:13 2013 vincent colliot
-** Last update Sun Jun  9 06:34:45 2013 vincent colliot
+** Last update Sun Jun  9 16:26:54 2013 vincent colliot
 */
 
 #include <strings.h>
@@ -53,5 +53,6 @@ void	cone_init(void *o, t_token *token)
   s->normal = normal_cone;
   s->translation = translation_cone;
   s->rotation = rotation_cone;
+  s->copy = copy_cone;
   *((t_cone**)o) = s;
 }

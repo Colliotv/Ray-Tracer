@@ -5,7 +5,7 @@
 ** Login   <collio_v@epitech.net>
 **
 ** Started on  Fri May 31 13:27:54 2013 vincent colliot
-** Last update Sun Jun  9 06:35:00 2013 vincent colliot
+** Last update Sun Jun  9 16:27:11 2013 vincent colliot
 */
 
 #include <strings.h>
@@ -56,5 +56,6 @@ void	cylindre_init(void *o, t_token *token)
   s->focus = convert_focus(s->focus);
   s->translation = translation_cylindre;
   s->rotation = rotation_cylindre;
+  s->copy = copy_cylindre;
   *((t_cylindre**)o) = s;
 }

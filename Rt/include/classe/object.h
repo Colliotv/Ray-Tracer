@@ -5,7 +5,7 @@
 ** Login   <collio_v@epitech.net>
 **
 ** Started on  Thu May 16 22:11:47 2013 vincent colliot
-** Last update Sun Jun  9 06:06:34 2013 vincent colliot
+** Last update Sun Jun  9 16:23:59 2013 vincent colliot
 */
 
 #ifndef OBJECT_H_
@@ -32,6 +32,7 @@ typedef struct s_cylindre{
   t_color (*get_color)(struct s_display *, void *, t_collide, t_3d[2]);
   void	(*rotation)(void *, FLAG);
   void	(*translation)(void *, FLAG);
+  void	*(*copy)(void *);
   FLAG perturb;
   double alpha;
   double gamma;
@@ -60,6 +61,7 @@ typedef struct s_cone{
   t_color (*get_color)(struct s_display *, void *, t_collide, t_3d[2]);
   void	(*rotation)(void *, FLAG);
   void	(*translation)(void *, FLAG);
+  void	*(*copy)(void *);
   FLAG perturb;
   double alpha;
   double gamma;
@@ -88,6 +90,7 @@ typedef struct s_sphere{
   t_color (*get_color)(struct s_display *, void *, t_collide, t_3d[2]);
   void	(*rotation)(void *, FLAG);
   void	(*translation)(void *, FLAG);
+  void	*(*copy)(void *);
   FLAG perturb;
   double alpha;
   double gamma;
@@ -115,6 +118,7 @@ typedef struct s_plan{
   t_color (*get_color)(struct s_display *, void *, t_collide, t_3d[2]);
   void	(*rotation)(void *, FLAG);
   void	(*translation)(void *, FLAG);
+  void	*(*copy)(void *);
   FLAG perturb;
   double alpha;
   double gamma;
@@ -141,6 +145,7 @@ typedef struct s_object{
   t_color (*get_color)(struct s_display *, void *, t_collide, t_3d[2]);
   void	(*rotation)(void *, FLAG);
   void	(*translation)(void *, FLAG);
+  void	*(*copy)(void *);
   FLAG perturb;
   double alpha;
   double gamma;
